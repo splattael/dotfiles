@@ -1,0 +1,5 @@
+# Sample localrc file
+#
+# cp .localrc.sample .localrc
+
+export COLOR_HOST=$COLOR_BROWN
