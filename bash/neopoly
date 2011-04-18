@@ -1,3 +1,5 @@
+# Neopoly settings
+
 PROJECT_HOST=kebap.neopoly.de
 PROJECT_DIR=/home/projekte
 DEVEL_DIR=/opt/ps/devel
@@ -62,7 +64,6 @@ export EFPROJECTS="efmexico efpremier eflaliga efseriea efargentina efchampion e
 
 export NSVN="svn://fs.neopoly.de/"
 export NGIT="git@office.neopoly.de"
-export ZGIT="git@git.zilium.de"
 
 nsvn() {
   local cmd=$1

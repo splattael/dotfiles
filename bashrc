@@ -6,9 +6,14 @@ fi
 source ~/.bash/common
 source ~/.bash/prompt
 source ~/.bash/git
-source ~/.bash/neopoly
 source ~/.bash/zilium
 source ~/.bash/rvm
+
+if [ "$(domainname)" = "NEOPOLY" ]; then
+  source ~/.bash/neopoly
+else
+  source ~/.bash/private
+fi
 
 # use .localrc for settings specific to one system
 if [ -f ~/.localrc ]; then
