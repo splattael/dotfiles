@@ -2,4 +2,5 @@
 
 == Install
 
-  git clone git@github.com:splattael/dotfiles.git
+  git clone git@github.com:splattael/dotfiles.git $HOME/.dotfiles
+  echo "source $HOME/.dotfiles/bash/.include" >> $HOME/.bashrc
