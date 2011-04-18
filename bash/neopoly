@@ -1,0 +1,76 @@
+PROJECT_HOST=kebap.neopoly.de
+PROJECT_DIR=/home/projekte
+DEVEL_DIR=/opt/ps/devel
+PRIVATE_DEVEL_DIR=/opt/ps/devel/_private
+
+_projects() {
+  cur=`_get_cword`
+  COMPREPLY=( $( compgen -W "\$( command ls $PROJECT_DIR )" -- $cur ) )
+}
+
+s() {
+  project=$1
+  shift
+  ssh $project@$PROJECT_HOST $*
+}
+
+c() {
+  project=$1
+  cd "$DEVEL_DIR/$project"
+}
+
+_c() {
+  cur=`_get_cword`
+  COMPREPLY=( $( compgen -W "\$( command ls $DEVEL_DIR )" -- $cur ) )
+}
+complete -F _c c
+
+p() {
+  project=$1
+  cd "$PROJECT_DIR/$project"
+}
+complete -F _projects p s
+
+C() {
+  project=$1
+  cd "$PRIVATE_DEVEL_DIR/$project"
+}
+
+_private_projects() {
+  cur=`_get_cword`
+  COMPREPLY=( $( compgen -W "\$( command ls $PRIVATE_DEVEL_DIR )" -- $cur ) )
+}
+
+complete -F _private_projects C
+
+
+RESIN_CONF_DIR=/opt/ps/resin/conf
+
+resinconf() {
+  if [ "$1" = "" ]; then
+    cd $RESIN_CONF_DIR
+  else
+    file="$RESIN_CONF_DIR/$1.conf"
+    vim $file
+  fi
+}
+
+complete -F _projects resinconf
+
+
+export EFPROJECTS="efmexico efpremier eflaliga efseriea efargentina efchampion efcolombia efcopalib efmls effifa"
+
+export NSVN="svn://fs.neopoly.de/"
+export NGIT="git@office.neopoly.de"
+export ZGIT="git@git.zilium.de"
+
+nsvn() {
+  local cmd=$1
+  local path=$2
+  shift
+  shift
+
+  echo "svn $cmd $* $NSVN$path"
+  svn $cmd $* $NSVN$path
+}
+

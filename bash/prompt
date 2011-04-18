@@ -1,0 +1,30 @@
+export COLOR_NORMAL='\[\033[0m\]'
+export COLOR_BLACK='\[\033[0;30m\]'
+export COLOR_DGRAY='\[\033[1;30m\]'
+export COLOR_RED='\[\033[0;31m\]'
+export COLOR_LRED='\[\033[1;31m\]'
+export COLOR_GREEN='\[\033[0;32m\]'
+export COLOR_LGREEN='\[\033[1;32m\]'
+export COLOR_BROWN='\[\033[0;33m\]'
+export COLOR_LBROWN='\[\033[1;33m\]'
+export COLOR_BLUE='\[\033[0;34m\]'
+export COLOR_LBLUE='\[\033[1;34m\]'
+export COLOR_PURPLE='\[\033[0;35m\]'
+export COLOR_LPURPLE='\[\033[1;35m\]'
+export COLOR_CYAN='\[\033[0;36m\]'
+export COLOR_LCYAN='\[\033[1;36m\]'
+export COLOR_LGRAY='\[\033[0;36m\]'
+export COLOR_WHITE='\[\033[1;37m\]'
+
+function prompt_command() {
+  local git_branch=$(__git_ps1 "%s" 2>/dev/null)
+
+  if [ "$git_branch" = "" ]; then # no git -> normal prompt
+    PS1="\u@${COLOR_BROWN}\h ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
+  else
+    local git_status=$(git status --porcelain | perl -we '%k=map{$_=>1}split("",join("",map{/^(..)/&&$1}<>));print sort keys%k')
+    local rvm_prompt=$(rvm-prompt i v p g u)
+    PS1="\u@${COLOR_BROWN}\h ${COLOR_LPURPLE}$rvm_prompt\n${COLOR_LGREEN}($git_branch${COLOR_RED}$git_status${COLOR_LGREEN}) ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
+  fi
+}
+PROMPT_COMMAND=prompt_command
