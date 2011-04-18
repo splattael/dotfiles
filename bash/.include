@@ -1,9 +1,0 @@
-
-current_dir=$(dirname $0)
-
-source $current_dir/common
-source $current_dir/prompt
-source $current_dir/git
-source $current_dir/neopoly
-source $current_dir/zilium
-source $current_dir/rvm
