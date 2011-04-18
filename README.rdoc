@@ -2,5 +2,10 @@
 
 == Install
 
-  git clone git@github.com:splattael/dotfiles.git $HOME/.dotfiles
-  echo "source $HOME/.dotfiles/bash/.include" >> $HOME/.bashrc
+  git clone git://github.com/splattael/dotfiles ~/.dotfiles
+  cd ~/.dotfiles
+  rake install
+
+== Stolen from
+
+  https://github.com/ryanb/dotfiles
