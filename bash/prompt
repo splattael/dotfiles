@@ -16,15 +16,17 @@ export COLOR_LCYAN='\[\033[1;36m\]'
 export COLOR_LGRAY='\[\033[0;36m\]'
 export COLOR_WHITE='\[\033[1;37m\]'
 
+export COLOR_HOST=$COLOR_WHITE
+
 function prompt_command() {
   local git_branch=$(__git_ps1 "%s" 2>/dev/null)
 
   if [ "$git_branch" = "" ]; then # no git -> normal prompt
-    PS1="\u@${COLOR_BROWN}\h ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
+    PS1="\u@${COLOR_HOST}\h ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
   else
     local git_status=$(git status --porcelain | perl -we '%k=map{$_=>1}split("",join("",map{/^(..)/&&$1}<>));print sort keys%k')
     local rvm_prompt=$(rvm-prompt i v p g u)
-    PS1="\u@${COLOR_BROWN}\h ${COLOR_LPURPLE}$rvm_prompt\n${COLOR_LGREEN}($git_branch${COLOR_RED}$git_status${COLOR_LGREEN}) ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
+    PS1="\u@${COLOR_HOST}\h ${COLOR_LPURPLE}$rvm_prompt\n${COLOR_LGREEN}($git_branch${COLOR_RED}$git_status${COLOR_LGREEN}) ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
   fi
 }
 PROMPT_COMMAND=prompt_command
