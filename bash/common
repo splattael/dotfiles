@@ -2,6 +2,6 @@ alias wi="whois -h whois.thur.de"
 
 if [ -x /usr/bin/xhost ];
 then
-  xhost +local:
+  xhost +local: >/dev/null
 fi
 export DISPLAY=":0.0"
