@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/opt/ps/devel/24streak/app/controllers'
 let g:netrw_dirhist_2='/opt/ps/devel/panes/server/src/ruby/panes'
 let g:netrw_dirhist_3='/opt/ps/devel/panes/server'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/opt/ps/devel/_private/riot_notifier'
 let g:netrw_dirhist_6='/opt/ps/devel/rails_template/templates/init/files/app/views/tagfiles'
 let g:netrw_dirhist_7='/opt/ps/devel/gitosis-admin/keydir'
 let g:netrw_dirhist_8='/opt/ps/devel/_private/smooth/lib/smooth/helpers'
+let g:netrw_dirhist_9='/opt/ps/devel/24streak/config'
