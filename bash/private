@@ -1,1 +1,27 @@
-# Private aliases
+# Private settings
+
+DEVEL_DIR=$HOME/devel
+PRIVATE_DEVEL_DIR=$HOME/devel/_private
+
+c() {
+  project=$1
+  cd "$DEVEL_DIR/$project"
+}
+
+_c() {
+  cur=`_get_cword`
+  COMPREPLY=( $( compgen -W "\$( command ls $DEVEL_DIR )" -- $cur ) )
+}
+complete -F _c c
+
+C() {
+  project=$1
+  cd "$PRIVATE_DEVEL_DIR/$project"
+}
+
+_private_projects() {
+  cur=`_get_cword`
+  COMPREPLY=( $( compgen -W "\$( command ls $PRIVATE_DEVEL_DIR )" -- $cur ) )
+}
+
+complete -F _private_projects C
