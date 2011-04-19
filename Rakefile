@@ -1,5 +1,4 @@
 require 'rake'
-require 'erb'
 
 desc "install the dot files into user's home directory"
 task :install do
@@ -7,13 +6,13 @@ task :install do
   Dir['*'].each do |file|
     next if %w[Rakefile README.rdoc LICENSE].include? file
     
-    if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
-      if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
-        puts "identical ~/.#{file.sub('.erb', '')}"
+    if File.exist?(File.join(ENV['HOME'], ".#{file}"))
+      if File.identical? file, File.join(ENV['HOME'], ".#{file}")
+        puts "identical ~/.#{file}"
       elsif replace_all
         replace_file(file)
       else
-        print "overwrite ~/.#{file.sub('.erb', '')}? [ynaq] "
+        print "overwrite ~/.#{file}? [ynaq] "
         case $stdin.gets.chomp
         when 'a'
           replace_all = true
@@ -23,7 +22,7 @@ task :install do
         when 'q'
           exit
         else
-          puts "skipping ~/.#{file.sub('.erb', '')}"
+          puts "skipping ~/.#{file}"
         end
       end
     else
@@ -33,18 +32,11 @@ task :install do
 end
 
 def replace_file(file)
-  system %Q{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
+  system %Q{rm -rf "$HOME/.#{file}"}
   link_file(file)
 end
 
 def link_file(file)
-  if file =~ /.erb$/
-    puts "generating ~/.#{file.sub('.erb', '')}"
-    File.open(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"), 'w') do |new_file|
-      new_file.write ERB.new(File.read(file)).result(binding)
-    end
-  else
-    puts "linking ~/.#{file}"
-    system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
-  end
+  puts "linking ~/.#{file}"
+  system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
 end
