@@ -1,0 +1,16 @@
+[alias]
+  co = checkout
+  pu = !"git fetch origin -v; git fetch remote -v; git merge remote/master"
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(bold)%s %Creset| %Cgreen%cr %C(white)%cn%Creset' --abbrev-commit --date=relative
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  grep = auto
+
+[github]
+  user = splattael
+
+[core]
+  excludesfile = ~/.gitexcludes 
