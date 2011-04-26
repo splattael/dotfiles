@@ -14,3 +14,7 @@
 
 [core]
   excludesfile = ~/.gitexcludes 
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 700x550+0+49
+	main-window-view = FileView
