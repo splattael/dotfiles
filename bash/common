@@ -1,5 +1,7 @@
+# aliases
 alias wi="whois -h whois.thur.de"
 
+# X DISPLAY
 if [ -x /usr/bin/xhost ];
 then
   xhost +local: >/dev/null
