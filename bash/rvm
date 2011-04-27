@@ -1,4 +1,20 @@
 # rvm-install added line:
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
-alias gemdir="cd `rvm gemdir`"
+alias gemdir='cd `rvm gemdir`'
+
+# change directory into gem dir
+g() {
+  gemdir=$GEM_HOME/gems
+  cd "$gemdir/$1"
+}
+
+# autocompletion for gems in $GEM_HOME/gems
+_g() {
+  cur=`_get_cword`
+  gemdir=$GEM_HOME/gems
+  COMPREPLY=( $( compgen -W "\$( command ls $gemdir )" -- $cur ) )
+}
+
+# register completion
+complete -F _g g
