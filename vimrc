@@ -21,3 +21,6 @@ map <F2> :NERDTreeToggle<CR>
  
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
+
+" Presentation mode: railscasts colorscheme + bigger font
+map <F3> <ESC>:colorscheme railscasts<CR><ESC>:set guifont=Monospace\ 14<CR>
