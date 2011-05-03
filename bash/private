@@ -25,6 +25,3 @@ _private_projects() {
 }
 
 complete -F _private_projects C
-
-
-alias neo="ssh ps@office.neopoly.de"

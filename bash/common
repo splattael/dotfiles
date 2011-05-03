@@ -7,3 +7,9 @@ then
   xhost +local: >/dev/null
 fi
 export DISPLAY=":0.0"
+
+alias neo="ssh ps@office.neopoly.de"
+
+export NSVN="svn://fs.neopoly.de/"
+export NGIT="git@office.neopoly.de"
+export ZGIT="git@git.zilium.de"

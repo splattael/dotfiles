@@ -59,11 +59,7 @@ resinconf() {
 
 complete -F _projects resinconf
 
-
 export EFPROJECTS="efmexico efpremier eflaliga efseriea efargentina efchampion efcolombia efcopalib efmls effifa"
-
-export NSVN="svn://fs.neopoly.de/"
-export NGIT="git@office.neopoly.de"
 
 nsvn() {
   local cmd=$1
@@ -74,4 +70,3 @@ nsvn() {
   echo "svn $cmd $* $NSVN$path"
   svn $cmd $* $NSVN$path
 }
-
