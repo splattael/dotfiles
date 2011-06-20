@@ -8,6 +8,7 @@ source ~/.bash/prompt
 source ~/.bash/git
 source ~/.bash/zilium
 source ~/.bash/rvm
+source ~/.bash/ruby
 
 if [ "$(domainname)" = "NEOPOLY" ]; then
   source ~/.bash/neopoly
