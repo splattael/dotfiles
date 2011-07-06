@@ -70,3 +70,7 @@ nsvn() {
   echo "svn $cmd $* $NSVN$path"
   svn $cmd $* $NSVN$path
 }
+
+pingrouter() {
+  ping 192.168.1.1
+}
