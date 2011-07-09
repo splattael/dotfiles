@@ -9,7 +9,7 @@ alias glr='git pull -v --rebase'
 alias gg="git lg"
 alias gp='git push -v'
 alias grep='grep --colour=auto'
-alias gst='git status'
+alias gst='git status -s'
 alias gsr='git svn rebase'
 alias gcd='git svn dcommit'
 alias gr='git grep'
