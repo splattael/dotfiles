@@ -1,9 +1,16 @@
 [alias]
   co = checkout
-  pu = !"git fetch origin -v; git fetch remote -v; git merge remote/master"
+  unstage = reset HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(bold)%s %Creset| %Cgreen%cr %C(white)%cn%Creset' --abbrev-commit --date=relative
+
+  # merging
   md = !"git co develop && git pull && git co master && git pull && git merge develop && git push && git co develop"
   mp = !"git co develop && git pull && git co preview && git pull && git merge develop && git push && git co develop" 
+
+  # zilium
+  pu = !"git fetch origin -v; git fetch remote -v; git merge remote/master"
+  plz = !"git fetch origin -v && git fetch zilium -v && git merge zilium/master"
+  puz = !"git push origin master && git push origin zilium"
 
 [color]
   branch = auto
@@ -16,7 +23,11 @@
 
 [core]
   excludesfile = ~/.gitexcludes 
+
 [giggle]
 	main-window-maximized = false
 	main-window-geometry = 700x550+0+49
 	main-window-view = FileView
+
+[rerere]
+	enabled = true
