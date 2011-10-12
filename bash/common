@@ -1,6 +1,9 @@
 # aliases
 alias wi="whois -h whois.thur.de"
 
+# common
+export EDITOR=vim
+
 # X DISPLAY
 if [ -x /usr/bin/xhost ];
 then
