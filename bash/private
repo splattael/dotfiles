@@ -1,5 +1,7 @@
 # Private settings
 
+alias root="super bash --login"
+
 DEVEL_DIR=$HOME/devel
 PRIVATE_DEVEL_DIR=$HOME/devel/_private
 
