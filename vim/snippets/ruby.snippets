@@ -38,6 +38,26 @@ snippet test
 	test "${1}" do
 		${2}
 	end
+snippet it
+	it "${1}" do
+		${2}
+	end
+snippet des do
+	describe ${1} do
+		${2}
+	end
+snippet subj do
+	subject(${1}) { ${2} }
+snippet before do
+	before do
+		${1}
+	end
+snippet after do
+	after do
+		${1}
+	end
+snippet let do
+	let(${1}) { ${2} }
 snippet con
 	context "${1}" do
 		${2}
