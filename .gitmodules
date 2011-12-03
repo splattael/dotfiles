@@ -26,3 +26,6 @@
 	path = vim/bundle/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
   ignore = untracked
+[submodule "vim/bundle/matchit.zip"]
+	path = vim/bundle/matchit.zip
+	url = https://github.com/vim-scripts/matchit.zip.git
