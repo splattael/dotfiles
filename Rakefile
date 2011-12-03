@@ -49,6 +49,6 @@ desc "Update git submodules"
 task :gitsubmodules do
   sh "git submodule init"
   sh "git submodule update"
-  sh "git submodule foreach git pull"
+  sh "git submodule foreach git pull origin master"
   sh "git submodule summary"
 end
