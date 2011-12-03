@@ -41,3 +41,14 @@ end
 def link_file(source, target)
   FileUtils::Verbose.ln_sf source, target
 end
+
+desc "Update dotfiles"
+task :update => :gitsubmodules
+
+desc "Update git submodules"
+task :gitsubmodules do
+  sh "git submodule init"
+  sh "git submodule update"
+  sh "git submodule foreach git pull"
+  sh "git submodule summary"
+end

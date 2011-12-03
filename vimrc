@@ -12,7 +12,7 @@ set encoding=utf8 fileencoding=utf8
 
 map yc zc
 
-helptags ~/.vim/doc
+"helptags ~/.vim/doc
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -29,8 +29,7 @@ map <F3> <ESC>:colorscheme railscasts<CR><ESC>:set guifont=Monospace\ 14<CR>
 set laststatus=2
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" vala
-autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala            setfiletype vala
-au BufRead,BufNewFile *.vapi            setfiletype vala
+" pathogen
+call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
