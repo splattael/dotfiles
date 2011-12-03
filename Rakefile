@@ -1,6 +1,6 @@
 require 'rake'
 
-desc "install the dot files into user's home directory"
+desc "Install the dot files into user's home directory"
 task :install do
   replace_all = false
   Dir['*'].each do |file|
@@ -42,13 +42,24 @@ def link_file(source, target)
   FileUtils::Verbose.ln_sf source, target
 end
 
-desc "Update dotfiles"
-task :update => :gitsubmodules
+task :default => :update
 
-desc "Update git submodules"
-task :gitsubmodules do
-  sh "git submodule init"
-  sh "git submodule update"
-  sh "git submodule foreach git pull origin master"
-  sh "git submodule summary"
+desc "Update dotfiles"
+task :update => :"submodules:update"
+
+namespace :submodules do
+  desc "Update git submodules"
+  task :update do
+    sh "git submodule init"
+    sh "git submodule update"
+    sh "git submodule foreach git pull origin master"
+    sh "git submodule summary"
+  end
+
+  desc "Add a submodule using URL."
+  task :add do
+    url = ENV['URL'] or abort "No URL given"
+    path = File.basename(url).gsub ".git", ""
+    sh "git submodule add #{url} vim/bundle/#{path}"
+  end
 end
