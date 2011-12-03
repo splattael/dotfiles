@@ -45,7 +45,19 @@ end
 task :default => :update
 
 desc "Update dotfiles"
-task :update => :"submodules:update"
+task :update => [:"git:pull", :"submodules:update"]
+
+namespace :git do
+  task :pull do
+    sh "git fetch --all"
+    sh "git pull"
+  end
+
+  task :push do
+    sh "git push origin master"
+    sh "git push zilium master"
+  end
+end
 
 namespace :submodules do
   desc "Update git submodules"
