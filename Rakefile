@@ -2,6 +2,15 @@ require 'rake'
 
 desc "Install the dot files into user's home directory"
 task :install do
+  def replace_file(source, target)
+    FileUtils::Verbose.rm_rf source
+    link_file source, target
+  end
+
+  def link_file(source, target)
+    FileUtils::Verbose.ln_sf source, target
+  end
+
   replace_all = false
   Dir['*'].each do |file|
     next if %w[Rakefile README.rdoc LICENSE].include? file
@@ -31,15 +40,6 @@ task :install do
       link_file(source, target)
     end
   end
-end
-
-def replace_file(source, target)
-  FileUtils::Verbose.rm_rf source
-  link_file source, target
-end
-
-def link_file(source, target)
-  FileUtils::Verbose.ln_sf source, target
 end
 
 task :default => :update
