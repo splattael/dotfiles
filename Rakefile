@@ -47,6 +47,9 @@ task :default => :update
 desc "Update dotfiles"
 task :update => [:"git:pull", :"submodules:update"]
 
+desc "Push code"
+task :push => :"git:push"
+
 namespace :git do
   task :pull do
     sh "git fetch --all"
