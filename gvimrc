@@ -1,5 +1,4 @@
-"
-" colorscheme darkblue
+colorscheme darkblue
 
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
