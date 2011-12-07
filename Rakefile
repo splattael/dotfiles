@@ -3,7 +3,7 @@ require 'rake'
 desc "Install the dot files into user's home directory"
 task :install do
   def replace_file(source, target)
-    FileUtils::Verbose.rm_rf source
+    FileUtils::Verbose.rm_rf target
     link_file source, target
   end
 
@@ -23,7 +23,8 @@ task :install do
       elsif replace_all
         replace_file(source, target)
       else
-        print "overwrite #{target}? [ynaq] "
+        system "diff", "-u", target, source
+        print "overwrite #{target}? [ynadq] "
         case $stdin.gets.chomp
         when 'a'
           replace_all = true
