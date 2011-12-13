@@ -67,8 +67,7 @@ namespace :submodules do
   desc "Update git submodules"
   task :update do
     sh "git submodule init"
-    sh "git submodule update"
-    sh "git submodule foreach git pull origin master"
+    sh "git submodule update --recursive"
     sh "git submodule summary"
   end
 
