@@ -18,11 +18,8 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
 map yc zc
 
-"helptags ~/.vim/doc
-
-map <F2> :NERDTreeToggle<CR>
- 
-" Use the same symbols as TextMate for tabstops and EOLs
+" Fonts
+set guifont=inconsolata\ 13
 
 " Presentation mode: railscasts colorscheme + bigger font
 map <F3> <ESC>:colorscheme railscasts<CR><ESC>:set guifont=Monospace\ 14<CR>
