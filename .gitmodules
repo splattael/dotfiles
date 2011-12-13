@@ -38,3 +38,7 @@
   path = vim/bundle/Command-T
   url = https://github.com/wincent/Command-T
   ignore = untracked
+[submodule "vim/bundle/moria"]
+  path = vim/bundle/moria
+  url = https://github.com/vim-scripts/moria.git
+  ignore = untracked
