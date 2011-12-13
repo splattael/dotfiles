@@ -15,6 +15,7 @@ set list
 set listchars=tab:▸\ ,trail:.,extends:<,precedes:>,eol:·,nbsp:⋅
 nmap <leader>l :set list!<CR>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
+nnoremap <leader><space> :noh<cr>
 
 map yc zc
 
