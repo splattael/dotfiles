@@ -9,11 +9,13 @@ filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
 set encoding=utf8 fileencoding=utf8
+let mapleader=","
 
 " non-visible chars
 set list
 set listchars=tab:▸\ ,trail:.,extends:<,precedes:>,eol:·,nbsp:⋅
 nmap <leader>l :set list!<CR>
+nmap <leader>W :KillWhitespace<CR>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 nnoremap <leader><space> :noh<cr>
 
