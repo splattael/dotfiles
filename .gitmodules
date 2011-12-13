@@ -38,3 +38,6 @@
 	path = vim/bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise
   ignore = untracked
+[submodule "vim/bundle/Command-T"]
+	path = vim/bundle/Command-T
+	url = https://github.com/wincent/Command-T
