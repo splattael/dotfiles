@@ -10,17 +10,19 @@ filetype plugin on    " Enable filetype-specific plugins
 
 set encoding=utf8 fileencoding=utf8
 
+" non-visible chars
+set list
+set listchars=tab:▸\ ,trail:.,extends:<,precedes:>,eol:·,nbsp:⋅
+nmap <leader>l :set list!<CR>
+command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
+
 map yc zc
 
 "helptags ~/.vim/doc
 
-" Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
-
 map <F2> :NERDTreeToggle<CR>
  
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
 
 " Presentation mode: railscasts colorscheme + bigger font
 map <F3> <ESC>:colorscheme railscasts<CR><ESC>:set guifont=Monospace\ 14<CR>
