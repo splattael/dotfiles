@@ -19,6 +19,8 @@ nmap <leader>W :KillWhitespace<CR>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 nnoremap <leader><space> :noh<cr>
 
+nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
+
 map yc zc
 
 " Fonts
