@@ -33,3 +33,6 @@
 	enabled = true
 [branch]
 	autosetuprebase = always
+
+[push]
+  default = current
