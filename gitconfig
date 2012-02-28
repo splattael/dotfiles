@@ -1,7 +1,7 @@
 [alias]
   co = checkout
   unstage = reset HEAD
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(bold)%s %Creset| %Cgreen%cr %C(white)%cn%Creset' --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %C(bold)%s %Creset%C(white)%cn%Creset %C(green)%cr' --abbrev-commit --date=relative
 
   # merging
   md = !"git co develop && git pull && git co master && git pull && git merge develop && git push && git co develop"
@@ -23,11 +23,14 @@
 
 [core]
   excludesfile = ~/.gitexcludes 
+#  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [giggle]
-	main-window-maximized = false
-	main-window-geometry = 700x550+0+49
-	main-window-view = FileView
+	main-window-maximized = true
+	main-window-geometry = 700x550+66+49
+	main-window-view = HistoryView
+	history-view-vpane-position = 562
+	file-view-vpane-position = 458
 
 [rerere]
 	enabled = true
