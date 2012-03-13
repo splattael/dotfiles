@@ -1,0 +1,28 @@
+deflogin on
+vbell on
+vbell_msg "   Wuff  ----  Wuff!!  "
+defscrollback 4096
+startup_message off
+
+# Remove some stupid / dangerous key bindings
+bind ^k
+#bind L
+bind ^\
+# Make them better
+bind \\ quit
+bind K kill
+bind I login on
+bind O login off
+bind } history
+termcapinfo vt100 dl=5\E[M
+hardstatus off
+# Set the hardstatus prop on gui terms to set the titlebar/icon title
+termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
+# use this for the hard status string
+hardstatus string "%h%? users: %u%?"
+termcapinfo xterm*|linux*|rxvt*|Eterm* OP
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+defnonblock 5
+
+hardstatus alwayslastline
+hardstatus string '%{= kg}[%{G}%H%{g}][%{= kw}%?%-Lw%?%{=b kR}%{W}%n-%t%?(%u)%?%{=b kR}%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{g}[%{B}%Y-%m-%d %{G}%c:%s%{g}]'
