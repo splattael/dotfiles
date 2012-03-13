@@ -1,0 +1,9 @@
+
+
+S() {
+  if [ "$1" = "" ]; then
+    screen
+  else
+    screen -c "$HOME/.screenrc.d/$1"
+  fi
+}
