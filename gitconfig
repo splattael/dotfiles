@@ -27,9 +27,9 @@
 
 [giggle]
 	main-window-maximized = true
-	main-window-geometry = 700x550+66+49
+	main-window-geometry = 0x0+0+0
 	main-window-view = HistoryView
-	history-view-vpane-position = 562
+	history-view-vpane-position = 412
 	file-view-vpane-position = 458
 
 [rerere]
