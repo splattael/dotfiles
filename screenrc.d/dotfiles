@@ -1,0 +1,4 @@
+source $HOME/.screenrc.d/default
+
+screen
+screen -t gvim gvim .
