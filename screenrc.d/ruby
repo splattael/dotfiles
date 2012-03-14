@@ -1,0 +1,7 @@
+source $HOME/.screenrc.d/default
+
+screen -t logs
+screen -t test
+screen -t irb irb
+screen -t code
+screen -t vim gvim .
