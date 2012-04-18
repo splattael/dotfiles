@@ -16,7 +16,13 @@ _projects() {
 s() {
   project=$1
   shift
-  ssh $project@$PROJECT_HOST $*
+  if [ "$SSHPASS" = "" ];
+  then
+    echo "(use sshpass via 'export SSHPASS=YOUR_PASSWORD')"
+    ssh $project@$PROJECT_HOST $*
+  else
+    sshpass -e ssh $project@$PROJECT_HOST $*
+  fi
 }
 
 c() {
