@@ -27,9 +27,6 @@ map yc zc
 " Fonts
 set guifont=inconsolata\ 13
 
-" Presentation mode: railscasts colorscheme + bigger font
-map <F3> <ESC>:colorscheme railscasts<CR><ESC>:set guifont=Monospace\ 14<CR>
-
 " statusline
 set laststatus=2
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
