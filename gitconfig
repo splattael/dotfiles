@@ -11,6 +11,7 @@
   pu = !"git fetch origin -v; git fetch remote -v; git merge remote/master"
   plz = !"git fetch origin -v && git fetch zilium -v && git merge zilium/master"
   puz = !"git push origin master && git push origin zilium"
+  cp = cherry-pick
 
 [color]
   branch = auto
