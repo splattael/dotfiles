@@ -15,3 +15,5 @@ rprof() {
   echo "pprof.rb --svg $PROFILE_DIR/$name > $PROFILE_DIR/$name.gif; evince $PROFILE_DIR/$name.svg"
   echo "pprof.rb --pdf $PROFILE_DIR/$name > $PROFILE_DIR/$name.pdf; evince $PROFILE_DIR/$name.pdf"
 }
+
+alias be="bundle exec"
