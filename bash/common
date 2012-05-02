@@ -5,13 +5,6 @@ alias wi="whois -h whois.thur.de"
 export EDITOR=vim
 export PATH="$PATH:$HOME/bin"
 
-# X DISPLAY
-if [ -x /usr/bin/xhost ];
-then
-  xhost +local: >/dev/null
-fi
-export DISPLAY=":0.0"
-
 alias neo="ssh ps@office.neopoly.de"
 
 export NSVN="svn://fs.neopoly.de/"
