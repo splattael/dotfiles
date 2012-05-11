@@ -9,7 +9,6 @@ source ~/.bash/git
 source ~/.bash/zilium
 source ~/.bash/rvm
 source ~/.bash/ruby
-source ~/.bash/java
 source ~/.bash/screen
 
 if [ "$(domainname)" = "NEOPOLY" ]; then
