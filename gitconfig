@@ -40,3 +40,15 @@
 
 [push]
   default = current
+
+[url "git://github.com/"]
+  insteadOf = gh:
+
+[url "git@github.com:"]
+  insteadOf = wgh:
+
+[url "git@office.neopoly.de:"]
+  insteadOf = neo:
+
+[url "git@git.zilium.de:"]
+  insteadOf = z:
