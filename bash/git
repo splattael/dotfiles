@@ -13,6 +13,7 @@ alias gst='git status -s'
 alias gsr='git svn rebase'
 alias gcd='git svn dcommit'
 alias gr='git grep'
+alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
 neogit() {
   git config user.name "Peter Suschlik" 
