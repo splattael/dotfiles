@@ -19,8 +19,10 @@ nmap <leader>W :KillWhitespace<CR>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 nnoremap <leader><space> :noh<cr>
 
-nmap <leader>t :CommandT<CR>
-nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
+" nmap <leader>t :CommandT<CR>
+" nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
+nmap <leader>t :CtrlPMixed<CR>
+nmap <leader>T :CtrlPClearAllCaches<CR>:CtrlPMixed<CR>
 
 map yc zc
 

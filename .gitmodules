@@ -34,11 +34,10 @@
   path = vim/bundle/vim-endwise
   url = https://github.com/tpope/vim-endwise
   ignore = untracked
-[submodule "vim/bundle/Command-T"]
-  path = vim/bundle/Command-T
-  url = https://github.com/wincent/Command-T
-  ignore = untracked
 [submodule "vim/bundle/moria"]
   path = vim/bundle/moria
   url = https://github.com/vim-scripts/moria.git
   ignore = untracked
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
