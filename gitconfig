@@ -2,6 +2,8 @@
   co = checkout
   unstage = reset HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %C(bold)%s %Creset%C(white)%cn%Creset %C(green)%cr' --abbrev-commit --date=relative
+  undo = reset --soft HEAD^
+  count = shortlog -sn
 
   # merging
   md = !"git co develop && git pull && git co master && git pull && git merge develop && git push && git co develop"
