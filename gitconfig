@@ -14,6 +14,7 @@
   plz = !"git fetch origin -v && git fetch zilium -v && git merge zilium/master"
   puz = !"git push origin master && git push origin zilium"
   cp = cherry-pick
+  latest = for-each-ref --sort=-committerdate --format='%(committerdate:iso8601)%09%(objectname:short)      %(refname:short) | %(authorname)'
 
 [color]
   branch = auto
