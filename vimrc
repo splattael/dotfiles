@@ -33,6 +33,10 @@ set guifont=inconsolata\ 13
 set laststatus=2
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" splits
+set splitbelow
+set splitright
+
 " pathogen
 call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
