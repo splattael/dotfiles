@@ -53,5 +53,8 @@
 [url "git@office.neopoly.de:"]
   insteadOf = neo:
 
+[url "gitlab@gitlab.neopoly.de:"]
+  insteadOf = gitlab:
+
 [url "git@git.zilium.de:"]
   insteadOf = z:
