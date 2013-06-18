@@ -54,3 +54,4 @@ nmap <leader>gst :Gstatus<CR>
 nmap <leader>gc :Gcommit -v<CR>
 nmap <leader>gca :Gcommit -av<CR>
 nmap <leader>gaa :Git add --all<CR>
+nmap <leader>gp :Git push<CR>
