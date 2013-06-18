@@ -47,3 +47,10 @@ autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(pathogen#s
 
 " do not highlight vim gutter on the right
 highligh clear SignColumn
+
+" fugitive leader mappings
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gst :Gstatus<CR>
+nmap <leader>gc :Gcommit -v<CR>
+nmap <leader>gca :Gcommit -av<CR>
+nmap <leader>gaa :Git add -a<CR>
