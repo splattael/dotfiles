@@ -1,21 +1,25 @@
-# rvm-install added line:
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+if [[ -s "$HOME/.rvm/scripts/rvm" ]];
+then
+  source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-alias gemdir='cd `rvm gemdir`'
-alias rvmpg='rvm @pg --create'
+  export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# change directory into gem dir
-g() {
-  gemdir=$GEM_HOME/gems
-  cd "$gemdir/$1"
-}
+  alias gemdir='cd `rvm gemdir`'
+  alias rvmpg='rvm @pg --create'
 
-# autocompletion for gems in $GEM_HOME/gems
-_g() {
-  cur=`_get_cword`
-  gemdir=$GEM_HOME/gems
-  COMPREPLY=( $( compgen -W "\$( command ls $gemdir )" -- $cur ) )
-}
+  # change directory into gem dir
+  g() {
+    gemdir=$GEM_HOME/gems
+    cd "$gemdir/$1"
+  }
 
-# register completion
-complete -F _g g
+  # autocompletion for gems in $GEM_HOME/gems
+  _g() {
+    cur=`_get_cword`
+    gemdir=$GEM_HOME/gems
+    COMPREPLY=( $( compgen -W "\$( command ls $gemdir )" -- $cur ) )
+  }
+
+  # register completion
+  complete -F _g g
+fi
