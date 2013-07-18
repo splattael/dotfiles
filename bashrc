@@ -5,6 +5,7 @@ fi
 
 source ~/.bash/common
 source ~/.bash/prompt
+source ~/.bash/bin
 source ~/.bash/git
 source ~/.bash/zilium
 source ~/.bash/rvm
