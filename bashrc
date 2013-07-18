@@ -9,6 +9,7 @@ source ~/.bash/bin
 source ~/.bash/git
 source ~/.bash/zilium
 source ~/.bash/rvm
+source ~/.bash/nvm
 source ~/.bash/ruby
 source ~/.bash/screen
 
@@ -22,4 +23,3 @@ fi
 if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
-[[ -s $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh # This loads NVM
