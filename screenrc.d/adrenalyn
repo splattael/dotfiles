@@ -3,7 +3,7 @@ source $HOME/.screenrc.d/default
 screen -t smartfox bash -c "cd $HOME/smartfox/$PROJECT; exec bash"
 screen -t unicorn bash -c "cd ./rails; exec bash"
 screen -t ranking bash -c "cd ./ranking; cat README; exec bash"
-screen -t adrenalyn bash -c "cd ./adrenalyn; exec bash"
+screen -t adrenalyn bash -c "cd ./adrenalyn; gvim; exec bash"
 screen -t smartfox bash -c "cd ./smartfox; exec bash"
 screen -t console
 
