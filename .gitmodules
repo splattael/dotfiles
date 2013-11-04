@@ -6,10 +6,6 @@
   path = vim/bundle/vim-rails
   url = https://github.com/tpope/vim-rails.git
   ignore = untracked
-[submodule "vim/bundle/vim-cucumber"]
-  path = vim/bundle/vim-cucumber
-  url = https://github.com/tpope/vim-cucumber.git
-  ignore = untracked
 [submodule "vim/bundle/vim-railscasts-theme"]
   path = vim/bundle/vim-railscasts-theme
   url = https://github.com/jpo/vim-railscasts-theme.git
