@@ -55,3 +55,8 @@ nmap <leader>gc :Gcommit -v<CR>
 nmap <leader>gca :Gcommit -av<CR>
 nmap <leader>gaa :Git add --all<CR>
 nmap <leader>gp :Git push<CR>
+
+" Spell checking
+" See http://robots.thoughtbot.com/vim-spell-checking/
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
