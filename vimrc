@@ -60,3 +60,6 @@ nmap <leader>gp :Git push<CR>
 " See http://robots.thoughtbot.com/vim-spell-checking/
 autocmd FileType gitcommit setlocal spell
 set complete+=kspell
+
+"Clear current search highlight by double tapping //
+nmap <silent> // :nohlsearch<CR>
