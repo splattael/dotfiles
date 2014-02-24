@@ -11,8 +11,8 @@ rprof() {
   echo "Profile data at $PROFILE_DIR/$name"
   echo "Use:"
   echo "pprof.rb --text $PROFILE_DIR/$name"
-  echo "pprof.rb --gif $PROFILE_DIR/$name > $PROFILE_DIR/$name.gif; evince $PROFILE_DIR/$name.gif"
-  echo "pprof.rb --svg $PROFILE_DIR/$name > $PROFILE_DIR/$name.gif; evince $PROFILE_DIR/$name.svg"
+  echo "pprof.rb --gif $PROFILE_DIR/$name > $PROFILE_DIR/$name.gif; eog $PROFILE_DIR/$name.gif"
+  echo "pprof.rb --svg $PROFILE_DIR/$name > $PROFILE_DIR/$name.svg; chromium-browser --app=file://$PROFILE_DIR/$name.svg"
   echo "pprof.rb --pdf $PROFILE_DIR/$name > $PROFILE_DIR/$name.pdf; evince $PROFILE_DIR/$name.pdf"
 }
 
