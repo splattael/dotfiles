@@ -1,7 +1,8 @@
 source $HOME/.screenrc.d/default
 
 screen -t server
-screen -t test
+screen -t db
 screen -t irb rails c
 screen -t code
+screen -t test
 screen -t vim gvim .
