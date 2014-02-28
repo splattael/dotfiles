@@ -4,6 +4,8 @@ S() {
   if [ "$1" = "" ]; then
     screen
   else
-    PROJECT="$2" screen -S "$1-$2" -c "$HOME/.screenrc.d/$1"
+    type=$1
+    project=${2:-$(basename $(pwd))}
+    PROJECT="$project" screen -S "$project.$type" -c "$HOME/.screenrc.d/$type"
   fi
 }
