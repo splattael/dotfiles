@@ -17,7 +17,9 @@ set listchars=tab:▸\ ,trail:.,extends:<,precedes:>,eol:·,nbsp:⋅
 nmap <leader>l :set list!<CR>
 nmap <leader>W :KillWhitespace<CR>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
-nnoremap <leader><space> :noh<cr>
+"Clear current search highlight by double tapping //
+nmap <silent> // :nohlsearch<CR>
+
 
 " nmap <leader>t :CommandT<CR>
 " nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
@@ -61,5 +63,4 @@ nmap <leader>gp :Git push<CR>
 autocmd FileType gitcommit setlocal spell
 set complete+=kspell
 
-"Clear current search highlight by double tapping //
-nmap <silent> // :nohlsearch<CR>
+nnoremap <F3> :set nospell!<CR>
