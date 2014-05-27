@@ -64,3 +64,7 @@ autocmd FileType gitcommit setlocal spell
 set complete+=kspell
 
 nnoremap <F3> :set nospell!<CR>
+
+" highlight lines longer than 80 chars
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FF0000
+match OverLength /\%>80v.\+/
