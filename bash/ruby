@@ -17,3 +17,8 @@ rprof() {
 }
 
 alias be="bundle exec"
+
+
+jruby_opts_dev() {
+  export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-Djruby.compile.mode=OFF -J-Djruby.compile.invokedynamic=false"
+}
