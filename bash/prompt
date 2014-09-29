@@ -19,7 +19,7 @@ export COLOR_WHITE='\[\033[1;37m\]'
 export COLOR_HOST=$COLOR_WHITE
 
 function prompt_command() {
-  local git_branch=$(__git_ps1 "%s" 2>/dev/null)
+  local git_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
 
   if [ "$git_branch" = "" ]; then # no git -> normal prompt
     PS1="\u@${COLOR_HOST}\h ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
