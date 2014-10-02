@@ -63,3 +63,7 @@
 
 [url "git@git.zilium.de:"]
   insteadOf = z:
+
+[user]
+  name = Peter Suschlik
+  email = ps@neopoly.de
