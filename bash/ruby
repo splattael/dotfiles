@@ -26,3 +26,5 @@ jruby_opts_dev() {
 mt_sort() {
   sort -t = -k 2 -g
 }
+
+alias rb="ruby -Ilib:test:spec"
