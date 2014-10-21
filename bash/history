@@ -1,0 +1,8 @@
+# enlarge history file size
+history_size=1000000
+export HISTSIZE=$history_size
+export HISTFILESIZE=$history_size
+
+# sync bash history between terminals
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"

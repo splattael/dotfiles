@@ -29,4 +29,4 @@ function prompt_command() {
     PS1="\u@${COLOR_HOST}\h ${COLOR_LPURPLE}$rvm_prompt\n${COLOR_LGREEN}($git_branch${COLOR_RED}$git_status${COLOR_LGREEN}) ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
   fi
 }
-PROMPT_COMMAND=prompt_command
+PROMPT_COMMAND="${PROMPT_COMMAND}; prompt_command"
