@@ -6,10 +6,6 @@
   path = vim/bundle/vim-rails
   url = https://github.com/tpope/vim-rails.git
   ignore = untracked
-[submodule "vim/bundle/snipmate.vim"]
-  path = vim/bundle/snipmate.vim
-  url = https://github.com/msanders/snipmate.vim.git
-  ignore = untracked
 [submodule "vim/bundle/matchit.zip"]
   path = vim/bundle/matchit.zip
   url = https://github.com/vim-scripts/matchit.zip.git
@@ -28,3 +24,12 @@
 [submodule "vim/bundle/vim-elixir"]
 	path = vim/bundle/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir
+[submodule "vim/bundle/vim-snipmate"]
+	path = vim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate
+[submodule "vim/bundle/tlib_vim"]
+	path = vim/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim/bundle/vim-addon-mw-utils"]
+	path = vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
