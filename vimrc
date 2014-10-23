@@ -21,10 +21,10 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 nmap <silent> // :nohlsearch<CR>
 
 
-" nmap <leader>t :CommandT<CR>
-" nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
-nmap <leader>t :CtrlPMixed<CR>
-nmap <leader>T :CtrlPClearAllCaches<CR>:CtrlPMixed<CR>
+nmap <leader>t :CommandT<CR>
+nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
+"nmap <leader>t :CtrlPMixed<CR>
+"nmap <leader>T :CtrlPClearAllCaches<CR>:CtrlPMixed<CR>
 
 map yc zc
 
@@ -68,3 +68,8 @@ nnoremap <F3> :set nospell!<CR>
 " highlight lines longer than 80 chars
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#FF0000
 match OverLength /\%>80v.\+/
+
+" file completion
+" See http://stackoverflow.com/questions/526858/how-do-i-make-vim-do-normal-bash-like-tab-completion-for-file-names/526881#526881
+set wildmode=longest,list,full
+set wildmenu
