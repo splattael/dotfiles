@@ -4,6 +4,7 @@ if [ -f /etc/bash.bashrc ]; then
 fi
 
 source ~/.bash/common
+source ~/.bash/docker
 source ~/.bash/history
 source ~/.bash/prompt
 source ~/.bash/bin
