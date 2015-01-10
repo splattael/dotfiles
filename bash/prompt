@@ -25,8 +25,16 @@ function prompt_command() {
     PS1="\u@${COLOR_HOST}\h ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
   else
     local git_status=$(git status --porcelain | perl -we '%k=map{$_=>1}split("",join("",map{/^(..)/&&$1}<>));print sort keys%k')
-    local rvm_prompt=$(rvm-prompt i v p g u)
-    PS1="\u@${COLOR_HOST}\h ${COLOR_LPURPLE}$rvm_prompt\n${COLOR_LGREEN}($git_branch${COLOR_RED}$git_status${COLOR_LGREEN}) ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
+
+    if command -v rvm-prompt >/dev/null 2>&1; then
+      local prog_prompt=$(rvm-prompt i v p g u)
+    elif command -v ruby >/dev/null 2>&1; then
+      local prog_prompt=$(ruby -v | awk '{ printf "%s-%s", $1, $2 }')
+    else
+      local prog_prompt="?"
+    fi
+
+    PS1="\u@${COLOR_HOST}\h ${COLOR_LPURPLE}$prog_prompt\n${COLOR_LGREEN}($git_branch${COLOR_RED}$git_status${COLOR_LGREEN}) ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
   fi
 }
 PROMPT_COMMAND="${PROMPT_COMMAND}; prompt_command"
