@@ -68,4 +68,4 @@
   name = Peter Suschlik
   email = ps@neopoly.de
 [diff "image"]
-	command = ~/bin/git-imgdiff
+	command = git-imgdiff
