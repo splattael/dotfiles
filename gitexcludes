@@ -3,3 +3,4 @@
 *.rbc
 .*~lock*
 .rbx
+.rake_tasks~
