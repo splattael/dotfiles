@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+# Stolen from https://gist.github.com/teeparham/8a99e308884e1c32735a
+
+require 'rdoc'
+
+file = ARGV.any? or abort "usage: #{$0} file [file ...]"
+
+converter = RDoc::Markup::ToMarkdown.new
+ARGV.each do |file|
+  case file
+  when /\.rdoc$/
+    rdoc = File.read(file)
+    target = file.gsub(/\.rdoc$/, '.md')
+    puts "Converting #{file} -> #{target}"
+    File.open(target, "wb") do |f|
+      f.write converter.convert(rdoc) 
+    end
+  else
+    warn "SKIP: #{file} is not .rdoc"
+  end
+end
