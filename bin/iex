@@ -1,0 +1,8 @@
+#!/bin/sh
+
+pwd=$(pwd)
+echo "Mounting $pwd to /src"
+
+prog=$(basename $0)
+
+docker run -it --rm -v $pwd:/src -w /src trenpixster/elixir  /usr/local/bin/$prog
