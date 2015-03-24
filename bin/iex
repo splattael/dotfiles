@@ -4,5 +4,6 @@ pwd=$(pwd)
 echo "Mounting $pwd to /src"
 
 prog=$(basename $0)
+user=$(id -u)
 
-docker run -it --rm -v $pwd:/src -w /src trenpixster/elixir  /usr/local/bin/$prog
+docker run -it --rm -v $pwd:/src -u $user -w /src trenpixster/elixir /usr/local/bin/$prog $*
