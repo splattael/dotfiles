@@ -9,4 +9,5 @@ export GIT_COMMITTER_EMAIL="email@example.com"
 export GIT_AUTHOR_NAME="Peter Suschlik"
 export GIT_COMMITTER_NAME="Peter Suschlik"
 
+# export DOCKER_IMAGE_ELIXIR=splattael/elixir
 # export DOCKER_HOME_DIR=$HOME/docker
