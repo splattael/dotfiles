@@ -3,7 +3,7 @@
 pwd=$(pwd)
 
 prog=$(basename $0)
-user=$(id -u)
+uid=$(id -u)
 docker_image=${DOCKER_IMAGE_ELIXIR:-splattael/elixir}
 src_dir=/src
 home_dir=${DOCKER_HOME_DIR:-$src_dir}
@@ -18,7 +18,7 @@ fi
 docker run -it --rm \
   -v $pwd:$src_dir \
   -v $home_dir:$home_dir \
+  -e DOCKER_USER_UID=$uid \
   -e HOME=$home_dir \
-  -u $user \
   -w $src_dir \
   $docker_image $prog $*
