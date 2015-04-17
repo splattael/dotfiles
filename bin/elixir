@@ -1,11 +1,24 @@
 #!/bin/sh
 
 pwd=$(pwd)
-echo "Mounting $pwd to /src"
 
 prog=$(basename $0)
 user=$(id -u)
 docker_image=splattael/elixir
 src_dir=/src
+home_dir=${DOCKER_HOME_DIR:-$src_dir}
 
-docker run -it --rm -v $pwd:$src_dir -u $user -w $src_dir $docker_image $prog $*
+echo "Mounting $pwd to $src_dir"
+echo "HOME=$home_dir"
+
+if [ "$prog" = "elixir_bash" ]; then
+  prog="bash"
+fi
+
+docker run -it --rm \
+  -v $pwd:$src_dir \
+  -v $home_dir \
+  -e HOME=$home_dir \
+  -u $user \
+  -w $src_dir \
+  $docker_image $prog $*
