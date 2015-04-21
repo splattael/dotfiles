@@ -11,8 +11,9 @@ home_dir=${DOCKER_HOME_DIR:-$src_dir}
 echo "Mounting $pwd to $src_dir"
 echo "HOME=$home_dir"
 
-if [ "$prog" = "elixir_bash" ]; then
-  prog="bash"
+if [ "$prog" = "in_elixir" ]; then
+  prog="$1"
+  shift
 fi
 
 docker run -it --rm \
