@@ -21,4 +21,5 @@ docker run -it --rm \
   -e DOCKER_USER_UID=$uid \
   -e HOME=$home_dir \
   -w $src_dir \
+  $DOCKER_RUN_OPTS \
   $docker_image $prog $*
