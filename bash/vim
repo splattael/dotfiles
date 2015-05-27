@@ -1,0 +1,18 @@
+function _vim_system_ruby {
+  if [ "$rvmrc" != "" ]; then
+    rvm use system
+  fi
+
+  local prog=$1
+  shift
+
+  `which $prog` "$@"
+}
+
+function gvim {
+  _vim_system_ruby "gvim" "$@"
+}
+
+function vim {
+  _vim_system_ruby "vim" "$@"
+}

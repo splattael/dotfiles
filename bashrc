@@ -15,6 +15,7 @@ source ~/.bash/nvm
 source ~/.bash/ruby
 source ~/.bash/go
 source ~/.bash/screen
+source ~/.bash/vim
 
 if [ "$(domainname)" = "NEOPOLY" ]; then
   source ~/.bash/neopoly
