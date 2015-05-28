@@ -1,12 +1,12 @@
 function _vim_system_ruby {
-  if [ "$rvmrc" != "" ]; then
-    rvm use system
-  fi
-
   local prog=$1
   shift
 
-  `which $prog` "$@"
+  if [ "$rvmrc" != "" ]; then
+    (rvm use system && `which $prog` "$@")
+  else
+    `which $prog` "$@"
+  fi
 }
 
 function gvim {
