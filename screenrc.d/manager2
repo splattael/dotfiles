@@ -1,0 +1,8 @@
+source $HOME/.screenrc.d/default
+
+screen -t foreman bash -c "cd main/projects/$PROJECT; exec bash -l"
+screen -t tools bash -c "cd main; exec bash -l"
+screen -t main bash -c "cd main; exec bash -l"
+screen -t rails_core bash -c "cd manager_rails_core; exec bash -l"
+screen -t rails bash -c "cd manager_rails_$PROJECT; exec bash -l"
+screen -t project bash -c "cd $HOME/devel/$PROJECT; exec bash -l"
