@@ -1,12 +1,12 @@
 source $HOME/.screenrc.d/default
 
-screen -t smartfox bash -c "cd $HOME/smartfox/$PROJECT; exec bash"
-screen -t unicorn bash -c "cd ./rails; exec bash"
-screen -t ranking bash -c "cd ./ranking; cat README; exec bash"
-screen -t rails bash -c "cd ./rails; exec bash"
-screen -t adrenalyn bash -c "cd ./adrenalyn; gvim; exec bash"
-screen -t guard bash -c "cd ./adrenalyn; exec bash"
-screen -t smartfox bash -c "cd ./smartfox; exec bash"
+screen -t smartfox bash -c "cd $HOME/smartfox/$PROJECT; exec bash -l"
+screen -t unicorn bash -c "cd ./rails; exec bash -l"
+screen -t ranking bash -c "cd ./ranking; cat README; exec bash -l"
+screen -t rails bash -c "cd ./rails; exec bash -l"
+screen -t adrenalyn bash -c "cd ./adrenalyn; gvim; exec bash -l"
+screen -t guard bash -c "cd ./adrenalyn; exec bash -l"
+screen -t smartfox bash -c "cd ./smartfox; exec bash -l"
 screen -t console
 
 select 4
