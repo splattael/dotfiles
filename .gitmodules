@@ -33,3 +33,6 @@
 [submodule "vim/bundle/Command-T"]
 	path = vim/bundle/Command-T
 	url = https://github.com/wincent/Command-T
+[submodule "vim/bundle/elm.vim"]
+	path = vim/bundle/elm.vim
+	url = https://github.com/lambdatoast/elm.vim.git
