@@ -73,3 +73,8 @@ match OverLength /\%>80v.\+/
 " See http://stackoverflow.com/questions/526858/how-do-i-make-vim-do-normal-bash-like-tab-completion-for-file-names/526881#526881
 set wildmode=longest,list,full
 set wildmenu
+
+" Elm
+nnoremap <leader>el :ElmEvalLine<CR>
+vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
+nnoremap <leader>em :ElmMakeCurrentFile<CR>
