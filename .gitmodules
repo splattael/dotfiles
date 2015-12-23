@@ -36,3 +36,6 @@
 [submodule "vim/bundle/elm.vim"]
 	path = vim/bundle/elm.vim
 	url = https://github.com/lambdatoast/elm.vim.git
+[submodule "vim/bundle/tcomment_vim"]
+	path = vim/bundle/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim
