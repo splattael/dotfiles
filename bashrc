@@ -6,6 +6,7 @@ fi
 source ~/.bash/common
 source ~/.bash/docker
 source ~/.bash/history
+source ~/.bash/elm
 source ~/.bash/prompt
 source ~/.bash/bin
 source ~/.bash/git
