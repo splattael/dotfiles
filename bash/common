@@ -6,8 +6,3 @@ export EDITOR=vim
 export PATH="$PATH:$HOME/bin"
 
 alias neo="ssh ps@office.neopoly.de"
-
-export NSVN="svn://fs.neopoly.de/"
-export NGIT="git@office.neopoly.de"
-export ZGIT="git@git.zilium.de"
-export GHGIT="git@github.com"
