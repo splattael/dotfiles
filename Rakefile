@@ -16,7 +16,7 @@ task :install do
     next if %w[Rakefile README.rdoc LICENSE].include? file
     source = File.expand_path file
     target = File.join(ENV['HOME'], ".#{file}")
-    
+
     if File.exist?(target)
       if File.identical? source, target
         puts "identical #{target}"
