@@ -1,2 +1,6 @@
-
 alias dl="docker ps -l -q"
+
+export DEV_UID=$(id -u)
+export DEV_GID=$(id -g)
+
+export COMPOSE_OPTIONS="-e DEV_UID=$DEV_UID -e DEV_GID=$DEV_GID"
