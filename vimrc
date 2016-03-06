@@ -17,14 +17,12 @@ set listchars=tab:▸\ ,trail:.,extends:<,precedes:>,eol:·,nbsp:⋅
 nmap <leader>l :set list!<CR>
 nmap <leader>W :KillWhitespace<CR>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
-"Clear current search highlight by double tapping //
+" Clear current search highlight by double tapping //
 nmap <silent> // :nohlsearch<CR>
 
 
 nmap <leader>t :CommandT<CR>
 nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
-"nmap <leader>t :CtrlPMixed<CR>
-"nmap <leader>T :CtrlPClearAllCaches<CR>:CtrlPMixed<CR>
 
 map yc zc
 
