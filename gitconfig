@@ -55,6 +55,12 @@
 [url "git@github.com:"]
   insteadOf = wgh:
 
+[url "https://gitlab.com/"]
+  insteadOf = gl:
+
+[url "git@gitlab.com:"]
+  insteadOf = wgl:
+
 [url "git@office.neopoly.de:"]
   insteadOf = neo:
 
