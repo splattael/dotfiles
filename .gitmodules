@@ -39,3 +39,6 @@
 [submodule "vim/bundle/elm-vim"]
 	path = vim/bundle/elm-vim
 	url = https://github.com/ElmCast/elm-vim
+[submodule "vim/bundle/vim-crystal"]
+	path = vim/bundle/vim-crystal
+	url = https://github.com/rhysd/vim-crystal
