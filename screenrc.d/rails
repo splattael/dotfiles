@@ -6,4 +6,5 @@ screen -t console rails c
 screen -t code2
 screen -t code
 screen -t guard
-screen -t vim gvim .
+
+select 5
