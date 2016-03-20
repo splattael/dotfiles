@@ -79,3 +79,5 @@ nnoremap <leader>em :ElmMakeCurrentFile<CR>
 
 " Crystal
 let g:crystal_define_mappings=0
+autocmd FileType crystal nmap <F2> :CrystalSpecRunCurrent<CR>
+autocmd FileType crystal nmap <S-F2> :CrystalSpecRunAll<CR>
