@@ -1,0 +1,18 @@
+#!/bin/bash
+
+uid=$(id -u)
+gid=$(id -g)
+
+case $1 in
+  bash|shell)
+    cmd="bash"
+    ;;
+  make)
+    cmd="make $@"
+    ;;
+  *)
+    cmd="crystal $@"
+    ;;
+esac
+
+docker run -it --rm -v `pwd`:/src -w /src --user $uid:$gid crystal $cmd
