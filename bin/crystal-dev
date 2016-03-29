@@ -5,14 +5,16 @@ gid=$(id -g)
 
 case $1 in
   bash|shell)
-    cmd="bash"
+    shift
+    cmd=bash
     ;;
   make)
-    cmd="make $@"
+    shift
+    cmd=make
     ;;
   *)
-    cmd="crystal $@"
+    cmd=crystal
     ;;
 esac
 
-docker run -it --rm -v `pwd`:/src -w /src --user $uid:$gid crystal $cmd
+docker run -it --rm -v `pwd`:/src -w /src --user $uid:$gid crystal $cmd $@
