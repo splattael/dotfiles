@@ -1,20 +1,34 @@
 #!/bin/bash
 
+ARCH=$(uname -m)
+ARCH_CMD=linux64
+
 uid=$(id -u)
 gid=$(id -g)
 
 case $1 in
   bash|shell)
     shift
-    cmd=bash
+    command="bash"
     ;;
   make)
     shift
-    cmd=make
+    command="make"
     ;;
   *)
-    cmd=crystal
+    command="crystal"
     ;;
 esac
 
-docker run -it --rm -v `pwd`:/src -w /src --user $uid:$gid crystal $cmd $@
+echo "$command $@"
+
+docker run \
+    --rm \
+    -it \
+    -u $uid:$gid \
+    -v $(pwd):/mnt \
+    -w /mnt \
+    -e LIBRARY_PATH="/opt/crystal/embedded/lib/" \
+    -e CRYSTAL_CONFIG_VERSION="ci" \
+    "jhass/crystal-build-$ARCH" \
+    "$ARCH_CMD" $command $@
