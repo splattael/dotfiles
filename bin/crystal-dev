@@ -6,22 +6,6 @@ ARCH_CMD=linux64
 uid=$(id -u)
 gid=$(id -g)
 
-case $1 in
-  bash|shell)
-    shift
-    command="bash"
-    ;;
-  make)
-    shift
-    command="make"
-    ;;
-  *)
-    command="crystal"
-    ;;
-esac
-
-echo "$command $@"
-
 docker run \
     --rm \
     -it \
@@ -31,4 +15,4 @@ docker run \
     -e LIBRARY_PATH="/opt/crystal/embedded/lib/" \
     -e CRYSTAL_CONFIG_VERSION="ci" \
     "jhass/crystal-build-$ARCH" \
-    "$ARCH_CMD" $command $@
+    "$ARCH_CMD" $@
