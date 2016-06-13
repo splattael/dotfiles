@@ -13,6 +13,7 @@ alias glr='git pull -v --rebase'
 alias gg="git lg"
 alias gp='git push -v'
 alias gpu='git push -vu origin `git rev-parse --abbrev-ref HEAD`'
+alias gpf='git push -v --force-with-lease'
 alias grep='grep --colour=auto'
 alias gst='git status -s'
 alias gr='git grep'
