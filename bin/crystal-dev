@@ -2,9 +2,12 @@
 
 ARCH=$(uname -m)
 ARCH_CMD=linux64
+IMAGE=jhass/crystal-build-$ARCH
 
 uid=$(id -u)
 gid=$(id -g)
+
+docker pull $IMAGE
 
 docker run \
     --rm \
@@ -14,5 +17,5 @@ docker run \
     -w /mnt \
     -e LIBRARY_PATH="/opt/crystal/embedded/lib/" \
     -e CRYSTAL_CONFIG_VERSION="ci" \
-    "jhass/crystal-build-$ARCH" \
+    $IMAGE \
     "$ARCH_CMD" $@
