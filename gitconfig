@@ -5,16 +5,8 @@
   undo = reset --soft HEAD^
   count = shortlog -sn
 
-  # merging
-  md = !"git co develop && git pull && git co master && git pull && git merge develop && git push && git co develop"
-  mp = !"git co develop && git pull && git co preview && git pull && git merge develop && git push && git co develop" 
-
   delete-branch = "!f(){ test ${1} && git branch -d ${1} && git push origin --delete ${1}; };f"
 
-  # zilium
-  pu = !"git fetch origin -v; git fetch remote -v; git merge remote/master"
-  plz = !"git fetch origin -v && git fetch zilium -v && git merge zilium/master"
-  puz = !"git push origin master && git push origin zilium"
   cp = cherry-pick
   latest = for-each-ref --sort=-committerdate --format='%(committerdate:iso8601)%09%(objectname:short)      %(refname:short) | %(authorname)'
 
