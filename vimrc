@@ -23,6 +23,7 @@ nmap <silent> // :nohlsearch<CR>
 
 nmap <leader>t :CommandT<CR>
 nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
+let g:CommandTWildIgnore=&wildignore . ",*.beam,*.app"
 
 map yc zc
 
