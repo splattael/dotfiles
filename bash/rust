@@ -1,0 +1,9 @@
+function __rust() {
+  docker run --rm -it -e USER=$USER -v $(pwd):/source schickling/rust "$@"
+}
+
+alias rust-shell="__rust"
+alias rustc="__rust rustc"
+alias cargo="__rust cargo"
+alias rust-gdb="__rust rust-gdb"
+alias rustdoc="__rust rustdoc"

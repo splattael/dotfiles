@@ -13,6 +13,7 @@ source ~/.bash/git
 source ~/.bash/zilium
 source ~/.bash/rvm
 source ~/.bash/nvm
+source ~/.bash/rust
 source ~/.bash/ruby
 source ~/.bash/screen
 source ~/.bash/vim
