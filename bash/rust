@@ -1,5 +1,11 @@
 function __rust() {
-  docker run --rm -it -e USER=$USER -v $(pwd):/source schickling/rust "$@"
+  docker run --rm -it \
+    -u $UID \
+    -e USER=$USER \
+    -e CARGO_HOME=/source/.cargo \
+    -v $HOME/.cargo:/source/.cargo \
+    -v $(pwd):/source \
+    schickling/rust "$@"
 }
 
 alias rust-shell="__rust"
