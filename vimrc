@@ -77,6 +77,7 @@ set wildmenu
 nnoremap <leader>el :ElmEvalLine<CR>
 vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
 nnoremap <leader>em :ElmMakeCurrentFile<CR>
+let g:elm_format_autosave = 1
 
 " Crystal
 let g:crystal_define_mappings=0
