@@ -1,11 +1,18 @@
 function __rust() {
+  local docker_image=schickling/rust
+  local workdir=/source
+  local home=/home
+
+  [ -d $HOME/.cargo ] || mkdir $HOME/.cargo
+
   docker run --rm -it \
-    -u $UID \
+    -u $(id -u):$(id -g) \
     -e USER=$USER \
-    -e CARGO_HOME=/source/.cargo \
-    -v $HOME/.cargo:/source/.cargo \
-    -v $(pwd):/source \
-    schickling/rust "$@"
+    -e HOME=$home \
+    -e CARGO_HOME=$home/.cargo \
+    -v $HOME/.cargo:$home/.cargo \
+    -v $(pwd):$workdir \
+    $docker_image "$@"
 }
 
 alias rust-shell="__rust"
