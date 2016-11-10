@@ -28,3 +28,5 @@ function elm() {
 
   return $ret
 }
+
+alias elm-shell='elm shell'
