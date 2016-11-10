@@ -12,7 +12,7 @@ source ~/.bash/bin
 source ~/.bash/git
 source ~/.bash/zilium
 source ~/.bash/rvm
-source ~/.bash/nvm
+source ~/.bash/node
 source ~/.bash/rust
 source ~/.bash/ruby
 source ~/.bash/screen

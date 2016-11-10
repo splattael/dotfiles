@@ -1,0 +1,29 @@
+alias node="__node node"
+alias node-shell="__node bash"
+alias nodejs="node"
+alias npm="__node npm"
+
+function __node() {
+  __node-args "" $*
+}
+
+function __node-args() {
+  local docker_image=node:7-slim
+  local workdir=/code
+  local home=/home
+
+  local args=$1
+  shift
+
+  docker run --rm -it \
+    -u $(id -u):$(id -g) \
+    -e USER=$USER \
+    -e HOME=$home \
+    -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$workdir/node_modules/.bin \
+    -v $(pwd):$workdir \
+    -v $HOME/.npm:$home/.npm \
+    -v $HOME/.npmrc:/usr/local/etc/npmrc \
+    -w $workdir \
+    $args \
+    $docker_image $*
+}

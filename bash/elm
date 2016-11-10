@@ -1,1 +1,30 @@
-alias elm='docker run -it --rm -v "$(pwd):/code" -w "/code" -e "HOME=/tmp" -u $UID:$GID -p 8000:8000 codesimple/elm:0.17'
+# Requires `bash/node`
+
+function elm() {
+  [ -d $HOME/.elm ] || mkdir $HOME/.elm
+
+  common_args="-v $HOME/.elm:/home/.elm"
+
+  case $1 in
+  reactor)
+    shift
+    __node-args "-p 8000:8000 $common_args" elm reactor -a 0.0.0.0 $*
+    ;;
+  shell)
+    shift
+    __node-args "$common_args" bash
+    ;;
+  *)
+    __node-args "$common_args" elm $*
+    ;;
+  esac
+
+  local ret=$?
+
+  if [ $ret -eq 127 ]; then
+    echo
+    echo 'Did you install elm? Try: `npm install elm`'
+  fi
+
+  return $ret
+}
