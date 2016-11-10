@@ -4,3 +4,5 @@ vim/doc/tags
 vim/spell/*.spl
 .rake_tasks~
 vim/view
+
+bundle/cache
