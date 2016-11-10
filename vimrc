@@ -23,11 +23,23 @@ nmap <silent> // :nohlsearch<CR>
 " Fuzzy file search
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 :helptags ~/.vim/bundle/ctrlp.vim/doc
-nmap <leader>t :CtrlP<CR>
-nmap <leader>T :CtrlPTag<CR>
+nmap <leader>f :CtrlP<CR>
+nmap <leader>F :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore='\v\.(beam|app)$'
 let g:ctrlp_match_window='order:ttb,max:25'
 
+" Tags with ctags
+function! UpdateTags()
+  let f = expand("%:p")
+  let cwd = getcwd()
+  let tagfilename = cwd . "/.ctags"
+  let cmd = 'ctags -R -f ' . tagfilename . ' ' . '"' . f . '"'
+  let resp = system(cmd)
+endfunction
+
+nmap <leader>t :CtrlPTag<CR>
+nmap <leader>T :call UpdateTags()<CR>
+set tags=.ctags
 
 map yc zc
 
