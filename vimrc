@@ -20,10 +20,14 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 " Clear current search highlight by double tapping //
 nmap <silent> // :nohlsearch<CR>
 
+" Fuzzy file search
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+:helptags ~/.vim/bundle/ctrlp.vim/doc
+nmap <leader>t :CtrlP<CR>
+nmap <leader>T :CtrlPTag<CR>
+let g:ctrlp_custom_ignore='\v\.(beam|app)$'
+let g:ctrlp_match_window='order:ttb,max:25'
 
-nmap <leader>t :CommandT<CR>
-nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
-let g:CommandTWildIgnore=&wildignore . ",*.beam,*.app"
 
 map yc zc
 
