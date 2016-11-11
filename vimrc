@@ -24,9 +24,13 @@ nmap <silent> // :nohlsearch<CR>
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 :helptags ~/.vim/bundle/ctrlp.vim/doc
 nmap <leader>f :CtrlP<CR>
-nmap <leader>F :CtrlPBuffer<CR>
-let g:ctrlp_custom_ignore='\v\.(beam|app)$'
-let g:ctrlp_match_window='order:ttb,max:50,results:200'
+nmap <leader>b :CtrlPBuffer<CR>
+
+let g:ctrlp_custom_ignore={
+  \ 'dir': '\vtmp\/cache',
+  \ 'file': '\v\.(beam|app|jar|unity)$',
+  \ }
+let g:ctrlp_match_window='order:ttb,max:25,results:50'
 let g:ctrlp_use_caching=1
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 
