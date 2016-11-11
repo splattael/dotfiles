@@ -40,7 +40,7 @@ endfunction
 
 nmap <leader>t :CtrlPTag<CR>
 nmap <leader>T :call UpdateTags()<CR>
-set tags=.ctags
+set tags=.ctags;/.ctags
 
 map yc zc
 
