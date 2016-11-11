@@ -30,9 +30,10 @@ let g:ctrlp_match_window='order:ttb,max:25'
 
 " Tags with ctags
 function! UpdateTags()
-  let f = expand("%:p")
+  let f = expand("%:p:h")
   let cwd = getcwd()
   let tagfilename = cwd . "/.ctags"
+  echom "Updating ctags in " . tagfilename
   let cmd = 'ctags -R -f ' . tagfilename . ' ' . '"' . f . '"'
   let resp = system(cmd)
 endfunction
