@@ -100,3 +100,6 @@ let g:elm_format_autosave = 1
 let g:crystal_define_mappings=0
 autocmd FileType crystal nmap <F2> :CrystalSpecRunCurrent<CR>
 autocmd FileType crystal nmap <S-F2> :CrystalSpecRunAll<CR>
+
+" Write history file to .vim
+let g:netrw_home='~/.vim'
