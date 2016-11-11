@@ -26,7 +26,9 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 nmap <leader>f :CtrlP<CR>
 nmap <leader>F :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore='\v\.(beam|app)$'
-let g:ctrlp_match_window='order:ttb,max:25'
+let g:ctrlp_match_window='order:ttb,max:50,results:200'
+let g:ctrlp_use_caching=1
+let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 
 " Tags with ctags
 function! UpdateTags()
