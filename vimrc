@@ -38,15 +38,15 @@ let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 function! UpdateTags()
   let f = expand("%:p:h")
   let cwd = getcwd()
-  let tagfilename = cwd . "/.ctags"
-  echom "Updating ctags in " . tagfilename
-  let cmd = 'ctags -R -f ' . tagfilename . ' ' . '"' . f . '"'
+  let tagfilename = cwd . "/.tags"
+  echo "Updating ctags in " . tagfilename
+  let cmd = 'ctags -R -f ' . tagfilename . ' ' . ' --exclude=@$HOME/.ctags-exclude "' . f . '"'
   let resp = system(cmd)
 endfunction
 
 nmap <leader>t :CtrlPTag<CR>
 nmap <leader>T :call UpdateTags()<CR>
-set tags=.ctags;/.ctags
+set tags=.tags;/.tags
 
 map yc zc
 

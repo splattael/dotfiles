@@ -4,4 +4,4 @@
 .*~lock*
 .rbx
 .rake_tasks~
-.ctags
+.tags
