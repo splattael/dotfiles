@@ -1,5 +1,5 @@
 alias node="__node node"
-alias node-shell="__node bash"
+alias node-shell="__node sh"
 alias nodejs="node"
 alias npm="__node npm"
 
@@ -8,7 +8,7 @@ function __node() {
 }
 
 function __node-args() {
-  local docker_image=node:7-slim
+  local docker_image=node:7-alpine
   local workdir=/code
   local home=/home
 
