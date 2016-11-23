@@ -2,7 +2,8 @@
 
 S() {
   if [ "$1" = "" ]; then
-    screen
+    project=$(basename $(pwd))
+    screen -S "$project"
   else
     type=$1
     project=${2:-$(basename $(pwd))}
