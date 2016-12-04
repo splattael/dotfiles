@@ -17,6 +17,12 @@ case "$1" in
     command=bash
     shift
     ;;
+  root)
+    command=bash
+    uid=0
+    gid=0
+    shift
+    ;;
   crystal|shards)
     command=$1
     shift
