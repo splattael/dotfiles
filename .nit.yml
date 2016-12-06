@@ -1,0 +1,3 @@
+nit:
+  working_dirs:
+    - 'vim/bundle/*'
