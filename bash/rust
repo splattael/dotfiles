@@ -1,5 +1,5 @@
 function __rust() {
-  local docker_image=schickling/rust
+  local docker_image=jimmycuadra/rust:1.13.0
   local workdir=/source
   local home=/home
 
