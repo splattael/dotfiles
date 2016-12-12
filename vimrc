@@ -106,3 +106,6 @@ autocmd FileType crystal nmap <S-F2> :CrystalSpecRunAll<CR>
 
 " Disable netrw history
 let g:netrw_dirhistmax=0
+
+" Rust
+let g:rustfmt_autosave = 1
