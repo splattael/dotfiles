@@ -1,7 +1,7 @@
 [alias]
   co = checkout
   unstage = reset HEAD
-  lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %C(bold)%s %Creset%C(white)%cn%Creset %C(green)%cr' --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %C(bold)%s %Creset%C(white)%an%Creset %C(green)%cr' --abbrev-commit --date=relative
   undo = reset --soft HEAD^
   count = shortlog -sn
 
