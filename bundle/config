@@ -1,5 +1,6 @@
 ---
-BUNDLE_JOBS: '4'
-BUNDLE_GEM__COC: true
-BUNDLE_GEM__MIT: true
-BUNDLE_GEM__TEST: minitest
+BUNDLE_JOBS: "4"
+BUNDLE_GEM__COC: "true"
+BUNDLE_GEM__MIT: "true"
+BUNDLE_GEM__TEST: "minitest"
+BUNDLE_GEMS__NEOPOLY__COM: "gems:neopoly"

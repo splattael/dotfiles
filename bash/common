@@ -5,4 +5,4 @@ alias wi="whois -h whois.thur.de"
 export EDITOR=vim
 export PATH="$PATH:$HOME/bin"
 
-alias neo="ssh ps@office.neopoly.de"
+alias neo="ssh pl@office.neopoly.de"

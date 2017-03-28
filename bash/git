@@ -24,20 +24,20 @@ alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 
 neogit() {
-  git config user.name "Peter Suschlik" 
-  git config user.email "ps@neopoly.de" 
-  echo -n "Name: " 
+  git config user.name "Peter Leitzen"
+  git config user.email "pl@neopoly.de"
+  echo -n "Name: "
   git config user.name
-  echo -n "E-Mail: " 
+  echo -n "E-Mail: "
   git config user.email
 }
 
 
 pgit() {
-  git config user.name "Peter Suschlik" 
-  git config user.email "peter@suschlik.de" 
-  echo -n "Name: " 
+  git config user.name "Peter Leitzen"
+  git config user.email "peter@suschlik.de"
+  echo -n "Name: "
   git config user.name
-  echo -n "E-Mail: " 
+  echo -n "E-Mail: "
   git config user.email
 }

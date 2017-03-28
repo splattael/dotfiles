@@ -60,7 +60,7 @@
   insteadOf = z:
 
 [user]
-  name = Peter Suschlik
-  email = ps@neopoly.de
+  name = Peter Leitzen
+  email = pl@neopoly.de
 [diff "image"]
 	command = git-imgdiff
