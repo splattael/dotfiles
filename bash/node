@@ -23,7 +23,10 @@ function __node-args() {
     -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$workdir/node_modules/.bin \
     -v $(pwd):$workdir \
     -v $HOME/.npm:$home/.npm \
+    -v $HOME/.config:$home/.config \
+    -v $HOME/.cache:$home/.cache \
     -v $HOME/.npmrc:/usr/local/etc/npmrc \
+    -v $HOME/.yarnrc:$home/.yarnrc \
     -w $workdir \
     $args \
     $docker_image $*
