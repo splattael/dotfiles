@@ -1,5 +1,6 @@
 alias node="__node node"
 alias node-shell="__node sh"
+alias node-run="__node"
 alias nodejs="node"
 alias npm="__node npm"
 
