@@ -7,7 +7,11 @@ IMAGE=jhass/crystal-build-$ARCH
 uid=$(id -u)
 gid=$(id -g)
 
-docker pull $IMAGE
+if [ "$1" = "PULL" ]; then
+  echo "Pulling $IMAGE"
+  docker pull $IMAGE
+  exit 0
+fi
 
 docker run \
     --rm \
