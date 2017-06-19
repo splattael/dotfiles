@@ -8,7 +8,15 @@ function elm() {
   case $1 in
   reactor)
     shift
-    __node-args "-p 8000:8000 $common_args" elm reactor -a 0.0.0.0 $*
+    port=8000
+    case $1 in
+    -p)
+      shift
+      port=$1
+      shift
+      ;;
+    esac
+    __node-args "-p $port:$port $common_args" elm reactor -a 0.0.0.0 -p $port $*
     ;;
   shell)
     shift
