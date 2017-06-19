@@ -9,7 +9,7 @@ function __node() {
 }
 
 function __node-args() {
-  local docker_image=node:7-alpine
+  local docker_image=node:8.1
   local workdir=/code
   local home=/home
 
