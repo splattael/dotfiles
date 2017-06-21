@@ -69,6 +69,10 @@ call pathogen#helptags()
 " do not highlight vim gutter on the right
 highligh clear SignColumn
 
+" colorscheme
+set background=dark
+colorscheme solarized
+
 " fugitive leader mappings
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gst :Gstatus<CR>
