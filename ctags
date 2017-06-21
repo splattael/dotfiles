@@ -14,9 +14,16 @@
 
 --langdef=Elm
 --langmap=Elm:.elm
---regex-Elm=/^ *([a-z][a-zA-Z0-9_-]+)[ \t]*:[^:].*->.*/\1/f,function,functions/
---regex-Elm=/^ *([a-z][a-zA-Z0-9_-]+)[ \t]*:[^:][^-]+$/\1/c,constant,constants/
---regex-Elm=/^port *([a-z][a-zA-Z0-9_-]+)[ \t]*:[^:]/\1/p,port,ports/
+--regex-Elm=/^(port[[:blank:]]+)?module[[:blank:]]+([[:upper:]][[:alnum:]_.]*)/\2/m,module,Modules/
+--regex-Elm=/^import[[:blank:]]+[[:alnum:]_.]+[[:blank:]]+as[[:blank:]]+([[:alnum:]]+)/\1/n,namespace,Renamed imported Module/
+--regex-Elm=/^import[[:blank:]]+([[:alnum:]_.]+)[[:blank:]]exposing/\1/i,import,Imports/
+--regex-Elm=/^import[[:blank:]]+([[:alnum:]_.]+)/\1/i,import,Imports/
+--regex-Elm=/^port[[:blank:]]+([[:lower:]][[:alnum:]_]*).*/\1/p,port,Port/
+--regex-Elm=/^type +([[:upper:]][[:alnum:]_]*.*)/\1/t,type,Type Definition/
+--regex-Elm=/^[[:blank:]]+[|=][[:blank:]]+([[:upper:]][[:alnum:]_]*.*)$/\1/c,constructor,Type Constructor/
+--regex-Elm=/^type[[:blank:]]+alias[[:blank:]]+([[:upper:]][[:alnum:]_]*[[:blank:][:alnum:]_]*)/\1/a,alias,Type Alias/
+--regex-Elm=/^([[:lower:]_][[:alnum:]_]*)[^=]*=$/\1/f,function,Functions/
+--regex-Elm=/^[[:blank:]]+([[:lower:]_][[:alnum:]_]*)[^=]*=$/\1/f,function,Functions/
 
 --langdef=Crystal
 --langmap=Crystal:.cr
