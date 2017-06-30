@@ -113,3 +113,6 @@ let g:netrw_dirhistmax=0
 
 " Rust
 let g:rustfmt_autosave = 1
+
+" Enable Ruby Format rufo
+let g:rufo_auto_formatting = 1
