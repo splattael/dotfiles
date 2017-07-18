@@ -23,7 +23,7 @@ case "$1" in
     gid=0
     shift
     ;;
-  crystal|shards)
+  crystal|shards|make)
     command=$1
     shift
     ;;
