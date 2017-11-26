@@ -2,7 +2,6 @@ set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
 set hls
 set sw=2 ts=2 sts=2 et
-set number
 set visualbell
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -116,3 +115,12 @@ let g:rustfmt_autosave = 1
 
 " Enable Ruby Format rufo
 let g:rufo_auto_formatting = 1
+
+" Abosolute + realtive line numbers
+" Refs: https://jeffkreeftmeijer.com/vim-number/
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
