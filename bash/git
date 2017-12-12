@@ -36,7 +36,7 @@ neogit() {
 
 pgit() {
   git config user.name "Peter Leitzen"
-  git config user.email "peter@suschlik.de"
+  git config user.email "peter@leitzen.de"
   echo -n "Name: "
   git config user.name
   echo -n "E-Mail: "
