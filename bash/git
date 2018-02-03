@@ -24,6 +24,12 @@ alias grs='git rebase --skip'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 
+git_repo_size() {
+  local last=${1:-20}
+
+  git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2 | tail -$last
+}
+
 neogit() {
   git config user.name "Peter Leitzen"
   git config user.email "pl@neopoly.de"
