@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+
+usage() {
+  local msg="$1"
+  local program=$(basename $0)
+
+  if [ "$msg" != "" ]
+  then
+    echo $msg
+    echo
+  fi
+
+  echo "usage: pass show .../2fa/code | $program"
+  exit
+}
+
+if tty -s
+then
+  usage
+fi
+
+read CODE
+
+case $CODE in
+  "")
+    usage "Missing code"
+  ;;
+  *)
+    exec oathtool --base32 --totp $CODE
+  ;;
+esac
