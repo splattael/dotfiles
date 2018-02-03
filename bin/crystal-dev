@@ -19,7 +19,7 @@ docker run \
     -u $uid:$gid \
     -v $(pwd):/mnt \
     -w /mnt \
-    -e LIBRARY_PATH="/opt/crystal/embedded/lib/" \
+    -e LIBRARY_PATH="/usr/lib/crystal/lib/" \
     -e CRYSTAL_CONFIG_VERSION="ci" \
     $IMAGE \
     "$ARCH_CMD" $@
