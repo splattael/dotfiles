@@ -1,17 +1,19 @@
 function __rust() {
-  local docker_image=jimmycuadra/rust:1.13.0
+  local docker_image=rust:1.23
   local workdir=/source
   local home=/home
 
   [ -d $HOME/.cargo ] || mkdir $HOME/.cargo
 
   docker run --rm -it \
+   --init \
     -u $(id -u):$(id -g) \
     -e USER=$USER \
     -e HOME=$home \
     -e CARGO_HOME=$home/.cargo \
     -v $HOME/.cargo:$home/.cargo \
     -v $(pwd):$workdir \
+    -w $workdir \
     $docker_image "$@"
 }
 
