@@ -24,6 +24,7 @@ function __rust() {
       echo "Use 'rust-dev-save' from other terminal to save current session before quitting!"
       docker run --rm --name $docker_tmp_image -it \
         --init \
+        $DOCKER_RUN_OPTS \
         $docker_image "$@"
       ;;
 
@@ -49,6 +50,7 @@ function __rust() {
         -v $cache_volume:$home/.cargo \
         -v $(pwd):$workdir \
         -w $workdir \
+        $DOCKER_RUN_OPTS \
         $docker_image "$@"
       ;;
 
