@@ -1,23 +1,63 @@
 function __rust() {
-  local docker_image=rust:1.24
+  local docker_image_original=rust:1.24
+  local docker_image=${docker_image_original}-dev
+  local docker_tmp_image="rust-tmp-dev"
+
   local workdir=/source
   local home=/home
+  local cache_volume=rust-cache
 
-  [ -d $HOME/.cargo ] || mkdir $HOME/.cargo
+  if [ "$(docker volume ls -q | grep $cache_volume)" = "" ]
+  then
+    docker volume create $cache_volume
+    docker run --rm -it -v $cache_volume:/cache $docker_image chmod 777 /cache
+  fi
 
-  docker run --rm -it \
-   --init \
-    -u $(id -u):$(id -g) \
-    -e USER=$USER \
-    -e HOME=$home \
-    -e CARGO_HOME=$home/.cargo \
-    -v $HOME/.cargo:$home/.cargo \
-    -v $(pwd):$workdir \
-    -w $workdir \
-    $docker_image "$@"
+  if [ "$(docker history -q $docker_image 2>/dev/null)" = "" ]
+  then
+    docker tag $docker_image_original $docker_image
+  fi
+
+  case $1 in
+    root)
+      shift
+      echo "Use 'rust-dev-save' from other terminal to save current session before quitting!"
+      docker run --rm --name $docker_tmp_image -it \
+        --init \
+        $docker_image "$@"
+      ;;
+
+    save)
+      local changes=$(docker diff $docker_tmp_image)
+      if [ "$changes" != "" ]
+      then
+        echo "Saving changes to $docker_image"
+        echo $changes
+        docker commit $docker_tmp_image $docker_image
+      else
+        echo "No changes."
+      fi
+      ;;
+
+    *)
+      docker run --rm -it \
+        --init \
+        -u $(id -u):$(id -g) \
+        -e USER=$USER \
+        -e HOME=$home \
+        -e CARGO_HOME=$home/.cargo \
+        -v $cache_volume:$home/.cargo \
+        -v $(pwd):$workdir \
+        -w $workdir \
+        $docker_image "$@"
+      ;;
+
+  esac
 }
 
-alias rust-shell="__rust"
+alias rust-dev="__rust"
+alias rust-dev-root="__rust root"
+alias rust-dev-save="__rust save"
 alias rustc="__rust rustc"
 alias cargo="__rust cargo"
 alias rust-gdb="__rust rust-gdb"
