@@ -64,5 +64,6 @@ alias rustc="__rust rustc"
 alias cargo="__rust cargo"
 alias rust-gdb="__rust rust-gdb"
 alias rustdoc="__rust rustdoc"
+alias rustup="__rust rustup"
 
 export PATH=":$PATH:$HOME/.cargo/bin"
