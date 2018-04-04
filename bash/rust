@@ -1,5 +1,5 @@
 function __rust() {
-  local docker_image_original=rust:1.24
+  local docker_image_original=rust:1.25
   local docker_image=${docker_image_original}-dev
   local docker_tmp_image="rust-tmp-dev"
 
