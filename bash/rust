@@ -13,6 +13,11 @@ function __rust() {
     docker run --rm -it -v $cache_volume:/cache $docker_image chmod 777 /cache
   fi
 
+  if [ "$(docker history -q $docker_image_original 2>/dev/null)" = "" ]
+  then
+    docker pull $docker_image_original
+  fi
+
   if [ "$(docker history -q $docker_image 2>/dev/null)" = "" ]
   then
     docker tag $docker_image_original $docker_image
