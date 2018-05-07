@@ -17,6 +17,7 @@ source ~/.bash/node
 source ~/.bash/rust
 source ~/.bash/ruby
 source ~/.bash/screen
+source ~/.bash/nvm
 
 if [ "$(domainname)" = "NEOPOLY" ]; then
   source ~/.bash/neopoly
