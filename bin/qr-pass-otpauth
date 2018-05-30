@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Generate QR code on the terminal from pass' path to 2fa code.
+#
+# Usage: qr-pass-otpauth path/service/user/2fa/code ...
+#
+# for i in `find $HOME/.password-store/ -name "code.gpg" | perl -pe "s/.gpg//; s{$HOME/.password-store/}{}"`; do clear; qr-pass-otpauth $i; echo "Press enter to continue"; read; done
+#
+# Dependencies
+# * pass - Password manager (https://passwordstore.org)
+# * qr - Create QR code on the terminal (Python-something)
+#
+# See format https://github.com/google/google-authenticator/wiki/Key-Uri-Format
+#
+# Example: otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&issuer=Example
+
+url_escape() {
+  perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$1"
+}
+
+otpauth() {
+  local issuer=$(url_escape $1)
+  local account=$2
+  local secret=$3
+
+  echo "otpauth://totp/$account?secret=$secret&issuer=$issuer"
+}
+
+generate_qr() {
+  local path=$1
+
+  if [[ "$path" = *"2fa/code" ]]
+  then
+    local re="^.*/(.*)/(.*)/2fa/code$"
+    if [[ "$path" =~ $re ]]
+    then
+      local issuer="${BASH_REMATCH[1]}"
+      local account="${BASH_REMATCH[2]}"
+      local secret=$(pass show $path)
+      if [ "$secret" != "" ]
+      then
+        echo "$issuer: $account"
+        otpauth $issuer $account $secret | qr
+      else
+        echo "secret for '$path' not found"
+      fi
+    else
+      echo "'$path' should have format like path/service/user/2fa/code"
+    fi
+  else
+    echo "'$path' should have format like path/service/user/2fa/code"
+  fi
+}
+
+for path in "$@"
+do
+  generate_qr $path
+done
