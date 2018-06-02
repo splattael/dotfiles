@@ -64,6 +64,6 @@
 
 [user]
   name = Peter Leitzen
-  email = pl@neopoly.de
+  email = peter@leitzen.de
 [diff "image"]
 	command = git-imgdiff
