@@ -8,7 +8,7 @@
 #
 # Dependencies
 # * pass - Password manager (https://passwordstore.org)
-# * qr - Create QR code on the terminal (Python-something)
+# * qrencode - Create QR code on the terminal (https://fukuchi.org/works/qrencode/)
 #
 # See format https://github.com/google/google-authenticator/wiki/Key-Uri-Format
 #
@@ -40,7 +40,7 @@ generate_qr() {
       if [ "$secret" != "" ]
       then
         echo "$issuer: $account"
-        otpauth $issuer $account $secret | qr
+        otpauth $issuer $account $secret | qrencode -t UTF8 -o -
       else
         echo "secret for '$path' not found"
       fi
