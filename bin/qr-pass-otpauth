@@ -23,7 +23,7 @@ otpauth() {
   local account=$2
   local secret=$3
 
-  echo "otpauth://totp/$account?secret=$secret&issuer=$issuer"
+  echo -n "otpauth://totp/$account?secret=$secret&issuer=$issuer"
 }
 
 generate_qr() {
