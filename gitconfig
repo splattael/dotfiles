@@ -40,9 +40,10 @@
 
 [rebase]
   autosquash = true
+  autostash = true
 
 [push]
-  default = upstream
+  default = simple
 
 [url "git://github.com/"]
   insteadOf = gh:
