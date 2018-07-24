@@ -2,9 +2,6 @@
 
 alias root="sudo -i bash"
 
-export PATH=$PATH:$HOME/devel/nit/bin
-source $HOME/devel/nit/bin/nit.completion
-
 #PROJECT_HOST=kebap.neopoly.de
 PROJECT_HOST=doener.neopoly.de
 PROJECT_DIR=/home/projekte
