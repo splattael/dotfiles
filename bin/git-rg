@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+# Faster than git or rg, and supports --show-function!
+# Usage:
+#   git rg foo
+#   git rg -e foo -e bar --and
+NPROC=nproc
+
+# For Darwin|nproc is installed with the "g" prefix.
+if hash gnproc &>/dev/null; then
+NPROC=gnproc
+fi
+
+# Parse FLAGS to extract search queries vs. git FLAGS
+declare -a SHARED_FLAGS=()
+declare -a RG_FLAGS=(
+    --files-with-matches
+)
+declare -a GIT_FLAGS=(
+    -E
+    --no-index
+    --break
+    --heading
+    --line-number
+    --show-function
+    --threads $($NPROC)
+)
+declare -a ARGUMENTS=()
+declare -a PATHSPEC=()
+
+# Parse out FLAGS
+while (($#)); do
+case "$1" in
+    # Catch git-grep pathspec expressions, e.g.:
+    # git grep ... -- '*.c' '*.py'
+    --)
+        PATHSPEC+=("$@")
+        shift "$#"
+        ;;
+
+    # Catch multiple expressions with a separate argument, e.g.:
+    # git grep -e foo ...
+    -e)
+        shift
+        SHARED_FLAGS+=(-e "$1")
+        ;;
+
+    # Catch shared FLAGS that modify ripgrep's output and matching
+    -e*)                SHARED_FLAGS+=("$1") ;;
+    -v|--invert-match)  SHARED_FLAGS+=("$1") ;;
+    -i|--ignore-case)   SHARED_FLAGS+=("$1") ;;
+    -F|--fixed-strings) SHARED_FLAGS+=("$1") ;;
+    -w|--word-regexp)   SHARED_FLAGS+=("$1") ;;
+    -a|--text)          SHARED_FLAGS+=("$1") ;;
+
+    # Search everything when given a -u equivalent
+    -u|--untracked|--unrestricted)
+                        RG_FLAGS+=("--unrestricted")
+                        GIT_FLAGS+=("--untracked")
+                        ;;
+
+    # Search for specific types
+    -t|--type)
+                        shift
+                        RG_FLAGS+=(-t "$1")
+                        ;;
+    -T|--type-not)
+                        shift
+                        RG_FLAGS+=(-T "$1")
+                        ;;
+
+    # Catch a few ripgrep-specific FLAGS
+    -L|--follow)        RG_FLAGS+=("$1") ;;
+
+    # All other FLAGS to go Git only
+    -*|--*)             GIT_FLAGS+=("$1") ;;
+
+    # Raw FLAGS need to be parsed somewhat, since we don't want
+    # to pass any filenames directly to git-grep.
+    #
+    # However, the first "argument" is an expression for git.
+    *)                  ARGUMENTS+=("$1") ;;
+esac
+shift
+done
+
+if [[ 0 == "${#PATHSPEC[@]}" ]]; then
+rg "${RG_FLAGS[@]}" "${SHARED_FLAGS[@]}" "${ARGUMENTS[@]}" | xargs git grep "${GIT_FLAGS[@]}" "${SHARED_FLAGS[@]}" "${ARGUMENTS[0]}"
+else
+git ls-files "${PATHSPEC[@]}" | xargs rg --unrestricted "${RG_FLAGS[@]}" "${SHARED_FLAGS[@]}" "${ARGUMENTS[@]}" | xargs git grep "${GIT_FLAGS[@]}" "${SHARED_FLAGS[@]}" "${ARGUMENTS[0]}"
+fi
+
+
+# See https://github.com/zachriggle/config/blob/master/bin/git-rg
