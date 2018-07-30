@@ -18,12 +18,7 @@ source ~/.bash/rust
 source ~/.bash/ruby
 source ~/.bash/screen
 source ~/.bash/nvm
-
-if [ "$(domainname)" = "NEOPOLY" ]; then
-  source ~/.bash/neopoly
-else
-  source ~/.bash/private
-fi
+source ~/.bash/private
 
 # use .localrc for settings specific to one system
 if [ -f ~/.localrc ]; then

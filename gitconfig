@@ -57,9 +57,6 @@
 [url "git@gitlab.com:"]
   insteadOf = wgl:
 
-[url "gitlab@gitlab.neopoly.de:"]
-  insteadOf = neo:
-
 [url "git@git.zilium.de:"]
   insteadOf = z:
 
