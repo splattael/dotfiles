@@ -63,6 +63,7 @@
 [user]
   name = Peter Leitzen
   email = peter@leitzen.de
+	signingkey = 8845C8FAF99B78B447627DBF97DE9D2E708A225E
 [diff "image"]
 	command = git-imgdiff
 [filter "lfs"]
@@ -70,3 +71,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[commit]
+	gpgsign = true
