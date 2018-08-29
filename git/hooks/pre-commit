@@ -1,0 +1,31 @@
+#!/bin/bash
+
+setup-gitlab-git() {
+  case $PWD in
+    $HOME/devel/gitlab/*)
+      if [[ "$(git config user.email)" = *"gitlab.com" ]]
+      then
+        exit 0
+      else
+        echo "Setting up git for GitLab:"
+        echo
+
+        git config user.name "Peter Leitzen"
+        git config user.email "pleitzen@gitlab.com"
+        echo -n "Name: "
+        git config user.name
+        echo -n "E-Mail: "
+        git config user.email
+
+        echo
+        echo "Success!"
+        echo
+        echo "Please, retry the last command"
+        echo
+        exit 1
+      fi
+      ;;
+  esac
+}
+
+setup-gitlab-git
