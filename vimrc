@@ -124,3 +124,7 @@ let g:rufo_auto_formatting = 1
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
+
+" Open URL under cursor with gnome-open
+" See https://vi.stackexchange.com/a/5034
+let g:netrw_browsex_viewer="setsid gnome-open"
