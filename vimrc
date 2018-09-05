@@ -114,7 +114,7 @@ let g:netrw_dirhistmax=0
 let g:rustfmt_autosave = 1
 
 " Enable Ruby Format rufo
-let g:rufo_auto_formatting = 1
+let g:rufo_auto_formatting = 0
 
 " Abosolute + realtive line numbers
 " Refs: https://jeffkreeftmeijer.com/vim-number/
