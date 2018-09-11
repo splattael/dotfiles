@@ -51,3 +51,6 @@
 [submodule "vim/bundle/rufo-vim"]
 	path = vim/bundle/rufo-vim
 	url = https://github.com/splattael/rufo-vim
+[submodule "asdf"]
+	path = asdf
+	url = https://github.com/asdf-vm/asdf.git

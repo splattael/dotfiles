@@ -19,6 +19,7 @@ source ~/.bash/ruby
 source ~/.bash/screen
 source ~/.bash/nvm
 source ~/.bash/private
+source ~/.bash/asdf
 
 # use .localrc for settings specific to one system
 if [ -f ~/.localrc ]; then
