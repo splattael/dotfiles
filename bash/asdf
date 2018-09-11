@@ -1,2 +1,11 @@
 source ~/.asdf/asdf.sh
 source ~/.asdf/completions/asdf.bash
+
+ASDF_PLUGINS="golang nodejs elm ruby rust"
+
+function install-asdf-plugins() {
+  for plugin in $ASDF_PLUGINS
+  do
+    asdf plugin-add $plugin
+  done
+}
