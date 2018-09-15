@@ -1,7 +1,7 @@
 source ~/.asdf/asdf.sh
 source ~/.asdf/completions/asdf.bash
 
-ASDF_PLUGINS="golang nodejs elm ruby rust"
+ASDF_PLUGINS="golang nodejs elm ruby rust elixir erlang minikube helm kubectl crystal java redis"
 
 function install-asdf-plugins() {
   for plugin in $ASDF_PLUGINS
