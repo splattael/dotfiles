@@ -1,0 +1,20 @@
+# Install
+#
+#   https://github.com/junegunn/fzf#using-git
+#
+#   ~/.fzf/install
+
+#
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */home/peter/.fzf/bin* ]]; then
+  export PATH="$PATH:/home/peter/.fzf/bin"
+fi
+
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/home/peter/.dotfiles/fzf/shell/completion.bash" 2> /dev/null
+
+# Key bindings
+# ------------
+source "/home/peter/.dotfiles/fzf/shell/key-bindings.bash"

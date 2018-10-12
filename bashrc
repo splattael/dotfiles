@@ -4,13 +4,14 @@ if [ -f /etc/bash.bashrc ]; then
 fi
 
 source ~/.bash/asdf
+source ~/.bash/bin
 source ~/.bash/common
-source ~/.bash/hub
 source ~/.bash/docker
+source ~/.bash/fzf
+source ~/.bash/git
+source ~/.bash/hub
 source ~/.bash/history
 source ~/.bash/prompt
-source ~/.bash/bin
-source ~/.bash/git
 source ~/.bash/ruby
 source ~/.bash/screen
 
@@ -21,3 +22,5 @@ source ~/.bash/zilium
 if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
