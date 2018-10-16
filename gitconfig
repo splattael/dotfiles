@@ -60,6 +60,12 @@
 [url "git@gitlab.com:"]
   insteadOf = wgl:
 
+[url "https://dev.gitlab.org/"]
+  insteadOf = gl-dev:
+
+[url "git@dev.gitlab.org:"]
+  insteadOf = wgl-dev:
+
 [url "git@git.zilium.de:"]
   insteadOf = z:
 
