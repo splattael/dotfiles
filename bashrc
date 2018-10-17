@@ -16,6 +16,7 @@ source ~/.bash/ruby
 source ~/.bash/screen
 
 source ~/.bash/private
+source ~/.bash/gitlab
 source ~/.bash/zilium
 
 # use .localrc for settings specific to one system

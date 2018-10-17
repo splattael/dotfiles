@@ -27,3 +27,8 @@ _private_projects() {
 }
 
 complete -F _private_projects C
+
+setup-git-private() {
+  local email=$(git config --global user.email)
+  setup-git private $email
+}

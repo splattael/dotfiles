@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source $HOME/.bash/git
+
+setup-git-gitlab() {
+  setup-git GitLab pleitzen@gitlab.com
+}
