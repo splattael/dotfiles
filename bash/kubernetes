@@ -1,0 +1,10 @@
+
+setup-kubernetes() {
+  echo "Aliasing 'k' to 'kubernetes'"
+  alias k=kubectl
+
+  echo "Activating bash completion for 'k'"
+  source <(k completion bash | sed s/kubectl/k/g)
+}
+
+alias kk=setup-kubernetes

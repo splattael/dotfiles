@@ -11,6 +11,7 @@ source ~/.bash/fzf
 source ~/.bash/git
 source ~/.bash/hub
 source ~/.bash/history
+source ~/.bash/kubernetes
 source ~/.bash/prompt
 source ~/.bash/ruby
 source ~/.bash/screen
