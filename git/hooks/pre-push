@@ -1,0 +1,13 @@
+#!/bin/bash
+
+branch_name=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+forbidden="_*"
+
+case $branch_name in $forbidden)
+    echo
+    echo "CANNOT push branch '$branch_name' matching '$forbidden'"
+    echo
+    exit 1
+esac
+
+exit 0
