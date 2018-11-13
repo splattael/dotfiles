@@ -129,5 +129,12 @@ let g:rufo_auto_formatting = 0
 " See https://vi.stackexchange.com/a/5034
 let g:netrw_browsex_viewer="setsid gnome-open"
 
-" GitGutter
-:GitGutterEnable
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
