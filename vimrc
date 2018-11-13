@@ -70,7 +70,7 @@ highligh clear SignColumn
 
 " colorscheme
 set background=dark
-colorscheme darkblue
+colorscheme spacegray
 
 " fugitive leader mappings
 nmap <leader>gd :Gdiff<CR>
