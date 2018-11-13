@@ -63,3 +63,6 @@
 [submodule "vim/bundle/spacegray.vim"]
 	path = vim/bundle/spacegray.vim
 	url = https://github.com/ajh17/spacegray.vim
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
