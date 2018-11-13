@@ -128,3 +128,6 @@ let g:rufo_auto_formatting = 0
 " Open URL under cursor with gnome-open
 " See https://vi.stackexchange.com/a/5034
 let g:netrw_browsex_viewer="setsid gnome-open"
+
+" GitGutter
+:GitGutterEnable
