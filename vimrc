@@ -65,9 +65,6 @@ call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" do not highlight vim gutter on the right
-highligh clear SignColumn
-
 " colorscheme
 set background=dark
 colorscheme spacegray
@@ -88,8 +85,13 @@ set complete+=kspell
 nnoremap <F3> :set nospell!<CR>
 
 " highlight lines longer than 80 chars
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FF0000
-match OverLength /\%>80v.\+/
+highlight LineProximity ctermfg=white ctermbg=gray guifg=white guibg=#757160
+highlight LineOverflow  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
+
+autocmd BufEnter,VimEnter,FileType *.rb,*.coffee let w:m1=matchadd('LineProximity', '\%<85v.\%>80v', -1)
+autocmd BufEnter,VimEnter,FileType *.rb,*.coffee let w:m2=matchadd('LineOverflow', '\%>84v.\+', -1)
+autocmd BufEnter,VimEnter,FileType,VimEnter *.rb,*.coffee autocmd WinEnter *.rb,*.coffee let w:created=1
+autocmd BufEnter,VimEnter,FileType,VimEnter *.rb,*.coffee let w:created=1
 
 " file completion
 " See http://stackoverflow.com/questions/526858/how-do-i-make-vim-do-normal-bash-like-tab-completion-for-file-names/526881#526881
