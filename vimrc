@@ -20,18 +20,16 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 nmap <silent> // :nohlsearch<CR>
 
 " Fuzzy file search
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-:helptags ~/.vim/bundle/ctrlp.vim/doc
-nmap <leader>f :CtrlP<CR>
-nmap <leader>b :CtrlPBuffer<CR>
+set runtimepath+=~/.fzf
+set runtimepath+=~/.vim/bundle/fzf.vim
 
-let g:ctrlp_custom_ignore={
-  \ 'dir': '\vtmp\/cache',
-  \ 'file': '\v\.(beam|app|jar|unity)$',
-  \ }
-let g:ctrlp_match_window='order:ttb,max:25,results:50'
-let g:ctrlp_use_caching=1
-let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
+nmap <leader>f :Files<CR>
+nmap <leader>F :GFiles<CR>
+nmap <leader>b :Buffers<CR>
+nmap <leader>b :History<CR>
+nmap <leader>/ :Rg<CR>
+
+let g:fzf_launcher = 'xterm -geometry 100x40 -fa "*" -e bash -ic %s'
 
 " Tags with ctags
 function! UpdateTags()
