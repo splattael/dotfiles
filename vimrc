@@ -26,7 +26,7 @@ set runtimepath+=~/.vim/bundle/fzf.vim
 nmap <leader>f :Files<CR>
 nmap <leader>F :GFiles<CR>
 nmap <leader>b :Buffers<CR>
-nmap <leader>b :History<CR>
+nmap <leader>B :History<CR>
 nmap <leader>/ :Rg<CR>
 
 let g:fzf_launcher = 'xterm -geometry 100x40 -fa "*" -e bash -ic %s'
