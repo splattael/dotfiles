@@ -24,25 +24,27 @@ set runtimepath+=~/.fzf
 set runtimepath+=~/.vim/bundle/fzf.vim
 
 nmap <leader>f :Files<CR>
-nmap <leader>F :GFiles<CR>
-nmap <leader>b :Buffers<CR>
-nmap <leader>B :History<CR>
+nmap <leader>F :Buffers<CR>
+nmap <leader>ff :GFiles<CR>
+nmap <leader>FF :GFiles?<CR>
+nmap <leader>h :History<CR>
+nmap <leader>H :History:<CR>
 nmap <leader>/ :Rg<Space>
 
 let g:fzf_launcher = 'xterm -geometry 100x40 -fa "*" -e bash -ic %s'
 
 " Tags with ctags
 function! UpdateTags()
-  let f = expand("%:p:h")
   let cwd = getcwd()
   let tagfilename = cwd . "/.tags"
   echo "Updating ctags in " . tagfilename
-  let cmd = 'ctags -R -f ' . tagfilename . ' ' . ' --exclude=@$HOME/.ctags-exclude "' . f . '"'
+  let cmd = 'ctags -R -f ' . tagfilename . ' ' . ' --exclude=@$HOME/.ctags-exclude "' . cwd . '"'
   let resp = system(cmd)
 endfunction
 
-nmap <leader>t :CtrlPTag<CR>
-nmap <leader>T :call UpdateTags()<CR>
+nmap <leader>t :Tags<Space>
+nmap <leader>T :BTags<Space>
+nmap <leader>tt :call UpdateTags()<CR>
 set tags=.tags;/.tags
 
 map yc zc
