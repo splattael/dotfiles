@@ -10,6 +10,9 @@ filetype plugin on    " Enable filetype-specific plugins
 set encoding=utf8 fileencoding=utf8
 let mapleader=","
 
+" Set timeout for leader key to 300ms
+set timeoutlen=300
+
 " non-visible chars
 set list
 set listchars=tab:▸\ ,trail:.,extends:<,precedes:>,eol:·,nbsp:⋅
@@ -17,7 +20,7 @@ nmap <leader>l :set list!<CR>
 nmap <leader>W :KillWhitespace<CR>
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 " Clear current search highlight by double tapping //
-nmap <silent> // :nohlsearch<CR>
+nmap <silent> 7 :nohlsearch<CR>
 
 " Fuzzy file search
 set runtimepath+=~/.fzf
