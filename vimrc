@@ -34,8 +34,6 @@ nmap <leader>h :History<CR>
 nmap <leader>H :History:<CR>
 nmap <leader>/ :Rg<Space>
 
-let g:fzf_launcher = 'xterm -geometry 100x40 -fa "*" -e bash -ic %s'
-
 " Tags with ctags
 function! UpdateTags()
   let cwd = getcwd()
