@@ -1,0 +1,6 @@
+gobin=$(go env GOPATH)/bin
+
+if [[ ! "$PATH" == *$gobin* ]]; then
+  export PATH="$PATH:$gobin"
+fi
+
