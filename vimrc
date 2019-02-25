@@ -144,3 +144,8 @@ let g:syntastic_check_on_wq = 0
 
 " NERDTree
 nmap <leader>N :NERDTreeToggle<CR>
+
+" persistent undo
+silent exec "!mkdir -p $HOME/.cache/vim/undo"
+set undofile
+set undodir=$HOME/.cache/vim/undo
