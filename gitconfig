@@ -14,6 +14,7 @@
   mr = "!f() { [ -z $2 ] && echo usage: git mr REMOTE MR-ID && return 1; git fetch $1 merge-requests/$2/head:mr-${2} && git checkout mr-${2}; } ; f"
 
   amend = commit --amend
+  forgot = amend --no-edit
 
 [color]
   branch = auto
