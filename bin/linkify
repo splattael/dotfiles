@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+
+# Convert code search to markdown lists linking to code online
+#
+# Usage:
+#   rg -n -g '!spec' "support_bot:"  | linkify 
+#   rg -n -g '!spec' "support_bot:"  | linkify | xclip -selection clipboad
+#
+# * [`enum bot_type: { support_bot: 1 }`](https://gitlab.com//blob/26fe37095/ee/db/migrate/20190401150746_index_users_bot_type.rb#L11)
+# * [`.where(support_bot: true)`](https://gitlab.com//blob/26fe37095/ee/db/migrate/20190401150746_index_users_bot_type.rb#L24)
+# * [`.update_all(support_bot: true)`](https://gitlab.com//blob/26fe37095/ee/db/migrate/20190401150746_index_users_bot_type.rb#L31)
+# * [`support_bot: 1`](https://gitlab.com//blob/26fe37095/ee/app/models/ee/user.rb#L76)
+# * [`%div{ class: "#{container_class} js-service-desk-issues service-desk-issues", data: { support_bot: support_bot_attrs } }`](https://gitlab.com//blob/26fe37095/ee/app/views/projects/issues/service_desk.html.haml#L11)
+
+# ee/app/models/license.rb:350:        User.active.excluding_guests.count
+LINE_MATCHER = %r{^(?<file>[^:]+):(?<line>\d+):\s*(?<code>.*)}
+
+def repo_url
+  url = `git remote get-url origin`
+
+  case url
+  when %r{git@([^:]+):(.*)}
+    [ $1, $2, "blob" ]
+  when %r{https://([^/]+)/(.*?)(?:.git)?}
+    [ $1, $2, "blob" ]
+  else
+    raise "unknown git remote url #{url}"
+  end
+end
+
+def parse_head
+  `git rev-parse HEAD`[0..8]
+end
+
+BASE = "https://%{host}/%{project}/%{path}/%{sha}/%{file}#L%{line}"
+def url_for(host, project, path, sha, file, line)
+  BASE % {
+    host: host,
+    project: project,
+    path: path,
+    sha: sha,
+    file: file,
+    line: line
+  }
+end
+
+def parse_line(line)
+  LINE_MATCHER.match(line)
+end
+
+def linkify(code, link)
+  %{* [`#{code}`](#{link})}
+end
+
+host, project, path = repo_url
+sha = parse_head
+
+STDIN.each do |line|
+  matched = parse_line(line) or next
+
+  url = url_for(host, project, path, sha, matched[:file], matched[:line])
+  link = linkify(matched[:code], url)
+
+  puts link
+end
