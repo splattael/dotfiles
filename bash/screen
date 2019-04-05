@@ -2,11 +2,12 @@
 
 S() {
   if [ "$1" = "" ]; then
-    project=$(basename $(pwd))
+    project=${PWD//\//.}
+    echo $project
     screen -S "$project"
   else
     type=$1
-    project=${2:-$(basename $(pwd))}
+    project=${2:-${PWD//\//.}}
     PROJECT="$project" screen -S "$project.$type" -c "$HOME/.screenrc.d/$type"
   fi
 }
