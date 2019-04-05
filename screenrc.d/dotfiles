@@ -1,6 +1,0 @@
-source $HOME/.screenrc.d/default
-
-chdir $HOME/.dotfiles
-
-screen
-screen -t gvim gvim .
