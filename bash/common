@@ -1,5 +1,6 @@
 # aliases
 alias wi="whois -h whois.thur.de"
+alias xcopy="xclip -selection clipboard"
 
 # common
 export EDITOR=vim
