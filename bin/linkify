@@ -19,9 +19,9 @@ def repo_url
   url = `git remote get-url origin`
 
   case url
-  when %r{git@([^:]+):(.*)}
+  when %r{git@([^:]+):(.*?)(?:\.git)?$}
     [ $1, $2, "blob" ]
-  when %r{https://([^/]+)/(.*?)(?:.git)?}
+  when %r{https://([^/]+)/(.*?)(?:.git)?$}
     [ $1, $2, "blob" ]
   else
     raise "unknown git remote url #{url}"
