@@ -2,7 +2,6 @@ alias gb='git branch -v'
 alias gba='gb -a'
 alias gc='git commit -v'
 alias gca='gc -a'
-alias gco='git cof'
 alias gc-='git checkout -'
 alias gd='git diff'
 alias gdw='git diff --word-diff'
@@ -23,6 +22,15 @@ alias gwc='git log -p'
 alias grs='git rebase --skip'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
+
+gco() {
+  if [ -z $1 ]
+  then
+    git cof
+  else
+    git co $*
+  fi
+}
 
 git_repo_size() {
   local last=${1:-20}
