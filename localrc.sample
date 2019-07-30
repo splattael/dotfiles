@@ -6,3 +6,6 @@ export COLOR_HOST=$COLOR_BROWN
 
 # export DOCKER_IMAGE_ELIXIR=splattael/elixir
 # export DOCKER_HOME_DIR=$HOME/docker
+
+export EXPERIMENTAL_PUMA=1
+export GDK_RUNIT=1
