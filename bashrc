@@ -15,7 +15,7 @@ source ~/.bash/history
 source ~/.bash/kubernetes
 source ~/.bash/prompt
 source ~/.bash/ruby
-source ~/.bash/screen
+source ~/.bash/tmux
 
 source ~/.bash/private
 source ~/.bash/gitlab

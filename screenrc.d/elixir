@@ -1,5 +1,0 @@
-source $HOME/.screenrc.d/default
-
-screen -t test
-screen -t iex
-screen -t code
