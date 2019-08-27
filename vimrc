@@ -149,3 +149,12 @@ nmap <leader>N :NERDTreeToggle<CR>
 silent exec "!mkdir -p $HOME/.cache/vim/undo"
 set undofile
 set undodir=$HOME/.cache/vim/undo
+
+if exists(":Tabularize")
+  nmap <leader>a= :Tabularize /=<CR>
+  vmap <leader>a= :Tabularize /=<CR>
+  nmap <leader>a: :Tabularize /:\zs<CR>
+  vmap <leader>a: :Tabularize /:\zs<CR>
+  nmap <leader>a> :Tabularize /\|<CR>
+  vmap <leader>a> :Tabularize /\|<CR>
+endif
