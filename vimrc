@@ -158,3 +158,8 @@ if exists(":Tabularize")
   nmap <leader>a> :Tabularize /\|<CR>
   vmap <leader>a> :Tabularize /\|<CR>
 endif
+
+set regexpengine=1
+set synmaxcol=256
+set nocursorcolumn
+set nocursorline
