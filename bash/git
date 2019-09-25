@@ -26,7 +26,10 @@ alias gra='git rebase --abort'
 gco() {
   if [ -z $1 ]
   then
-    git cof
+    branch=$(git branch | fzf)
+    if [ "$branch" != "" ]; then
+      git co $branch
+    fi
   else
     git co $*
   fi
