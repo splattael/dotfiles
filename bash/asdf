@@ -1,11 +1,16 @@
 source ~/.asdf/asdf.sh
 source ~/.asdf/completions/asdf.bash
 
-ASDF_PLUGINS="golang nodejs elm ruby rust elixir erlang minikube helm kubectl crystal java redis"
+ASDF_PLUGINS=$(cat ~/.tool-versions | awk '{print $1}')
 
-function install-asdf-plugins() {
+function install-asdf-missing() {
   for plugin in $ASDF_PLUGINS
   do
     asdf plugin-add $plugin
+  done
+
+  cat ~/.tool-versions| while read plugin version; do
+    asdf install $plugin $version
+    asdf global $plugin $version
   done
 }
