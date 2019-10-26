@@ -1,12 +1,11 @@
 S() {
   if [ "$1" = "" ]; then
-    project=${PWD}
-    echo $project
+    project=${PWD//./-}
     tmux new-session -s "$project"
   else
     type=$1
-    project=${2:-${PWD}}
-    tmux new-session -s "$type.$project"
+    project=${2:-${PWD//./-}}
+    tmux new-session -s "$type@$project"
     # PROJECT="$project" screen -S "$project.$type" -c "$HOME/.screenrc.d/$type"
   fi
 }
