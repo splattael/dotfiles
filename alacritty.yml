@@ -1,5 +1,21 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+# ## Gnome
+#
+# Add to ~/.local/share/applications/alacritty.desktop
+#
+# [Desktop Entry]
+# Name=Alacritty
+# StartupWMClass=Alacritty
+# Comment=Alacritty Desktop
+# GenericName=Terminal
+# Exec=~/bin/alacritty
+# Icon=utilities-terminal
+# Type=Application
+# StartupNotify=true
+# Categories=GNOME;GTK;System;TerminalEmulator;
+# X-GNOME-SingleWindow=false
+
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
