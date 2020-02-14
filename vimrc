@@ -33,6 +33,7 @@ nmap <leader>FF :GFiles?<CR>
 nmap <leader>h :History<CR>
 nmap <leader>H :History:<CR>
 nmap <leader>/ :Rg<Space>
+nmap g<leader>/ :execute "Rg " . expand('<cword>')<CR>
 
 " Tags with ctags
 function! UpdateTags()
