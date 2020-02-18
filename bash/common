@@ -1,6 +1,7 @@
 # aliases
-alias wi="whois -h whois.thur.de"
-alias xcopy="xclip -selection clipboard"
+alias wi='whois -h whois.thur.de'
+alias xcopy='xclip -selection clipboard'
+alias grep='grep --colour=auto'
 
 # common
 export EDITOR=vim
