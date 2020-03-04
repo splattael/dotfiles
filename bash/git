@@ -1,6 +1,6 @@
 alias gb='git branch -v'
 alias gba='gb -a'
-alias gbc='gba -v | grep ": gone" | awk '{print$1}'  | xargs -I% git branch -D %'
+alias gbc='gba -v | grep ": gone" | awk "{print \$1}"  | xargs -I% git branch -D %'
 alias gc='git commit -v'
 alias gca='gc -a'
 alias gc-='git checkout -'
