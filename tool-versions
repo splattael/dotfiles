@@ -3,7 +3,7 @@ ruby 2.6.5
 elixir 1.7.3
 erlang 21.0.9
 java openjdk-11
-crystal 0.27.2
+crystal 0.33.0
 kubectl 1.14.1
 minikube 1.2.0
 golang 1.12.7
