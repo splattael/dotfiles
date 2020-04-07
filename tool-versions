@@ -6,7 +6,7 @@ java openjdk-11
 crystal 0.33.0
 kubectl 1.14.1
 minikube 1.2.0
-golang 1.12.7
+golang 1.13.9
 redis 4.0.11
 rust 1.38.0
 helm 2.11.0
