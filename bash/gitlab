@@ -7,3 +7,10 @@ setup-git-gitlab() {
 }
 
 alias srs="bin/spring rspec -f documentation --order rand"
+
+srs-loop() {
+  while :; do
+    srs "$@" || break
+  done
+}
+
