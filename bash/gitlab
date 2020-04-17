@@ -6,7 +6,9 @@ setup-git-gitlab() {
   setup-git GitLab pleitzen@gitlab.com
 }
 
-alias srs="bin/spring rspec -f documentation --order rand"
+srs() {
+  bin/spring rspec -f documentation --order $RANDOM
+}
 
 srs-loop() {
   while :; do
