@@ -14,3 +14,4 @@ terraform 0.11.10
 maven 3.6.2
 minio 2020-01-03T19-12-21Z
 gradle 6.1.1
+yarn 1.22.4
