@@ -34,7 +34,7 @@ DEB_PACKAGES+=(https://github.com/alacritty/alacritty/releases/download/v0.4.2/A
 
 # Spotify: https://www.spotify.com/de/download/linux/
 PACKAGES+=(spotify-client)
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 # Zoom: https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_89c268b4-2a68-4e4c-882f-441e374b87cb
@@ -93,7 +93,7 @@ bash -i -c 'install-asdf-missing'
 ## Settings
 
 # Tab current windows only
-# https://coderwall.com/p/m5mhoq/gnome-3-how-to-alt-tab-windows-on-current-workspace-only 
+# https://coderwall.com/p/m5mhoq/gnome-3-how-to-alt-tab-windows-on-current-workspace-only
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 # Static workspaces
