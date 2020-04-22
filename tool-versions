@@ -1,12 +1,10 @@
+golang 1.13.9
 ruby 2.6.5
-nodejs 12.10.0
 erlang 21.0.9
 elixir 1.10.2
-java openjdk-11
 crystal 0.33.0
 kubectl 1.14.1
 minikube 1.2.0
-golang 1.13.9
 redis 4.0.11
 rust 1.38.0
 helm 2.11.0
@@ -16,4 +14,6 @@ minio 2020-01-03T19-12-21Z
 gradle 6.1.1
 yarn 1.22.4
 ripgrep 12.0.1
+nodejs 12.10.0
 postgres 11.7
+java adopt-openjdk-14.0.1+7
