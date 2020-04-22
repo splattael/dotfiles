@@ -1,0 +1,124 @@
+#!/bin/bash
+
+# Run a Debian installation for my laptop
+
+set -ex
+
+install_deb() {
+  local url="$1"
+  local temp_deb="$(mktemp '/tmp/install-debian.XXXXXX')"
+
+  wget -O "$temp_deb" "$url" && sudo dpkg -i "$temp_deb"
+  rm -f "$temp_deb"
+}
+
+PACKAGES=(vim-gtk tmux gnome-tweak-tool git peek ruby curl fonts-inconsolata)
+DEB_PACKAGES=()
+
+# https://www.passwordstore.org/
+PACKAGES+=(pass oathtool qrencode)
+
+# asdf
+# Ruby
+PACKAGES+=(libssl-dev libreadline-dev zlib1g-dev)
+# Elixir
+PACKAGES+=(automake autoconf libncurses5-dev jq)
+
+# https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/master/doc/prepare.md#debian
+PACKAGES+=(libpq-dev libicu-dev cmake g++ libkrb5-dev libre2-dev ed pkg-config graphicsmagick runit-systemd libimage-exiftool-perl rsync libsqlite3-dev)
+
+## Packages
+
+# Alacritty
+DEB_PACKAGES+=(https://github.com/alacritty/alacritty/releases/download/v0.4.2/Alacritty-v0.4.2-ubuntu_18_04_amd64.deb)
+
+# Spotify: https://www.spotify.com/de/download/linux/
+PACKAGES+=(spotify-client)
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
+# Zoom: https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_89c268b4-2a68-4e4c-882f-441e374b87cb
+PACKAGES+=(libglib2.0-0 libgstreamer-plugins-base1.0-0 libxcb-shape0 libxcb-shm0 libxcb-xfixes0 libxcb-randr0 libxcb-image0 libfontconfig1 libgl1-mesa-glx libxi6 libsm6 libxrender1 libpulse0 libxcomposite1 libxslt1.1 libsqlite3-0 libxcb-keysyms1 libxcb-xtest0 ibus libegl1-mesa)
+DEB_PACKAGES+=(https://zoom.us/client/latest/zoom_amd64.deb)
+
+# Signal: https://signal.org/de/download/
+PACKAGES+=(signal-desktop libappindicator3-1)
+curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee /etc/apt/sources.list.d/signal-xenial.list
+
+# Slack: ttps://slack.com/intl/en-de/downloads/linux
+DEB_PACKAGES+=(https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.2-amd64.deb)
+
+sudo apt update
+sudo apt install -y ${PACKAGES[@]}
+
+for deb in "$DEB_PACKAGES"
+do
+  install_deb "$deb"
+done
+
+## SSH Key
+
+if [ ! -f ~/.ssh/id_ed25519 ]; then
+  ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
+fi
+
+## Dotfiles
+
+if [ ! -d ~/.dotfiles ]; then
+  git clone https://github.com/splattael/dotfiles.git ~/.dotfiles
+
+  (
+    cd ~/.dotfiles
+    rake update
+    yes | rake install
+  )
+fi
+
+bash -i -c 'install-asdf-missing'
+
+(
+  source ~/.bashrc
+  cd ~/.dotfiles
+  git remote rm origin || true
+  git remote add origin z:splattael/dotfiles
+  git remote set-url origin --add wgl:splattael/dotfiles
+  git remote set-url origin --add wgh:splattael/dotfiles
+)
+
+(
+  source ~/.bashrc && cd .fzf && make install
+)
+
+## Settings
+
+# Tab current windows only
+# https://coderwall.com/p/m5mhoq/gnome-3-how-to-alt-tab-windows-on-current-workspace-only 
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
+# Static workspaces
+gsettings set org.gnome.mutter dynamic-workspaces false
+
+# Enable Alternate Tab
+gsettings set org.gnome.shell enabled-extensions "['alternate-tab@gnome-shell-extensions.gcampax.github.com']"
+
+# 4 Workspaces
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 4
+
+# Show hidden files
+gsettings set org.gtk.Settings.FileChooser show-hidden true
+
+# Clock
+gsettings set org.gnome.desktop.interface clock-show-seconds true
+gsettings set org.gnome.desktop.interface clock-show-date true
+gsettings set org.gnome.desktop.datetime automatic-timezone true
+
+# Mouse
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
+
+# Background/lock image
+gsettings set org.gnome.desktop.background picture-uri 'file:///home/peter/.dotfiles/assets/wallpapers/gitlab-wallpaper-1.png'
+gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/peter/.dotfiles/assets/wallpapers/gitlab-wallpaper-2-lock.png'
+
+# TODO set user image
