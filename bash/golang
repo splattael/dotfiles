@@ -1,6 +1,7 @@
-gobin=$(go env GOPATH)/bin
+if [ "$(which go)" != "" ]; then
+  gobin=$(go env GOPATH)/bin
 
-if [[ ! "$PATH" == *$gobin* ]]; then
-  export PATH="$PATH:$gobin"
+  if [[ ! "$PATH" == *$gobin* ]]; then
+    export PATH="$PATH:$gobin"
+  fi
 fi
-
