@@ -103,9 +103,8 @@ sudo usermod -aG docker peter
 # Tab current windows only
 # https://coderwall.com/p/m5mhoq/gnome-3-how-to-alt-tab-windows-on-current-workspace-only
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
-
-# Static workspaces
 gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.mutter workspaces-only-on-primary false
 
 # Enable Alternate Tab
 gsettings set org.gnome.shell enabled-extensions "['alternate-tab@gnome-shell-extensions.gcampax.github.com']"
