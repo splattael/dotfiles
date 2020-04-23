@@ -12,7 +12,7 @@ install_deb() {
   rm -f "$temp_deb"
 }
 
-PACKAGES=(vim-gtk tmux gnome-tweak-tool git peek ruby curl fonts-inconsolata)
+PACKAGES=(vim-gtk tmux gnome-tweak-tool git git-lfs peek ruby curl fonts-inconsolata)
 DEB_PACKAGES=()
 
 # https://www.passwordstore.org/
