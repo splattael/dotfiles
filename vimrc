@@ -164,3 +164,5 @@ set regexpengine=1
 set synmaxcol=256
 set nocursorcolumn
 set nocursorline
+
+let g:netrw_browsex_viewer="xgd-open"
