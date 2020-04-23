@@ -14,6 +14,7 @@ source ~/.bash/hub
 source ~/.bash/history
 source ~/.bash/kubernetes
 source ~/.bash/prompt
+source ~/.bash/pass
 source ~/.bash/ruby
 source ~/.bash/tmux
 
