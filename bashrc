@@ -3,6 +3,10 @@ if [ -f /etc/bash.bashrc ]; then
   . /etc/bash.bashrc
 fi
 
+if [ "$BASH_COMPLETION_VERSINFO" = "" ]; then
+  . /etc/bash_completion
+fi
+
 source ~/.bash/asdf
 source ~/.bash/bin
 source ~/.bash/common
