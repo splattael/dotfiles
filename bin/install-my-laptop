@@ -128,4 +128,10 @@ gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
 gsettings set org.gnome.desktop.background picture-uri 'file:///home/peter/.dotfiles/assets/wallpapers/gitlab-wallpaper-1.png'
 gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/peter/.dotfiles/assets/wallpapers/gitlab-wallpaper-2-lock.png'
 
+# Fonts
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 13'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Inconsolata Medium 13'
+gsettings set org.gnome.desktop.interface font-name 'Cantarell 13'
+gsettings set org.gnome.desktop.interface document-font-name 'Sans 13'
+
 # TODO set user image
