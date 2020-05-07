@@ -7,7 +7,7 @@ setup-git-gitlab() {
 }
 
 srs() {
-  bin/spring rspec -f documentation --order $RANDOM "$@"
+  bin/spring rspec -f documentation --order "random:$RANDOM" "$@"
 }
 
 srs-loop() {
