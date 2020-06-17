@@ -18,3 +18,4 @@ nodejs 12.10.0
 postgres 11.7
 java adopt-openjdk-14.0.1+7
 k3d 1.7.0
+gcloud 293.0.0
