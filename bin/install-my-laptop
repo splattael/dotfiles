@@ -15,7 +15,7 @@ install_deb() {
 PACKAGES=(
   vim-gtk tmux gnome-tweak-tool git git-lfs peek ruby curl
   fonts-inconsolata net-tools ctags dnsutils pngquant
-  chromium-driver openvpn
+  chromium-driver openvpn network-manager-openvpn-gnome
   )
 DEB_PACKAGES=()
 
