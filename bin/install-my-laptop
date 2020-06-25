@@ -138,4 +138,6 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Inconsolata Mediu
 gsettings set org.gnome.desktop.interface font-name 'Cantarell 13'
 gsettings set org.gnome.desktop.interface document-font-name 'Sans 13'
 
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
 # TODO set user image
