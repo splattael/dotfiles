@@ -16,6 +16,7 @@ PACKAGES=(
   vim-gtk tmux gnome-tweak-tool git git-lfs peek ruby curl
   fonts-inconsolata net-tools ctags dnsutils pngquant
   chromium-driver openvpn network-manager-openvpn-gnome
+  gimp
   )
 DEB_PACKAGES=()
 
