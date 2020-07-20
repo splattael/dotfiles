@@ -90,3 +90,5 @@
 	rebase = true
 [advice]
 	detachedHead = false
+[checkout]
+	defaultRemote = origin
