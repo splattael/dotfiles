@@ -66,7 +66,7 @@ namespace :submodules do
   desc "Update git submodules"
   task :update do
     sh "git submodule init"
-    sh "git submodule update --recursive"
+    sh "git submodule update --recursive --remote"
     sh "git submodule summary"
   end
 
