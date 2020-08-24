@@ -12,3 +12,7 @@ export EXPERIMENTAL_PUMA=1
 export GDK_RUNIT=1
 export GITLAB_API_ENDPOINT=https://gitlab.com/api/v4
 export GITLAB_API_PRIVATE_TOKEN=
+
+# test-prof in GitLab
+export FPROF=1
+EVENT_PROF='sql.active_record'
