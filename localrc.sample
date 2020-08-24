@@ -15,4 +15,4 @@ export GITLAB_API_PRIVATE_TOKEN=
 
 # test-prof in GitLab
 export FPROF=1
-EVENT_PROF='sql.active_record'
+export EVENT_PROF='sql.active_record'
