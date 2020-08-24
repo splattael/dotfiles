@@ -14,5 +14,6 @@ export GITLAB_API_ENDPOINT=https://gitlab.com/api/v4
 export GITLAB_API_PRIVATE_TOKEN=
 
 # test-prof in GitLab
+export FDOC=1
 export FPROF=1
 export EVENT_PROF='sql.active_record'
