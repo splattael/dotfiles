@@ -35,6 +35,28 @@ nmap <leader>H :History:<CR>
 nmap <leader>/ :Rg<Space>
 nmap g<leader>/ :execute "Rg " . expand('<cword>')<CR>
 
+" ale
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_warnings = l:counts.total - l:all_errors
+
+    if l:counts.total == 0
+      return ''
+    endif
+
+    if l:all_errors > 0 && l:all_warnings > 0
+      return printf('%d⭕ %d🔴 ', all_warnings, all_errors)
+    endif
+
+    if l:all_errors > 0
+      return printf('%d🔴 ', all_errors)
+    endif
+
+    return printf('%d⭕', all_warnings)
+endfunction
+
 " Tags with ctags
 function! UpdateTags()
   let cwd = getcwd()
@@ -56,7 +78,12 @@ set guifont=inconsolata\ 13
 
 " statusline
 set laststatus=2
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline=
+set statusline+=%<%f\ %h%m%r               " file etc.
+set statusline+=%{fugitive#statusline()}\  " git status
+set statusline+=%{LinterStatus()}          " ale linter status
+set statusline+=%=%-14.(%l,%c%V%)          " (line,column)
+set statusline+=\ %P                       " percent
 
 " splits
 set splitbelow
@@ -132,16 +159,6 @@ let g:rufo_auto_formatting = 0
 " Open URL under cursor with gnome-open
 " See https://vi.stackexchange.com/a/5034
 let g:netrw_browsex_viewer="setsid gnome-open"
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " NERDTree
 nmap <leader>N :NERDTreeToggle<CR>
