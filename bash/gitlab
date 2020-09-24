@@ -7,7 +7,17 @@ setup-git-gitlab() {
 }
 
 srs() {
-  bin/spring rspec -f documentation --order "random:$RANDOM" "$@"
+  qsrs "$@"
+}
+
+qsrs() {
+  bin/spring rspec --order "random:$RANDOM" "$@"
+}
+
+qsrs-loop() {
+  while :; do
+    qsrs "$@" || break
+  done
 }
 
 srs-loop() {
@@ -15,4 +25,3 @@ srs-loop() {
     srs "$@" || break
   done
 }
-
