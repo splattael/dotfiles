@@ -200,8 +200,11 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Disable key navigation (almost hardmode)
 " See https://vi.stackexchange.com/a/25848
-for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+for key in [
+      \ '<Up>', '<Down>', '<Left>', '<Right>', '<Home>', '<End>',
+      \ '<PageUp>', '<PageDown>',
+      \ '<C-W><Up>', '<C-W><Down>', '<C-W><Left>', '<C-W><Right>'
+      \ ]
   exec 'noremap' key '<Nop>'
   exec 'inoremap' key '<Nop>'
-  exec 'cnoremap' key '<Nop>'
 endfor
