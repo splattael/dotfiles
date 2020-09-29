@@ -192,6 +192,16 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 " ale configuration
 let g:ale_ruby_rubocop_executable = 'bundle'
+" Only check on save
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+" Disable key navigation (almost hardmode)
+" See https://vi.stackexchange.com/a/25848
+for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+  exec 'noremap' key '<Nop>'
+  exec 'inoremap' key '<Nop>'
+  exec 'cnoremap' key '<Nop>'
+endfor
