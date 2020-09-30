@@ -6,22 +6,22 @@ setup-git-gitlab() {
   setup-git GitLab pleitzen@gitlab.com
 }
 
-srs() {
-  qsrs "$@"
+rs() {
+  bin/spring rspec "$@"
 }
 
-qsrs() {
-  bin/spring rspec --order "random:$RANDOM" "$@"
+rrs() {
+  rs --order "random:$RANDOM" "$@"
 }
 
-qsrs-loop() {
+rs-loop() {
   while :; do
-    qsrs "$@" || break
+    rs "$@" || break
   done
 }
 
-srs-loop() {
+rrs-loop() {
   while :; do
-    srs "$@" || break
+    rrs "$@" || break
   done
 }
