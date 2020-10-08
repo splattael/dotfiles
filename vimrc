@@ -26,10 +26,10 @@ nmap <silent> 7 :nohlsearch<CR>
 set runtimepath+=~/.fzf
 set runtimepath+=~/.vim/bundle/fzf.vim
 
-nmap <leader>f :Files<CR>
+nmap <leader>f :GFiles<CR>
 nmap <leader>F :Buffers<CR>
-nmap <leader>ff :GFiles<CR>
-nmap <leader>FF :GFiles?<CR>
+nmap <leader>ff :Files<CR>
+nmap <leader>fs :GFiles?<CR>
 nmap <leader>h :History<CR>
 nmap <leader>H :History:<CR>
 nmap <leader>/ :Rg<Space>
