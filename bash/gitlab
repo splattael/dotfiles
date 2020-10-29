@@ -25,3 +25,24 @@ rrs-loop() {
     rrs "$@" || break
   done
 }
+
+mr_failed_test() {
+  local project_path=$(git remote get-url origin | perl -ne '/:(.*?)(?:\.git)?$/ and print $1')
+  local mr_iid="$1"
+  local branch=$(git rev-parse --abbrev-ref HEAD)
+
+  if [ "$mr_iid" = "" -a "$branch" != "master" ]
+  then
+    local escpaed_project_path=${project_path//\//%2f}
+    mr_iid=$(curl -sG --data-urlencode "source_branch=${branch}" "https://gitlab.com/api/v4/projects/$escpaed_project_path/merge_requests" | jq -j '.[0].iid')
+  fi
+
+  if [ "$mr_iid" = "" ]
+  then
+    echo "MR IID is required for '$branch'"
+    return 1
+  fi
+
+  echo "# Fetching from https://gitlab.com/${project_path}/-/merge_requests/${mr_iid}/test_reports.json" >&2
+  curl -s "https://gitlab.com/${project_path}/-/merge_requests/${mr_iid}/test_reports.json" | jq -r '.suites[]? | [{file: (.new_failures[].file | sub("./"; ""))}] | unique | .[].file'
+}
