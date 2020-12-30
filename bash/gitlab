@@ -44,5 +44,5 @@ mr_failed_test() {
   fi
 
   echo "# Fetching from https://gitlab.com/${project_path}/-/merge_requests/${mr_iid}/test_reports.json" >&2
-  curl -s "https://gitlab.com/${project_path}/-/merge_requests/${mr_iid}/test_reports.json" | jq -r '.suites[]? | [{file: (.new_failures[].file | sub("./"; ""))}] | unique | .[].file'
+  curl -s "https://gitlab.com/${project_path}/-/merge_requests/${mr_iid}/test_reports.json" | jq -r '.suites[]? | .new_failures[].file | sub("./"; "")' | uniq
 }
