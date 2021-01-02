@@ -111,7 +111,8 @@ nmap <leader>gp :Git push<CR>
 autocmd FileType gitcommit setlocal spell
 set complete+=kspell
 
-nnoremap <F3> :set nospell!<CR>
+nmap <leader>S :set nospell!<CR>
+nmap <leader>R :source $MYVIMRC<CR>
 
 " highlight lines longer than 80 chars
 highlight LineProximity ctermfg=white ctermbg=gray guifg=white guibg=#757160
@@ -133,19 +134,11 @@ vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
 nnoremap <leader>em :ElmMakeCurrentFile<CR>
 let g:elm_format_autosave = 1
 
-" Crystal
-let g:crystal_define_mappings=0
-autocmd FileType crystal nmap <F2> :CrystalSpecRunCurrent<CR>
-autocmd FileType crystal nmap <S-F2> :CrystalSpecRunAll<CR>
-
 " Disable netrw history
 let g:netrw_dirhistmax=0
 
 " Rust
 let g:rustfmt_autosave = 1
-
-" Enable Ruby Format rufo
-let g:rufo_auto_formatting = 0
 
 " Abosolute + realtive line numbers
 " Refs: https://jeffkreeftmeijer.com/vim-number/
@@ -197,6 +190,9 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" disable brakeman because it's slow
+let g:ale_ruby_brakeman_executable='disabled command'
 
 " Disable key navigation (almost hardmode)
 " See https://vi.stackexchange.com/a/25848
