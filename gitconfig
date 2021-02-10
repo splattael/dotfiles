@@ -27,21 +27,21 @@
 
 [core]
   excludesfile = ~/.gitexcludes 
-	hooksPath = ~/.git/hooks
-	autocrlf = input
+  hooksPath = ~/.git/hooks
+  autocrlf = input
 #  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [giggle]
-	main-window-maximized = true
-	main-window-geometry = 0x0+0+0
-	main-window-view = HistoryView
-	history-view-vpane-position = 412
-	file-view-vpane-position = 458
+  main-window-maximized = true
+  main-window-geometry = 0x0+0+0
+  main-window-view = HistoryView
+  history-view-vpane-position = 412
+  file-view-vpane-position = 458
 
 [rerere]
-	enabled = true
+  enabled = true
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 
 [rebase]
   autosquash = true
@@ -74,21 +74,21 @@
 [user]
   name = Peter Leitzen
   email = peter@leitzen.de
-	signingkey = 8845C8FAF99B78B447627DBF97DE9D2E708A225E
+  signingkey = 8845C8FAF99B78B447627DBF97DE9D2E708A225E
 [diff "image"]
-	command = git-imgdiff
+  command = git-imgdiff
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [commit]
-	gpgsign = true
+  gpgsign = true
 [protocol]
-	version = 2
+  version = 2
 [pull]
-	rebase = true
+  rebase = true
 [advice]
-	detachedHead = false
+  detachedHead = false
 [checkout]
-	defaultRemote = origin
+  defaultRemote = origin
