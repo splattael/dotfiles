@@ -42,6 +42,7 @@
   enabled = true
 [branch]
   autosetuprebase = always
+  sort = -committerdate
 
 [rebase]
   autosquash = true
