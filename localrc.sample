@@ -23,3 +23,6 @@ export EVENT_PROF='sql.active_record'
 
 # Speed up specs
 export GITLAB_TEST_EAGER_LOAD=false
+
+# https://docs.gitlab.com/ee/development/contributing/style_guides.html#reveal-existing-rubocop-exceptions
+export REVEAL_RUBOCOP_TODO=1
