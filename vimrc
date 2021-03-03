@@ -192,7 +192,7 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " disable brakeman because it's slow
-let g:ale_ruby_brakeman_executable='disabled command'
+let g:ale_linters_ignore = ['brakeman']
 
 " Disable key navigation (almost hardmode)
 " See https://vi.stackexchange.com/a/25848
