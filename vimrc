@@ -118,8 +118,8 @@ nmap <leader>R :source $MYVIMRC<CR>
 highlight LineProximity ctermfg=white ctermbg=gray guifg=white guibg=#757160
 highlight LineOverflow  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
 
-autocmd BufEnter,VimEnter,FileType *.rb,*.coffee let w:m1=matchadd('LineProximity', '\%<85v.\%>80v', -1)
-autocmd BufEnter,VimEnter,FileType *.rb,*.coffee let w:m2=matchadd('LineOverflow', '\%>84v.\+', -1)
+autocmd BufEnter,VimEnter,FileType *.rb,*.coffee let w:m1=matchadd('LineProximity', '\%<120v.\%>80v', -1)
+autocmd BufEnter,VimEnter,FileType *.rb,*.coffee let w:m2=matchadd('LineOverflow', '\%>119v.\+', -1)
 autocmd BufEnter,VimEnter,FileType,VimEnter *.rb,*.coffee autocmd WinEnter *.rb,*.coffee let w:created=1
 autocmd BufEnter,VimEnter,FileType,VimEnter *.rb,*.coffee let w:created=1
 
