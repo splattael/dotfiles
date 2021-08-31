@@ -2,7 +2,7 @@ golang 1.15.1
 ruby 2.7.2
 erlang 21.0.9
 elixir 1.10.2
-crystal 0.35.1
+crystal 1.0.0
 kubectl 1.14.1
 minikube 1.2.0
 redis 6.0.8
