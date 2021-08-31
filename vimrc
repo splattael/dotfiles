@@ -204,3 +204,5 @@ for key in [
   exec 'noremap' key '<Nop>'
   exec 'inoremap' key '<Nop>'
 endfor
+
+let g:snipMate = { 'snippet_version' : 1 }
