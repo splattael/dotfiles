@@ -6,7 +6,8 @@ set -ex
 
 install_deb() {
   local url="$1"
-  local temp_deb="$(mktemp '/tmp/install-debian.XXXXXX')"
+  local temp_deb
+  temp_deb="$(mktemp '/tmp/install-debian.XXXXXX')"
 
   wget -O "$temp_deb" "$url" && sudo dpkg -i "$temp_deb"
   rm -f "$temp_deb"
@@ -14,7 +15,7 @@ install_deb() {
 
 PACKAGES=(
   vim-gtk tmux gnome-tweak-tool git git-lfs peek ruby curl
-  fonts-inconsolata net-tools ctags dnsutils pngquant
+  fonts-inconsolata net-tools exuberant-ctags dnsutils pngquant
   chromium-driver openvpn network-manager-openvpn-gnome
   gimp perf-tools-unstable
   )
@@ -60,12 +61,12 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sud
 DEB_PACKAGES+=(https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.2-amd64.deb)
 
 sudo apt update
-sudo apt install -y ${PACKAGES[@]}
+sudo apt install -y "${PACKAGES[@]}"
 
 # We need the latest git
-sudo apt-get -t buster-backports install git
+sudo apt-get -t bullseye-backports install git
 
-for deb in "$DEB_PACKAGES"
+for deb in "${DEB_PACKAGES[@]}"
 do
   install_deb "$deb"
 done
@@ -91,6 +92,7 @@ fi
 bash -i -c 'install-asdf-missing'
 
 (
+  # shellcheck disable=SC1090
   source ~/.bashrc
   cd ~/.dotfiles
   git remote rm origin || true
@@ -100,6 +102,7 @@ bash -i -c 'install-asdf-missing'
 )
 
 (
+  # shellcheck disable=SC1090
   source ~/.bashrc && cd .fzf && make install
 )
 
