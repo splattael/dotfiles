@@ -41,7 +41,7 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 
 # Alacritty: https://github.com/alacritty/alacritty
-DEB_PACKAGES+=(https://github.com/alacritty/alacritty/releases/download/v0.4.2/Alacritty-v0.4.2-ubuntu_18_04_amd64.deb)
+DEB_PACKAGES+=(https://github.com/barnumbirr/alacritty-debian/releases/download/v0.9.0-2/alacritty_0.9.0-2_amd64_bullseye.deb)
 
 # Spotify: https://www.spotify.com/de/download/linux/
 PACKAGES+=(spotify-client)
