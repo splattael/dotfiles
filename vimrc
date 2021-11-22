@@ -184,7 +184,7 @@ highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 " ale configuration
-let g:ale_ruby_rubocop_executable = 'bundle rubocop'
+let g:ale_ruby_rubocop_executable = 'bundle'
 " Only check on save
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
