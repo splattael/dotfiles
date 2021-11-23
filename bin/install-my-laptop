@@ -13,16 +13,16 @@ install_deb() {
   rm -f "$temp_deb"
 }
 
+# Packages: via apt
+
+## Basic
 PACKAGES=(
-  vim-gtk tmux gnome-tweak-tool git git-lfs peek ruby curl
-  fonts-inconsolata net-tools exuberant-ctags dnsutils pngquant
-  chromium-driver openvpn network-manager-openvpn-gnome
-  gimp perf-tools-unstable
+  vim tmux gnome-tweak-tool git git-lfs ruby curl wget
+  fonts-inconsolata net-tools exuberant-ctags dnsutils
   )
-DEB_PACKAGES=()
 
 # https://www.passwordstore.org/
-PACKAGES+=(pass oathtool qrencode)
+PACKAGES+=(pass)
 
 # asdf
 # Ruby
@@ -33,12 +33,23 @@ PACKAGES+=(automake autoconf libncurses5-dev jq)
 # https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/master/doc/prepare.md#debian
 PACKAGES+=(libpq-dev libicu-dev cmake g++ libkrb5-dev libre2-dev ed pkg-config graphicsmagick runit-systemd libimage-exiftool-perl rsync libsqlite3-dev)
 
+# Auxiliary packages
+PACKAGES+=(
+  peek pngquant
+  chromium-driver
+  openvpn network-manager-openvpn-gnome
+  gimp perf-tools-unstable
+  wireshark
+)
+
 ## Packages
 
 # Docker: https://docs.docker.com/engine/install/debian/
 PACKAGES+=(apt-transport-https ca-certificates curl gnupg-agent software-properties-common docker-ce docker-ce-cli containerd.io)
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+# Packages: direct downloads
+DEB_PACKAGES=()
 
 # Alacritty: https://github.com/alacritty/alacritty
 DEB_PACKAGES+=(https://github.com/barnumbirr/alacritty-debian/releases/download/v0.9.0-2/alacritty_0.9.0-2_amd64_bullseye.deb)
@@ -103,7 +114,7 @@ bash -i -c 'install-asdf-missing'
 
 (
   # shellcheck disable=SC1090
-  source ~/.bashrc && cd .fzf && make install
+  source ~/.bashrc && cd ~/.fzf && make install
 )
 
 # Docker
@@ -133,7 +144,7 @@ gsettings set org.gnome.desktop.datetime automatic-timezone true
 
 # Mouse
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
-gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
+gsettings set org.gnome.desktop.interface locate-pointer true
 
 # Background/lock image
 gsettings set org.gnome.desktop.background picture-uri 'file:///home/peter/.dotfiles/assets/wallpapers/gitlab-wallpaper-1.png'

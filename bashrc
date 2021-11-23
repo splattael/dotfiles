@@ -14,7 +14,6 @@ source ~/.bash/docker
 source ~/.bash/fzf
 source ~/.bash/git
 source ~/.bash/golang
-source ~/.bash/hub
 source ~/.bash/history
 source ~/.bash/kubernetes
 source ~/.bash/prompt
