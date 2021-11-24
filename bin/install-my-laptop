@@ -4,6 +4,9 @@
 
 set -ex
 
+DEB_RELEASE=${DEB_RELEASE:-bullseye}
+USER=${USER:-peter}
+
 install_deb() {
   local url="$1"
   local temp_deb
@@ -52,7 +55,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debi
 DEB_PACKAGES=()
 
 # Alacritty: https://github.com/alacritty/alacritty
-DEB_PACKAGES+=(https://github.com/barnumbirr/alacritty-debian/releases/download/v0.9.0-2/alacritty_0.9.0-2_amd64_bullseye.deb)
+DEB_PACKAGES+=(https://github.com/barnumbirr/alacritty-debian/releases/download/v0.9.0-2/alacritty_0.9.0-2_amd64_${DEB_RELEASE}.deb)
 
 # Spotify: https://www.spotify.com/de/download/linux/
 PACKAGES+=(spotify-client)
@@ -75,7 +78,7 @@ sudo apt update
 sudo apt install -y "${PACKAGES[@]}"
 
 # We need the latest git
-sudo apt-get -t bullseye-backports install git
+sudo apt-get -t "${DEB_RELEASE}-backports" install git
 
 for deb in "${DEB_PACKAGES[@]}"
 do
@@ -118,7 +121,7 @@ bash -i -c 'install-asdf-missing'
 )
 
 # Docker
-sudo usermod -aG docker peter
+sudo usermod -aG docker "$USER"
 
 ## Settings
 
@@ -128,8 +131,8 @@ gsettings set org.gnome.shell.app-switcher current-workspace-only true
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 
-# Enable Alternate Tab
-gsettings set org.gnome.shell enabled-extensions "['alternate-tab@gnome-shell-extensions.gcampax.github.com']"
+# Alternate between windows (not window groups) directly via ALT+Tab
+gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 
 # 4 Workspaces
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 4
@@ -147,8 +150,8 @@ gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.interface locate-pointer true
 
 # Background/lock image
-gsettings set org.gnome.desktop.background picture-uri 'file:///home/peter/.dotfiles/assets/wallpapers/gitlab-wallpaper-1.png'
-gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/peter/.dotfiles/assets/wallpapers/gitlab-wallpaper-2-lock.png'
+gsettings set org.gnome.desktop.background picture-uri "file:///home/$USER/.dotfiles/assets/wallpapers/gitlab-wallpaper-1.png"
+gsettings set org.gnome.desktop.screensaver picture-uri "file:///home/$USER/.dotfiles/assets/wallpapers/gitlab-wallpaper-2-lock.png"
 
 # Fonts
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 13'
