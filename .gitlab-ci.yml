@@ -1,0 +1,23 @@
+image: docker:dind
+
+variables:
+  DEBIAN_FRONTEND: noninteractive
+
+stages:
+  - build
+  - test
+
+build:install-my-laptop:
+  stage: build
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE:latest || true
+  script:
+    - docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA --tag $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE:latest
+
+test:install-my-laptop:
+  stage: test
+  script:
+    - docker run --rm $CI_REGISTRY_IMAGE:latest ./install-my-laptop && ./install-my-laptop
