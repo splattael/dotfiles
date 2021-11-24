@@ -1,0 +1,30 @@
+image: docker:dind
+services:
+  - docker:dind
+
+stages:
+  - build
+  - test
+
+build:install-my-laptop:
+  stage: build
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE:latest || true
+  script:
+    - docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA --tag $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker push $CI_REGISTRY_IMAGE:latest
+
+test:install-my-laptop:
+  stage: test
+  artifacts:
+    paths:
+      - packages.txt
+  script:
+    - export CONTAINER_ID=$(docker ps -q -f "label=com.gitlab.gitlab-runner.job.id=$CI_JOB_ID" -f "label=com.gitlab.gitlab-runner.type=build")
+
+    - docker run --rm 
+      --volumes-from ${CONTAINER_ID}
+      $CI_REGISTRY_IMAGE:latest 
+      -c "./install-my-laptop && ./install-my-laptop && dpkg -l > ${CI_PROJECT_DIR}/packages.txt"
