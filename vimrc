@@ -134,8 +134,7 @@ vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
 nnoremap <leader>em :ElmMakeCurrentFile<CR>
 let g:elm_format_autosave = 1
 
-" Disable netrw history
-let g:netrw_dirhistmax=0
+nmap gx :silent execute "!xdg-open " . shellescape("<cWORD>")<CR>
 
 " Rust
 let g:rustfmt_autosave = 1
@@ -148,10 +147,6 @@ let g:rustfmt_autosave = 1
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
-
-" Open URL under cursor with gnome-open
-" See https://vi.stackexchange.com/a/5034
-let g:netrw_browsex_viewer="setsid gnome-open"
 
 " NERDTree
 nmap <leader>N :NERDTreeToggle<CR>
@@ -174,8 +169,6 @@ set regexpengine=1
 set synmaxcol=256
 set nocursorcolumn
 set nocursorline
-
-let g:netrw_browsex_viewer="xgd-open"
 
 " vim-gutter
 highlight clear SignColumn
