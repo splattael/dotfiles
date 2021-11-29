@@ -124,25 +124,20 @@ fi
 
 if [ ! -d ~/.dotfiles ]; then
   git clone https://gitlab.com/splattael/dotfiles.git ~/.dotfiles
-
-  (
-    cd ~/.dotfiles
-    rake update
-    yes | rake install
-  )
-fi
-
-bash -i -c 'install-asdf-missing'
-
-(
-  # shellcheck disable=SC1090
-  source ~/.bashrc
-  cd ~/.dotfiles
   git remote rm origin || true
   git remote add origin z:splattael/dotfiles
   git remote set-url origin --add wgl:splattael/dotfiles
   git remote set-url origin --add wgh:splattael/dotfiles
+fi
+
+(
+  cd ~/.dotfiles
+  rake update
+  yes | rake install
 )
+
+# asdf
+bash -i -c 'install-asdf-missing'
 
 (
   # shellcheck disable=SC1090
