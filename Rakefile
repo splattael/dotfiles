@@ -2,6 +2,11 @@ require 'rake'
 
 desc "Install the dot files into user's home directory"
 task :install do
+  SKIP_INSTALL = %w[
+    Rakefile README.rdoc LICENSE
+    .gitlab-ci.yml Dockerfile .dockerignore
+  ]
+
   def replace_file(source, target)
     FileUtils::Verbose.rm_rf target
     link_file source, target
@@ -13,7 +18,7 @@ task :install do
 
   replace_all = false
   Dir['*'].each do |file|
-    next if %w[Rakefile README.rdoc LICENSE].include? file
+    next if SKIP_INSTALL.include? file
     source = File.expand_path file
     target = File.join(ENV['HOME'], ".#{file}")
 

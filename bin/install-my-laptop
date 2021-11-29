@@ -7,22 +7,39 @@ set -ex
 DEB_RELEASE=${DEB_RELEASE:-bullseye}
 USER=${USER:-peter}
 
-install_deb() {
+download_deb() {
   local url="$1"
-  local temp_deb
-  temp_deb="$(mktemp '/tmp/install-debian.XXXXXX')"
+  local deb
+  deb="$(mktemp '/tmp/install-debian.XXXXXX')"
 
-  wget -O "$temp_deb" "$url" && sudo dpkg -i "$temp_deb"
-  rm -f "$temp_deb"
+  DEB_PACKAGES_DOWNLOADED+=("$deb")
+
+  curl --location --output "$deb" "$url"
+
+  dpkg-deb --info "$deb"
+}
+
+install_deb() {
+  local deb="$1"
+
+  sudo dpkg --install "$deb"
+  rm --force "$deb"
 }
 
 # Packages: via apt
 
+## Preliminary packages
+
+PRELIMINARY_PACKAGES=(gnupg file curl)
+
+sudo apt update && sudo apt install --assume-yes "${PRELIMINARY_PACKAGES[@]}"
+
 ## Basic
 PACKAGES=(
-  vim tmux gnome-tweak-tool git git-lfs ruby curl wget
+  vim tmux gnome-tweak-tool git git-lfs ruby
+  bash-completion
   fonts-inconsolata net-tools exuberant-ctags dnsutils
-  )
+)
 
 # https://www.passwordstore.org/
 PACKAGES+=(pass)
@@ -45,42 +62,54 @@ PACKAGES+=(
   wireshark
 )
 
-## Packages
-
 # Docker: https://docs.docker.com/engine/install/debian/
 PACKAGES+=(apt-transport-https ca-certificates curl gnupg-agent software-properties-common docker-ce docker-ce-cli containerd.io)
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-# Packages: direct downloads
-DEB_PACKAGES=()
-
-# Alacritty: https://github.com/alacritty/alacritty
-DEB_PACKAGES+=(https://github.com/barnumbirr/alacritty-debian/releases/download/v0.9.0-2/alacritty_0.9.0-2_amd64_${DEB_RELEASE}.deb)
+echo "deb [arch=amd64] https://download.docker.com/linux/debian ${DEB_RELEASE} stable" | sudo tee /etc/apt/sources.list.d/docker.list
 
 # Spotify: https://www.spotify.com/de/download/linux/
 PACKAGES+=(spotify-client)
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
+# Signal: https://signal.org/de/download/
+PACKAGES+=(signal-desktop)
+curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee /etc/apt/sources.list.d/signal-xenial.list
+
+# Packages: direct downloads
+DEB_PACKAGES=()
+DEB_PACKAGES_DOWNLOADED=()
+
+# Alacritty: https://github.com/alacritty/alacritty
+DEB_PACKAGES+=("https://github.com/barnumbirr/alacritty-debian/releases/download/v0.9.0-2/alacritty_0.9.0-2_amd64_${DEB_RELEASE}.deb")
+
 # Zoom: https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_89c268b4-2a68-4e4c-882f-441e374b87cb
 PACKAGES+=(libglib2.0-0 libgstreamer-plugins-base1.0-0 libxcb-shape0 libxcb-shm0 libxcb-xfixes0 libxcb-randr0 libxcb-image0 libfontconfig1 libgl1-mesa-glx libxi6 libsm6 libxrender1 libpulse0 libxcomposite1 libxslt1.1 libsqlite3-0 libxcb-keysyms1 libxcb-xtest0 ibus libegl1-mesa)
 DEB_PACKAGES+=(https://zoom.us/client/latest/zoom_amd64.deb)
 
-# Signal: https://signal.org/de/download/
-PACKAGES+=(signal-desktop libappindicator3-1)
-curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee /etc/apt/sources.list.d/signal-xenial.list
+# Slack: https://slack.com/intl/en-de/downloads/linux
+# Workaround for bullseye: https://www.how2shout.com/linux/how-to-install-slack-on-debian-11-bullseye-linux/
+DEB_PACKAGES+=(
+  http://ftp.mx.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-3+b1_amd64.deb
+  http://ftp.mx.debian.org/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-7_amd64.deb
+  https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.2-amd64.deb
+)
 
-# Slack: ttps://slack.com/intl/en-de/downloads/linux
-DEB_PACKAGES+=(https://downloads.slack-edge.com/linux_releases/slack-desktop-4.4.2-amd64.deb)
 
-sudo apt update
-sudo apt install -y "${PACKAGES[@]}"
-
-# We need the latest git
-sudo apt-get -t "${DEB_RELEASE}-backports" install git
-
+# Download
 for deb in "${DEB_PACKAGES[@]}"
+do
+  download_deb "$deb"
+done
+
+sudo apt update && sudo apt  --assume-yes --download-only install "${PACKAGES[@]}"
+
+# Install
+
+sudo apt install --assume-yes "${PACKAGES[@]}"
+
+for deb in "${DEB_PACKAGES_DOWNLOADED[@]}"
 do
   install_deb "$deb"
 done
@@ -94,7 +123,7 @@ fi
 ## Dotfiles
 
 if [ ! -d ~/.dotfiles ]; then
-  git clone https://github.com/splattael/dotfiles.git ~/.dotfiles
+  git clone https://gitlab.com/splattael/dotfiles.git ~/.dotfiles
 
   (
     cd ~/.dotfiles
