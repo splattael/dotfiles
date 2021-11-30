@@ -36,7 +36,7 @@ sudo apt update && sudo apt install --assume-yes "${PRELIMINARY_PACKAGES[@]}"
 
 ## Basic
 PACKAGES=(
-  vim tmux gnome-tweak-tool git git-lfs ruby
+  vim vim-gtk3 tmux gnome-tweak-tool git git-lfs ruby
   bash-completion
   fonts-inconsolata net-tools exuberant-ctags dnsutils
 )
@@ -124,6 +124,7 @@ fi
 
 if [ ! -d ~/.dotfiles ]; then
   git clone https://gitlab.com/splattael/dotfiles.git ~/.dotfiles
+  cd ~/.dotfiles
   git remote rm origin || true
   git remote add origin z:splattael/dotfiles
   git remote set-url origin --add wgl:splattael/dotfiles
