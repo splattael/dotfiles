@@ -11,3 +11,6 @@ fi
 # Key bindings
 # ------------
 source "/home/peter/.dotfiles/fzf/shell/key-bindings.bash"
+
+export FZF_CTRL_T_COMMAND="rg -l ''"
+export FZF_DEFAULT_COMMAND=$FZF_CTRL_T_COMMAND
