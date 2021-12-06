@@ -18,6 +18,7 @@ source ~/.bash/history
 source ~/.bash/kubernetes
 source ~/.bash/prompt
 source ~/.bash/pass
+source ~/.bash/rg
 source ~/.bash/ruby
 source ~/.bash/tmux
 

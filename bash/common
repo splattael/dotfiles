@@ -3,8 +3,6 @@ alias wi='whois -h whois.thur.de'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias grep='grep --colour=auto'
-# See https://github.com/BurntSushi/ripgrep/issues/623
-alias rg='rg --hidden --glob "!.git"'
 
 # common
 export EDITOR=vim
