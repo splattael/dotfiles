@@ -187,6 +187,10 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " disable brakeman because it's slow
 let g:ale_linters_ignore = ['brakeman']
 
+let g:ale_linters = {
+  \ 'json': ['jq']
+  \ }
+
 " Disable key navigation (almost hardmode)
 " See https://vi.stackexchange.com/a/25848
 for key in [
