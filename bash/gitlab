@@ -42,3 +42,15 @@ mr_failed_test() {
   echo "# Fetching from https://gitlab.com/${project_path}/-/merge_requests/${mr_iid}/test_reports.json" >&2
   curl -s "https://gitlab.com/${project_path}/-/merge_requests/${mr_iid}/test_reports.json" | jq -r '.suites[]? | .new_failures[].file | sub("./"; "")' | uniq
 }
+
+serve_handbook() {
+  if [[ "$(pwd)" != *"www-gitlab-com/sites/"* ]]
+  then
+    echo "Please cd into .../www-gitlab-com/sites/XXX"
+    echo
+    echo "You are in $(pwd)."
+    return
+  fi
+
+  DISABLE_ON_DISK_REBUILD=true ENABLE_LIVERELOAD=1 NO_CONTRACTS=true bundle exec middleman serve
+}
