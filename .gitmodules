@@ -78,3 +78,6 @@
 [submodule "vim/bundle/vim-vue-plugin"]
 	path = vim/bundle/vim-vue-plugin
 	url = https://github.com/leafOfTree/vim-vue-plugin
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = https://tpope.io/vim/surround.git
