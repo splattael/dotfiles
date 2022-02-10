@@ -1,8 +1,8 @@
-golang 1.15.1
-ruby 2.7.4
+golang 1.16.12
+ruby 2.7.5
 erlang 21.0.9
 elixir 1.10.2
-crystal 1.0.0
+crystal 1.3.2
 kubectl 1.14.1
 minikube 1.2.0
 redis 6.0.8
@@ -15,7 +15,7 @@ gradle 6.1.1
 yarn 1.22.5
 ripgrep 13.0.0
 nodejs 12.18.3
-postgres 12.4
+postgres 12.9
 java adopt-openjdk-14.0.1+7
 k3d 3.1.5
 gcloud 293.0.0
