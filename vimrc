@@ -185,7 +185,10 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " disable brakeman because it's slow
-let g:ale_linters_ignore = ['brakeman']
+let g:ale_linters_ignore = {
+      \ 'ruby': ['brakeman'],
+      \   'typescript': ['eslint'],
+      \}
 
 let g:ale_linters = {
   \ 'json': ['jq']
