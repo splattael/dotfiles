@@ -96,6 +96,9 @@ DEB_PACKAGES+=(
   https://downloads.slack-edge.com/releases/linux/4.23.0/prod/x64/slack-desktop-4.23.0-amd64.deb
 )
 
+DEB_PACKAGES+=(
+  "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+)
 
 # Download
 for deb in "${DEB_PACKAGES[@]}"
