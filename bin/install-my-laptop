@@ -129,9 +129,9 @@ if [ ! -d ~/.dotfiles ]; then
   git clone https://gitlab.com/splattael/dotfiles.git ~/.dotfiles
   cd ~/.dotfiles
   git remote rm origin || true
-  git remote add origin z:splattael/dotfiles
-  git remote set-url origin --add wgl:splattael/dotfiles
-  git remote set-url origin --add wgh:splattael/dotfiles
+  git remote add origin git@git.zilium.de:splattael/dotfiles
+  git remote set-url origin --add git@gitlab.com:splattael/dotfiles
+  git remote set-url origin --add git@github.com:splattael/dotfiles
 fi
 
 (
