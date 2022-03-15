@@ -41,9 +41,6 @@ PACKAGES=(
   fonts-inconsolata net-tools exuberant-ctags dnsutils
 )
 
-# https://www.passwordstore.org/
-PACKAGES+=(pass)
-
 # asdf
 # Ruby
 PACKAGES+=(libssl-dev libreadline-dev zlib1g-dev)
