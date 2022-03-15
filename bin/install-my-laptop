@@ -162,6 +162,7 @@ gsettings set org.gnome.mutter workspaces-only-on-primary false
 
 # Alternate between windows (not window groups) directly via ALT+Tab
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
 
 # 4 Workspaces
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 4
@@ -189,6 +190,11 @@ gsettings set org.gnome.desktop.interface font-name 'Cantarell 13'
 gsettings set org.gnome.desktop.interface document-font-name 'Sans 13'
 
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
+# Sound
+gsettings set org.gnome.desktop.sound event-sounds false
+gsettings set org.gnome.desktop.wm.preferences visual-bell true
+gsettings set org.gnome.desktop.wm.preferences visual-bell-type 'frame-flash'
 
 # TODO set user image
 
