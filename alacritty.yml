@@ -19,6 +19,7 @@ window:
     general: Alacritty
 
   gtk_theme_variant: None
+  opacity: 1.0
 
 scrolling:
   history: 10000
@@ -70,11 +71,7 @@ colors:
   indexed_colors: []
 
 visual_bell:
-  animation: EaseOutExpo
   duration: 0
-  color: '0xffffff'
-
-background_opacity: 1.0
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
