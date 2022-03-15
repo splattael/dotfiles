@@ -2,19 +2,29 @@
 #
 # cp .localrc.sample .localrc
 
-export COLOR_HOST=$COLOR_BROWN
+export COLOR_HOST=$COLOR_PURPLE
 
 # export DOCKER_IMAGE_ELIXIR=splattael/elixir
 # export DOCKER_HOME_DIR=$HOME/docker
 
 # GitLab
-export EXPERIMENTAL_PUMA=1
 export GDK_RUNIT=1
 export GITLAB_API_ENDPOINT=https://gitlab.com/api/v4
 export GITLAB_API_PRIVATE_TOKEN=
 
+export AWS_ACCESS_KEY_ID="..."
+export AWS_DEFAULT_REGION="eu-west-1"
+export AWS_SECRET_ACCESS_KEY="..."
+export S3_BUCKET_NAME="pleitzen-status-page-mvc-testing"
+
 # Let webpack stop creating source maps
 export NO_SOURCEMAPS=true
+
+# local gdk
+export GDK_LOCAL_URL=http://10.23.0.5:3000
+export GDK_LOCAL_ALERTS_TOKEN=...
+
+export GDK_GRAFANA_ADMIN_API_KEY=...
 
 # test-prof in GitLab
 export FDOC=1
