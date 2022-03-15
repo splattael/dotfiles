@@ -51,7 +51,7 @@ PACKAGES+=(libssl-dev libreadline-dev zlib1g-dev)
 PACKAGES+=(automake autoconf libncurses5-dev jq)
 
 # https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/master/doc/prepare.md#debian
-PACKAGES+=(libpq-dev libicu-dev cmake g++ libkrb5-dev libre2-dev ed pkg-config graphicsmagick runit-systemd libimage-exiftool-perl rsync libsqlite3-dev)
+PACKAGES+=(libpq-dev libicu-dev cmake g++ libkrb5-dev libre2-dev ed pkg-config graphicsmagick runit-systemd libimage-exiftool-perl rsync libsqlite3-dev python)
 
 # Auxiliary packages
 PACKAGES+=(
@@ -98,6 +98,10 @@ DEB_PACKAGES+=(
 
 DEB_PACKAGES+=(
   "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+)
+
+DEB_PACKAGES+=(
+  "https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb"
 )
 
 # Download
