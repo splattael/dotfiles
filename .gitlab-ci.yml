@@ -6,6 +6,9 @@ stages:
   - build
   - test
 
+default:
+  interruptible: true
+
 build:install-my-laptop:
   stage: build
   before_script:
