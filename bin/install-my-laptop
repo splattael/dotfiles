@@ -39,6 +39,7 @@ PACKAGES=(
   vim vim-gtk3 tmux gnome-tweak-tool git git-lfs ruby
   bash-completion
   fonts-inconsolata net-tools exuberant-ctags dnsutils
+  tree xclip
 )
 
 # asdf
