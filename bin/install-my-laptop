@@ -40,6 +40,7 @@ PACKAGES=(
   bash-completion
   fonts-inconsolata net-tools exuberant-ctags dnsutils
   tree xclip
+  strace
 )
 
 # asdf
@@ -195,6 +196,14 @@ gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 gsettings set org.gnome.desktop.sound event-sounds false
 gsettings set org.gnome.desktop.wm.preferences visual-bell true
 gsettings set org.gnome.desktop.wm.preferences visual-bell-type 'frame-flash'
+
+# Power
+gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
+# Suspend after 20 minutes on battery
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'suspend'
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 1200
 
 # TODO set user image
 
