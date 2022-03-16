@@ -27,7 +27,7 @@ test:install-my-laptop:
   script:
     - export CONTAINER_ID=$(docker ps -q -f "label=com.gitlab.gitlab-runner.job.id=$CI_JOB_ID" -f "label=com.gitlab.gitlab-runner.type=build")
 
-    - docker run --rm 
+    - docker run --rm
       --volumes-from ${CONTAINER_ID}
-      $CI_REGISTRY_IMAGE:latest 
+      $CI_REGISTRY_IMAGE:latest
       -c "./install-my-laptop && ./install-my-laptop && dpkg -l > ${CI_PROJECT_DIR}/packages.txt"
