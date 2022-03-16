@@ -96,7 +96,7 @@ call pathogen#helptags()
 
 " colorscheme
 set background=dark
-colorscheme spacegray
+colorscheme codedark
 
 " fugitive leader mappings
 nmap <leader>gd :Gdiff<CR>

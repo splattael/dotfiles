@@ -81,3 +81,6 @@
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = https://tpope.io/vim/surround.git
+[submodule "vim/bundle/vim-code-dark"]
+	path = vim/bundle/vim-code-dark
+	url = https://github.com/tomasiser/vim-code-dark
