@@ -48,6 +48,7 @@ PACKAGES+=(libssl-dev libreadline-dev zlib1g-dev)
 # Elixir
 PACKAGES+=(automake autoconf libncurses5-dev jq)
 
+# GitLab
 # https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/master/doc/prepare.md#debian
 PACKAGES+=(libpq-dev libicu-dev cmake g++ libkrb5-dev libre2-dev ed pkg-config graphicsmagick runit-systemd libimage-exiftool-perl rsync libsqlite3-dev python)
 
@@ -58,6 +59,7 @@ PACKAGES+=(
   openvpn network-manager-openvpn-gnome
   gimp perf-tools-unstable
   wireshark
+  yamllint
 )
 
 # Docker: https://docs.docker.com/engine/install/debian/
