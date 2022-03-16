@@ -99,10 +99,10 @@ set background=dark
 colorscheme codedark
 
 " fugitive leader mappings
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gst :Gstatus<CR>
-nmap <leader>gc :Gcommit -v<CR>
-nmap <leader>gca :Gcommit -av<CR>
+nmap <leader>gd :Git diff<CR>
+nmap <leader>gst :Git<CR>
+nmap <leader>gc :Git commit -v<CR>
+nmap <leader>gca :Git commit -av<CR>
 nmap <leader>gaa :Git add --all<CR>
 nmap <leader>gp :Git push<CR>
 
