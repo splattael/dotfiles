@@ -40,7 +40,7 @@ PACKAGES=(
   bash-completion
   fonts-inconsolata net-tools exuberant-ctags dnsutils
   tree xclip
-  strace
+  strace bc
 )
 
 # asdf
@@ -99,10 +99,8 @@ DEB_PACKAGES+=(
 
 DEB_PACKAGES+=(
   "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
-)
-
-DEB_PACKAGES+=(
   "https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb"
+  "https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb"
 )
 
 # Download
