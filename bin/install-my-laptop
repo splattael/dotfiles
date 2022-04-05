@@ -40,7 +40,7 @@ PACKAGES=(
   bash-completion
   fonts-inconsolata net-tools exuberant-ctags dnsutils
   tree xclip
-  strace bc
+  strace bc cups
 )
 
 # asdf
