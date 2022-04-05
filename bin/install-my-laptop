@@ -40,7 +40,8 @@ PACKAGES=(
   bash-completion
   fonts-inconsolata net-tools exuberant-ctags dnsutils
   tree xclip
-  strace bc cups
+  strace bc
+  cups printer-driver-gutenprint
 )
 
 # asdf
