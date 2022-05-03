@@ -2,23 +2,23 @@
 
 source $HOME/.bash/git
 
-rs() {
+srs() {
   bundle exec spring rspec "$@"
 }
 
-rrs() {
-  rs --order "random:$RANDOM" "$@"
+srs-loop() {
+  while :; do
+    srs "$@" || break
+  done
+}
+
+rs() {
+  bundle exec rspec "$@"
 }
 
 rs-loop() {
   while :; do
     rs "$@" || break
-  done
-}
-
-rrs-loop() {
-  while :; do
-    rrs "$@" || break
   done
 }
 
