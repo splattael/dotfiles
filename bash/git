@@ -1,10 +1,12 @@
 alias gb='git branch -v'
 alias gba='gb -a'
 alias gbc='gba -v | grep ": gone" | awk "{print \$1}"  | xargs -I% git branch -D %'
+alias gbd='gb -r --list "origin/*" --format="%(refname:short)" | grep -E "origin/(master|main)\$"'
+alias gmb='git merge-base $(git branch --show-current) $(gbd)'
 alias gc='git commit -v'
 alias gca='gc -a'
 alias gc-='git checkout -'
-alias gcm='git checkout master'
+alias gcm='git checkout $(gbd | sed "s/origin\///")'
 alias gd='git diff'
 alias gdw='git diff --word-diff'
 alias gdc='git diff --cached'
@@ -27,6 +29,8 @@ alias gwc='git log -p'
 alias grs='git rebase --skip'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
+alias grm='git rebase $(gbd)'
+alias git-files-changed='gdn $(gmb)'
 
 gco() {
   if [ -z $1 ]
