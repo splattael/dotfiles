@@ -35,6 +35,9 @@ nmap <leader>H :History:<CR>
 nmap <leader>/ :Rg<Space>
 nmap g<leader>/ :execute "Rg " . expand('<cword>')<CR>
 
+" Open tselect in a new tab
+nnoremap <C-]> :tab tjump <C-r><C-w><CR>
+
 " ale
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
