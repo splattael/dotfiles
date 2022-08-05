@@ -189,7 +189,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " disable brakeman because it's slow
 let g:ale_linters_ignore = {
-      \ 'ruby': ['brakeman'],
+      \ 'ruby': ['brakeman', 'standardrb', 'solargraph'],
       \   'typescript': ['eslint'],
       \}
 
