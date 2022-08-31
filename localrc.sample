@@ -30,6 +30,7 @@ export GDK_GRAFANA_ADMIN_API_KEY=...
 export FDOC=1
 export FPROF=1
 export EVENT_PROF='sql.active_record'
+export RD_PROF=1
 
 # Speed up specs
 export GITLAB_TEST_EAGER_LOAD=false
