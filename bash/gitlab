@@ -2,6 +2,10 @@
 
 source $HOME/.bash/git
 
+gl_clean_env() {
+  (unset FDOC FPROF EVENT_PROF RD_PROF; "$@")
+}
+
 srs() {
   bundle exec spring rspec "$@"
 }
