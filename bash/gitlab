@@ -33,8 +33,8 @@ mr_failed_test() {
 
   if [ "$mr_iid" = "" -a "$branch" != "master" ]
   then
-    local escpaed_project_path=${project_path//\//%2f}
-    mr_iid=$(curl -sG --data-urlencode "source_branch=${branch}" "https://gitlab.com/api/v4/projects/$escpaed_project_path/merge_requests" | jq -j '.[0].iid')
+    local escaped_project_path=${project_path//\//%2f}
+    mr_iid=$(curl -sG --data-urlencode "source_branch=${branch}" "https://gitlab.com/api/v4/projects/$escaped_project_path/merge_requests" | jq -j '.[0].iid')
   fi
 
   if [ "$mr_iid" = "" ]
