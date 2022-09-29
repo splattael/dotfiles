@@ -1,6 +1,5 @@
 [alias]
   co = checkout
-  comr = "!gl_checkout_mr"
   unstage = reset HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %C(bold)%s %Creset%C(white)%an%Creset %C(green)%cr' --abbrev-commit --date=relative
   undo = reset --soft HEAD^
@@ -12,7 +11,7 @@
   latest = for-each-ref --sort=-committerdate --format='%(committerdate:iso8601)%09%(objectname:short)      %(refname:short) | %(authorname)'
 
   pr = "!f() { [ -z $2 ] && echo usage: git pr REMOTE PR-ID && return 1; git fetch $1 refs/pull/$2/head:pr-${2} && git checkout pr-${2}; } ; f"
-  mr = "!f() { [ -z $2 ] && echo usage: git mr REMOTE MR-ID && return 1; git fetch $1 merge-requests/$2/head:mr-${2} && git checkout mr-${2}; } ; f"
+  mr = "!gl_checkout_mr"
 
   amend = commit --amend
   forgot = commit --amend --no-edit
