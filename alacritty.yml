@@ -53,7 +53,7 @@ colors:
     red:     '0xaa0000'
     green:   '0x00aa00'
     yellow:  '0xaa5500'
-    blue:    '0x0000aa'
+    blue:    '0x0000ff'
     magenta: '0xaa00aa'
     cyan:    '0x00aaaa'
     white:   '0xaaaaaa'
