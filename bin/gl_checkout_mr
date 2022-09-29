@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Same as **Code > Check out branch** on GitLab's Merge Requests
+# See https://docs.gitlab.com/ee/user/project/merge_requests/allow_collaboration.html#push-to-the-fork-as-the-upstream-member
+
 set -e
 
 mr_iid="$1"
