@@ -1,0 +1,23 @@
+#!/bin/bash
+
+mr_iid="$1"
+project_path=$(git remote get-url origin | perl -ne '/:(.*?)(?:\.git)?$/ and print $1')
+escaped_project_path=${project_path//\//%2f}
+
+if [ "$mr_iid" = "" ]
+then
+  echo "usage: $0 <merge request id>"
+  exit 1
+fi
+
+echo "# Fetching info for MR ${mr_iid}"
+mr_info=$(curl -sG "https://gitlab.com/api/v4/projects/${escaped_project_path}/merge_requests/${mr_iid}")
+source_branch=$(echo "${mr_info}" | jq -r '.source_branch')
+source_project_id=$(echo "${mr_info}" | jq -r '.source_project_id')
+
+echo "# Fefching info for project ${source_project_id}"
+project_info=$(curl -sG "https://gitlab.com/api/v4/projects/${source_project_id}")
+ssh_url=$(echo "${project_info}" | jq -r '.ssh_url_to_repo')
+
+git fetch "$ssh_url" "$source_branch"
+git checkout -B "review/$source_branch" FETCH_HEAD
