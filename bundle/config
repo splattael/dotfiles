@@ -7,3 +7,6 @@ BUNDLE_BUILD__PG: "--with-pg-config=/home/peter/.asdf/installs/postgres/12.10/bi
 BUNDLE_BUILD__THIN: "--with-cflags=-Wno-error=implicit-function-declaration"
 BUNDLE_WITHOUT: "production"
 BUNDLE_BUILD__GPGME: "--use-system-libraries"
+BUNDLE_GEM__CI: "gitlab"
+BUNDLE_GEM__CHANGELOG: "true"
+BUNDLE_GEM__LINTER: "rubocop"
