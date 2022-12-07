@@ -1,7 +1,7 @@
 alias gb='git branch -v'
 alias gba='gb -a'
 alias gbc='gba -v | grep ": gone" | awk "{print \$1}"  | xargs -I% git branch -D %'
-alias gbd='gb -r --list "origin/*" --format="%(refname:short)" | grep -E "origin/(master|main)\$"'
+alias gbd='gb -r --list "origin/*" --format="%(refname:short)" | grep -E "origin/(master|main)\$" | head -1'
 alias gmb='git merge-base $(git branch --show-current) $(gbd)'
 alias gc='git commit -v'
 alias gca='gc -a'
