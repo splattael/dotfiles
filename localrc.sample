@@ -37,3 +37,5 @@ export GITLAB_TEST_EAGER_LOAD=false
 
 # https://docs.gitlab.com/ee/development/contributing/style_guides.html#reveal-existing-rubocop-exceptions
 export REVEAL_RUBOCOP_TODO=1
+
+export MOZ_ENABLE_WAYLAND=1
