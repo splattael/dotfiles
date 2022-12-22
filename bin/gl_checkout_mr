@@ -20,7 +20,7 @@ mr_info=$(curl -sG "https://gitlab.com/api/v4/projects/${escaped_project_path}/m
 source_branch=$(echo "${mr_info}" | jq -r '.source_branch')
 source_project_id=$(echo "${mr_info}" | jq -r '.source_project_id')
 
-echo "# Fefching info for project ${source_project_id}"
+echo "# Fetching info for project ${source_project_id}"
 project_info=$(curl -sG "https://gitlab.com/api/v4/projects/${source_project_id}")
 ssh_url=$(echo "${project_info}" | jq -r '.ssh_url_to_repo')
 
