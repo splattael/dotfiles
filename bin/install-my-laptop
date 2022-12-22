@@ -62,6 +62,7 @@ PACKAGES+=(
   gimp perf-tools-unstable
   wireshark
   yamllint
+  pgformatter
 )
 
 # Docker: https://docs.docker.com/engine/install/debian/
@@ -93,15 +94,19 @@ DEB_PACKAGES+=(https://zoom.us/client/latest/zoom_amd64.deb)
 # Slack: https://slack.com/intl/en-de/downloads/linux
 # Workaround for bullseye: https://www.how2shout.com/linux/how-to-install-slack-on-debian-11-bullseye-linux/
 DEB_PACKAGES+=(
-  http://ftp.mx.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-3+b1_amd64.deb
+  http://ftp.mx.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-4_amd64.deb
   http://ftp.mx.debian.org/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-7_amd64.deb
-  https://downloads.slack-edge.com/releases/linux/4.24.0/prod/x64/slack-desktop-4.24.0-amd64.deb
+  https://downloads.slack-edge.com/releases/linux/4.29.149/prod/x64/slack-desktop-4.29.149-amd64.deb
 )
 
 DEB_PACKAGES+=(
   "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
   "https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb"
   "https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb"
+)
+
+DEB_PACKAGES+=(
+  https://gitlab.com/gitlab-org/cli/-/releases/v1.24.1/downloads/glab_1.24.1_Linux_x86_64.deb
 )
 
 # Download
