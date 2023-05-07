@@ -1,2 +1,2 @@
 alias hetzner3="ssh peter@hetzner3.zilium.de"
-alias hetzner5="ssh peter@hetzner5.zilium.de"
+alias hetzner5="ssh -p 1022 peter@hetzner5.zilium.de"
