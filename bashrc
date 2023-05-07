@@ -18,6 +18,7 @@ source ~/.bash/history
 source ~/.bash/kubernetes
 source ~/.bash/prompt
 source ~/.bash/pass
+source ~/.bash/rancher
 source ~/.bash/rg
 source ~/.bash/ruby
 source ~/.bash/tmux
@@ -34,3 +35,4 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 HISTCONTROL=ignoredups:erasedups
+. `which env_parallel.bash`

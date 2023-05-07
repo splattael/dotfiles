@@ -1,0 +1,4 @@
+
+if [[ ! "$PATH" == *$HOME/.rd/bin* ]] && [ -d "$HOME/.rd/bin" ]; then
+  export PATH="$PATH:$HOME/.rd/bin"
+fi
