@@ -21,6 +21,7 @@ source ~/.bash/pass
 source ~/.bash/rancher
 source ~/.bash/rg
 source ~/.bash/ruby
+source ~/.bash/snap
 source ~/.bash/tmux
 
 source ~/.bash/private
