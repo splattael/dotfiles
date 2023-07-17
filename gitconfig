@@ -97,6 +97,7 @@
   path = ~/.git/custom_config/gitlab
 [credential]
 	helper = cache --timeout=3600
+	username = splattael
 [merge]
 	conflictstyle = diff3
 [init]
