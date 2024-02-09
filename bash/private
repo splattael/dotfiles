@@ -30,3 +30,7 @@ setup-git-private() {
   local email=$(git config --global user.email)
   setup-git private $email
 }
+
+kitassh() {
+  ssh -v ssh://ud08_360@ud08.udmedia.de:2222
+}
