@@ -24,7 +24,7 @@ function prompt_command() {
   if [ "$git_branch" = "" ]; then # no git -> normal prompt
     PS1="\u@${COLOR_HOST}\h ${COLOR_WHITE}\w${COLOR_NORMAL}$ "
   else
-    local git_status=$(git status --porcelain | perl -we '%k=map{$_=>1}split("",join("",map{/^(..)/&&$1}<>));print sort keys%k')
+    local git_status=$(git status --porcelain --untracked-files=no | perl -we '%k=map{$_=>1}split("",join("",map{/^(..)/&&$1}<>));print sort keys%k')
 
     PS1="\u@${COLOR_HOST}\h ${COLOR_WHITE}\w on ${COLOR_LGREEN}($git_branch${COLOR_RED}$git_status${COLOR_LGREEN})\n${COLOR_NORMAL}$ "
   fi
