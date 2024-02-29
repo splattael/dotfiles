@@ -1,3 +1,4 @@
-#!/usr/bin/perl -p
+#!/usr/bin/ruby -p
 
-s/\x1b\[\d+m//g
+$_.gsub!(/\x1b\[[0-9;]*[mGKHF]/, "")
+$_.gsub!(/\r/, "\n")
