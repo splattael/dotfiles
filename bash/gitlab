@@ -2,6 +2,19 @@
 
 source $HOME/.bash/git
 
+GITLAB_DEVEL_DIR="$HOME/devel/gitlab"
+
+g() {
+  project=$1
+  cd "$GITLAB_DEVEL_DIR/$project"
+}
+
+_g() {
+  cur=`_get_cword`
+  COMPREPLY=( $( compgen -W "\$( command ls $GITLAB_DEVEL_DIR)" -- $cur ) )
+}
+complete -F _g g
+
 gl_clean_env() {
   (unset FDOC FPROF EVENT_PROF RD_PROF; RSPEC_WARN_MISSING_FEATURE_CATEGORY=false "$@")
 }
