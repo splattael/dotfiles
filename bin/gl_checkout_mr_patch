@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Same as **Code > Check out branch** on GitLab's Merge Requests
+# See https://docs.gitlab.com/ee/user/project/merge_requests/allow_collaboration.html#push-to-the-fork-as-the-upstream-member
+
+set -e
+
+mr_iid="$1"
+project_url=$(git remote get-url origin | perl -pe 's{:}{/}; s{git@}{https://}')
+echo $project_url
+
+if [ "$mr_iid" = "" ]
+then
+  echo "usage: $0 <merge request id>"
+  exit 1
+fi
+
+patch_url="$project_url/-/merge_requests/$mr_iid.patch"
+
+echo "# Applying patch from $patch_url"
+curl -sG "$patch_url" | git apply

@@ -12,6 +12,7 @@
 
   pr = "!f() { [ -z $2 ] && echo usage: git pr REMOTE PR-ID && return 1; git fetch $1 refs/pull/$2/head:pr-${2} && git checkout pr-${2}; } ; f"
   mr = "!gl_checkout_mr"
+  mrp = "!gl_checkout_mr_patch"
 
   amend = commit --amend
   forgot = commit --amend --no-edit
