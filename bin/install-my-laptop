@@ -4,7 +4,7 @@
 
 set -ex
 
-DEB_RELEASE=${DEB_RELEASE:-bullseye}
+DEB_RELEASE=${DEB_RELEASE:-$(lsb_release -cs 2>/dev/null)}
 USER=${USER:-peter}
 
 download_deb() {
@@ -56,6 +56,7 @@ PACKAGES+=(libpq-dev libicu-dev cmake g++ libkrb5-dev libre2-dev ed pkg-config g
 
 # Auxiliary packages
 PACKAGES+=(
+  alacritty
   peek pngquant
   chromium-driver
   openvpn network-manager-openvpn-gnome
@@ -84,29 +85,18 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sud
 DEB_PACKAGES=()
 DEB_PACKAGES_DOWNLOADED=()
 
-# Alacritty: https://github.com/alacritty/alacritty
-DEB_PACKAGES+=("https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.1-1/alacritty_0.10.1-1_amd64_${DEB_RELEASE}.deb")
-
 # Zoom: https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_89c268b4-2a68-4e4c-882f-441e374b87cb
 PACKAGES+=(libglib2.0-0 libgstreamer-plugins-base1.0-0 libxcb-shape0 libxcb-shm0 libxcb-xfixes0 libxcb-randr0 libxcb-image0 libfontconfig1 libgl1-mesa-glx libxi6 libsm6 libxrender1 libpulse0 libxcomposite1 libxslt1.1 libsqlite3-0 libxcb-keysyms1 libxcb-xtest0 ibus libegl1-mesa)
 DEB_PACKAGES+=(https://zoom.us/client/latest/zoom_amd64.deb)
 
-# Slack: https://slack.com/intl/en-de/downloads/linux
-# Workaround for bullseye: https://www.how2shout.com/linux/how-to-install-slack-on-debian-11-bullseye-linux/
-DEB_PACKAGES+=(
-  http://ftp.mx.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-4_amd64.deb
-  http://ftp.mx.debian.org/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-7_amd64.deb
-  https://downloads.slack-edge.com/releases/linux/4.29.149/prod/x64/slack-desktop-4.29.149-amd64.deb
-)
-
 DEB_PACKAGES+=(
   "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
-  "https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb"
-  "https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb"
+  "https://github.com/sharkdp/hyperfine/releases/download/v1.18.0/hyperfine_1.18.0_amd64.deb"
+  "https://github.com/wagoodman/dive/releases/download/v0.12.0/dive_0.12.0_linux_amd64.deb"
 )
 
 DEB_PACKAGES+=(
-  https://gitlab.com/gitlab-org/cli/-/releases/v1.24.1/downloads/glab_1.24.1_Linux_x86_64.deb
+  https://gitlab.com/gitlab-org/cli/-/releases/v1.46.1/downloads/glab_1.46.1_Linux_x86_64.deb
 )
 
 # Download
