@@ -57,9 +57,6 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic
-[submodule "vim/bundle/spacegray.vim"]
-	path = vim/bundle/spacegray.vim
-	url = https://github.com/ajh17/spacegray.vim
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -81,3 +78,6 @@
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = https://github.com/tpope/vim-surround
+[submodule "vim/bundle/spacegray.vim"]
+	path = vim/bundle/spacegray.vim
+	url =  https://git.sr.ht/~ackyshake/spacegray.vim
