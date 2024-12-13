@@ -105,3 +105,6 @@
 	defaultBranch = main
 [format]
 	signOff = true
+[maintenance]
+	repo = /home/peter/devel/gitlab/gdk
+	repo = /home/peter/devel/gitlab/gdk/gitlab
