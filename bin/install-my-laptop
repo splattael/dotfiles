@@ -44,7 +44,7 @@ PACKAGES=(
   cups printer-driver-gutenprint
 )
 
-# asdf
+# mise
 # Ruby
 PACKAGES+=(libssl-dev libreadline-dev zlib1g-dev)
 # Elixir
@@ -136,8 +136,17 @@ fi
   yes | rake install
 )
 
-# asdf
-bash -i -c 'install-asdf-missing'
+(
+  # shellcheck disable=SC1090
+  source ~/.bashrc
+
+  if [ "$(which mise)" = "" ]; then
+    curl https://mise.run | sh
+  fi
+
+  source ~/.bashrc
+  mise install
+)
 
 (
   # shellcheck disable=SC1090
