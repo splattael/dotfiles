@@ -23,9 +23,9 @@
   },
   "ui_font_family": "Inconsolata",
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Catppuccin Mocha",
-    "dark": "One Dark"
+    "dark": "Catppuccin Mocha"
   },
   "outline_panel": {
     "dock": "right"
@@ -44,9 +44,11 @@
     }
   },
   "file_scan_inclusions": ["gdk.yml"],
-  "Ruby": {
-    "tab_size": 2,
-    "language_servers": ["ruby-lsp", "!solargraph", "!rubocop"]
+  "languages": {
+    "Ruby": {
+      "language_servers": ["ruby-lsp", "rubocop", "!solargraph"],
+      "format_on_save": "on"
+    }
   },
   "lsp": {
     "ruby-lsp": {
