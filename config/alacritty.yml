@@ -1,3 +1,9 @@
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+
 env:
   TERM: xterm-256color
 
@@ -41,33 +47,6 @@ font:
     y: 0
 
 draw_bold_text_with_bright_colors: true
-
-colors:
-  primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
-
-  normal:
-    black:   '0x000000'
-    red:     '0xaa0000'
-    green:   '0x00aa00'
-    yellow:  '0xaa5500'
-    blue:    '0x0000ff'
-    magenta: '0xaa00aa'
-    cyan:    '0x00aaaa'
-    white:   '0xaaaaaa'
-
-  bright:
-    black:   '0x555555'
-    red:     '0xff5555'
-    green:   '0x55ff55'
-    yellow:  '0xffff55'
-    blue:    '0x5555ff'
-    magenta: '0xff55ff'
-    cyan:    '0x55ffff'
-    white:   '0xffffff'
-
-  indexed_colors: []
 
 visual_bell:
   duration: 0
