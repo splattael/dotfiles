@@ -78,7 +78,7 @@ namespace :submodules do
   desc "Add a submodule using URL."
   task :add do
     url = ENV['URL'] or abort "No URL given"
-    path = File.basename(url).gsub ".git", ""
-    sh "git submodule add #{url} vim/bundle/#{path}"
+    path = ENV['DIR'] || "vim/bundle/#{File.basename(url).gsub ".git", ""}"
+    sh "git submodule add #{url} #{path}"
   end
 end

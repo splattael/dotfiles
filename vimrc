@@ -99,7 +99,7 @@ call pathogen#helptags()
 
 " colorscheme
 set background=dark
-colorscheme spacegray
+colorscheme catppuccin-mocha
 
 " fugitive leader mappings
 nmap <leader>gd :Git diff<CR>

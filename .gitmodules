@@ -81,3 +81,9 @@
 [submodule "vim/bundle/spacegray.vim"]
 	path = vim/bundle/spacegray.vim
 	url =  https://git.sr.ht/~ackyshake/spacegray.vim
+[submodule "config/alacritty/catppuccin"]
+	path = config/alacritty/catppuccin
+	url = https://github.com/catppuccin/alacritty
+[submodule "vim/bundle/catppuccin"]
+	path = vim/bundle/catppuccin
+	url = https://github.com/catppuccin/nvim

@@ -5,4 +5,4 @@ alias pbpaste='xclip -selection clipboard -o'
 alias grep='grep --colour=auto'
 
 # common
-export EDITOR=vim
+export EDITOR=${EDITOR:-vim}
