@@ -8,8 +8,8 @@
   {
     "context": "Workspace",
     "bindings": {
-      ", F": "file_finder::Toggle",
       ", f": "file_finder::Toggle",
+      ", p": "projects::OpenRecent",
       "ctrl-a h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-a l": ["workspace::ActivatePaneInDirection", "Right"],
       "ctrl-a k": ["workspace::ActivatePaneInDirection", "Up"],
@@ -17,16 +17,9 @@
     }
   },
   {
-    "context": "Editor",
-    "bindings": {}
-  },
-  {
     "context": "Terminal",
     "bindings": {
-      "ctrl-a h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-a l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-a k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-a j": ["workspace::ActivatePaneInDirection", "Down"]
+      "ctrl-t": null
     }
   }
 ]

@@ -24,7 +24,7 @@
   "ui_font_family": "Inconsolata",
   "theme": {
     "mode": "system",
-    "light": "Atelier Seaside Dark",
+    "light": "Catppuccin Mocha",
     "dark": "One Dark"
   },
   "outline_panel": {
@@ -37,7 +37,50 @@
   "vim_mode": true,
   "terminal": {
     "dock": "right",
-    "git_status": true
+    "git_status": true,
+    "copy_on_select": true,
+    "env": {
+      "EDITOR": "zed"
+    }
   },
-  "file_scan_inclusions": ["gdk.yml"]
+  "file_scan_inclusions": ["gdk.yml"],
+  "Ruby": {
+    "tab_size": 2,
+    "language_servers": ["ruby-lsp", "!solargraph", "!rubocop"]
+  },
+  "lsp": {
+    "ruby-lsp": {
+      "initialization_options": {
+        "experimentalFeaturesEnabled": true,
+        "formatter": "standard",
+        "linters": ["standard"],
+        "enabledFeatures": {
+          "codeActions": true,
+          "codeLens": true,
+          "completion": true,
+          "definition": true,
+          "diagnostics": false, // until Zed supports pull-type diagnostics
+          "documentHighlights": true,
+          "documentLink": true,
+          "documentSymbols": true,
+          "foldingRanges": true,
+          "formatting": true,
+          "hover": true,
+          "inlayHint": true,
+          "onTypeFormatting": true,
+          "selectionRanges": true,
+          "semanticHighlighting": true,
+          "signatureHelp": true,
+          "typeHierarchy": true,
+          "workspaceSymbol": true
+        },
+        "featuresConfiguration": {
+          "inlayHint": {
+            "implicitHashValue": true,
+            "implicitRescue": true
+          }
+        }
+      }
+    }
+  }
 }
