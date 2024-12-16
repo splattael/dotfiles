@@ -7,6 +7,8 @@ if [ "$BASH_COMPLETION_VERSINFO" = "" ]; then
   . /etc/bash_completion
 fi
 
+source ~/.bash/mise
+
 source ~/.bash/bin
 source ~/.bash/common
 source ~/.bash/docker
@@ -15,7 +17,6 @@ source ~/.bash/git
 source ~/.bash/golang
 source ~/.bash/history
 source ~/.bash/kubernetes
-source ~/.bash/mise
 source ~/.bash/pass
 source ~/.bash/prompt
 source ~/.bash/rancher
