@@ -96,7 +96,7 @@ DEB_PACKAGES+=(
 )
 
 DEB_PACKAGES+=(
-  https://gitlab.com/gitlab-org/cli/-/releases/v1.46.1/downloads/glab_1.46.1_Linux_x86_64.deb
+  http://sid.ethz.ch/debian/fonts-iosevka/fonts-iosevka_7.2.3%2Bds-1_all.deb
 )
 
 # Download

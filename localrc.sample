@@ -11,6 +11,8 @@ export COLOR_HOST=$COLOR_PURPLE
 export GDK_RUNIT=1
 export GITLAB_API_ENDPOINT=https://gitlab.com/api/v4
 export GITLAB_API_PRIVATE_TOKEN=
+# gitlab-org/cli
+export GITLAB_TOKEN="$GITLAB_API_PRIVATE_TOKEN"
 
 export AWS_ACCESS_KEY_ID="..."
 export AWS_DEFAULT_REGION="eu-west-1"
