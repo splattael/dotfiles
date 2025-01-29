@@ -8,6 +8,7 @@ if [ "$BASH_COMPLETION_VERSINFO" = "" ]; then
 fi
 
 source ~/.bash/mise
+# source ~/.bash/asdf
 
 source ~/.bash/bin
 source ~/.bash/common

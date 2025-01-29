@@ -1,3 +1,5 @@
 # /home/peter/.local/bin/mise activate bash --shims > ~/.dotfiles/bash/mise
 
-export PATH="/home/peter/.local/share/mise/shims:$PATH"
+export MISE_DATA_DIR=/home/peter/mise
+export PATH="$MISE_DATA_DIR/shims:$PATH"
+# export PATH="/home/peter/.local/share/mise/shims:$PATH"
