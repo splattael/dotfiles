@@ -1,4 +1,6 @@
 
+export RUBYOPT=--yjit
+
 PROFILE_DIR=/tmp/rprof
 rprof() {
   mkdir -p $PROFILE_DIR
