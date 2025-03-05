@@ -1,11 +1,13 @@
-= Personal dotfiles
+# Personal dotfiles
 
-== Install
+## Install
 
-  git clone https://gitlab.com/splattael/dotfiles ~/.dotfiles
-  cd ~/.dotfiles
-  rake install
+```shell
+git clone https://gitlab.com/splattael/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+rake install
+```
 
-== Stolen from
+## Inspired by
 
-  https://github.com/ryanb/dotfiles
+https://github.com/ryanb/dotfiles
