@@ -17,6 +17,9 @@ require 'irb/completion'
 IRB.conf[:AUTO_INDENT] = true
 
 # Save History between irb sessions
-require 'irb/ext/save-history'
-IRB.conf[:SAVE_HISTORY] = 100
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+begin
+  require 'irb/ext/save-history'
+  IRB.conf[:SAVE_HISTORY] = 100
+  IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+rescue LoadError
+end
