@@ -1,10 +1,24 @@
 
 setup-kubernetes() {
+  if alias k >/dev/null 2>&1; then
+    echo "Already activated. Skipping..."
+    return 0
+  fi
+
   echo "Aliasing 'k' to 'kubernetes'"
   alias k=kubectl
 
   echo "Activating bash completion for 'k'"
   source <(k completion bash | sed s/kubectl/k/g)
+
+  echo "Activating bash completion for 'helm'"
+  source <(helm completion bash)
+
+  echo "Activating bash completion for 'k3d'"
+  source <(k3d completion bash)
+
+  echo "Activating bash completion for 'terraform'"
+  complete -C $(mise which terraform) terraform
 }
 
 alias kk=setup-kubernetes
